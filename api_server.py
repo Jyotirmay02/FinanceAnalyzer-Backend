@@ -350,6 +350,53 @@ async def get_portfolio_analysis(analysis_id: str):
         analysis_data = analysis_storage[analysis_id]
         analysis_type = analysis_data["type"]
         
+        # For portfolio analysis, try to read from the actual Excel output
+        if analysis_type == "portfolio" and "output_file" in analysis_data and analysis_data["output_file"]:
+            output_file = analysis_data["output_file"]
+            
+            try:
+                # Read the Overall Summary sheet from the Excel file
+                import pandas as pd
+                summary_df = pd.read_excel(output_file, sheet_name='Overall Summary')
+                
+                # Extract values from the summary
+                summary_dict = dict(zip(summary_df['Metric'], summary_df['Value']))
+                
+                # Also try to read category summary for top categories
+                try:
+                    category_df = pd.read_excel(output_file, sheet_name='Category Summary')
+                    # Get top 8 categories by Total Debit
+                    if 'Total Debit' in category_df.columns:
+                        top_categories = category_df.nlargest(8, 'Total Debit')[['Category', 'Total Debit']]
+                        top_spending_categories = [
+                            {"category": row['Category'], "amount": float(row['Total Debit'])}
+                            for _, row in top_categories.iterrows()
+                        ]
+                    else:
+                        top_spending_categories = []
+                except:
+                    top_spending_categories = []
+                
+                portfolio_insights = {
+                    "total_transactions": int(summary_dict.get('total_transactions', 0)),
+                    "external_transactions": int(summary_dict.get('external_transactions', 0)),
+                    "self_transfers_ignored": int(summary_dict.get('self_transfers_ignored', 0)),
+                    "external_inflows": float(summary_dict.get('external_inflows', 0)),
+                    "external_outflows": float(summary_dict.get('external_outflows', 0)),
+                    "net_portfolio_change": float(summary_dict.get('net_portfolio_change', 0)),
+                    "top_spending_categories": top_spending_categories,
+                    "analysis_type": analysis_type,
+                    "note": "Self-transfer transactions are completely ignored in portfolio analysis"
+                }
+                
+                return {
+                    "analysis_id": analysis_id,
+                    "portfolio_insights": convert_numpy_types(portfolio_insights)
+                }
+                
+            except Exception as e:
+                print(f"Error reading Excel summary: {e}")
+        
         # Use the stored portfolio summary if available
         if "portfolio_summary" in analysis_data and analysis_data["portfolio_summary"]:
             portfolio_summary = analysis_data["portfolio_summary"]
