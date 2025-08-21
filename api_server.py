@@ -109,7 +109,23 @@ async def analyze_files(
             }
         elif portfolio_mode:
             # Portfolio analysis - get both output file and summary data
-            output_file, portfolio_summary = process_portfolio_files(temp_files)
+            try:
+                result = process_portfolio_files(temp_files)
+                
+                # Handle both single return and tuple return
+                if isinstance(result, tuple):
+                    output_file, portfolio_summary = result
+                else:
+                    output_file = result
+                    portfolio_summary = None
+                
+                print(f"Portfolio result type: {type(result)}")
+                print(f"Portfolio summary: {portfolio_summary}")
+                
+            except Exception as e:
+                print(f"Portfolio processing error: {e}")
+                output_file = None
+                portfolio_summary = None
             
             # Create a simple analyzer for compatibility
             analyzer = FinanceAnalyzer(temp_files[0])  # Use first file as base
