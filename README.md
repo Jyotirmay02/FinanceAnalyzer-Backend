@@ -6,7 +6,7 @@ A comprehensive financial analysis tool that processes bank statements and provi
 
 ### Prerequisites
 - Python 3.8+
-- Poetry (recommended) or pip
+- Poetry (recommended for dependency management)
 
 ### Installation & Setup
 
@@ -15,37 +15,33 @@ A comprehensive financial analysis tool that processes bank statements and provi
 git clone https://github.com/Jyotirmay02/FinanceAnalyzer-Backend.git
 cd FinanceAnalyzer-Backend
 
-# Install dependencies using Poetry
+# Install dependencies using Poetry (recommended)
 poetry install
 
-# Or using pip
+# Alternative: Using pip
 pip install -r requirements.txt
 ```
 
 ## 🖥️ Running the Servers
 
-### Method 1: Direct Python (Recommended)
-```bash
-# Navigate to backend directory
-cd FinanceAnalyzer-Backend
-
-# Start the server
-python start_server.py
-
-# Server will start on http://localhost:8000
-# API documentation available at http://localhost:8000/docs
-```
-
-### Method 2: Using Poetry
+### Method 1: Using Poetry (Recommended)
 ```bash
 cd FinanceAnalyzer-Backend
 poetry run python start_server.py
 ```
 
+### Method 2: Direct Python
+```bash
+cd FinanceAnalyzer-Backend
+python start_server.py
+```
+
 ### Method 3: Using uvicorn directly
 ```bash
 cd FinanceAnalyzer-Backend
-uvicorn api_server:app --host 0.0.0.0 --port 8000 --reload
+poetry run uvicorn api_server:app --host 0.0.0.0 --port 8000 --reload
+# Or without Poetry:
+# uvicorn api_server:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ### Server Verification
@@ -251,7 +247,10 @@ curl -X POST "http://localhost:8000/api/analyze" \
 
 ### CLI Testing
 ```bash
-# Test CLI functionality
+# Test CLI functionality using Poetry (recommended)
+poetry run python cli_runner.py
+
+# Or without Poetry
 python cli_runner.py
 
 # Expected output:
