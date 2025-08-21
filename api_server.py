@@ -64,7 +64,8 @@ async def root():
 async def analyze_files(
     files: List[UploadFile] = File(...),
     from_date: Optional[str] = None,
-    to_date: Optional[str] = None
+    to_date: Optional[str] = None,
+    portfolio_mode: Optional[bool] = False
 ):
     """
     Analyze single or multiple financial files
@@ -105,6 +106,22 @@ async def analyze_files(
                 "analyzer": analyzer,
                 "output_file": output_file,
                 "files": [files[0].filename]
+            }
+        elif portfolio_mode:
+            # Portfolio analysis
+            output_file = process_portfolio_files(temp_files)
+            
+            # Create analyzer for the portfolio result
+            analyzer = FinanceAnalyzer(output_file)
+            analyzer.load_data()
+            analyzer.process_transactions()
+            analyzer.generate_summaries()
+            
+            analysis_storage[analysis_id] = {
+                "type": "portfolio",
+                "analyzer": analyzer,
+                "output_file": output_file,
+                "files": [f.filename for f in files]
             }
         else:
             # Multi-file analysis - use individual files and combine results
@@ -306,6 +323,73 @@ async def get_overall_summary(analysis_id: str):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/analysis/portfolio/{analysis_id}")
+async def get_portfolio_analysis(analysis_id: str):
+    """Get portfolio-specific analysis with self-transfer insights"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    try:
+        analyzer = analysis_storage[analysis_id]["analyzer"]
+        analysis_type = analysis_storage[analysis_id]["type"]
+        
+        if not analyzer or not hasattr(analyzer, 'categorized_df') or analyzer.categorized_df is None:
+            return {
+                "analysis_id": analysis_id,
+                "portfolio_insights": {},
+                "error": "No portfolio data available"
+            }
+        
+        df = analyzer.categorized_df
+        
+        # Portfolio-specific calculations
+        self_transfers = df[df['Category'].str.contains('Self Transfer', na=False)]
+        external_transactions = df[~df['Category'].str.contains('Self Transfer', na=False)]
+        
+        # Calculate portfolio metrics
+        total_transactions = len(df)
+        external_count = len(external_transactions)
+        self_transfer_count = len(self_transfers)
+        
+        # External flows (ignoring self-transfers)
+        external_inflows = external_transactions['Credit'].sum() if 'Credit' in external_transactions.columns else 0
+        external_outflows = external_transactions['Debit'].sum() if 'Debit' in external_transactions.columns else 0
+        net_portfolio_change = external_inflows - external_outflows
+        
+        # Top categories (excluding self-transfers)
+        if not external_transactions.empty and 'Category' in external_transactions.columns:
+            category_spending = external_transactions.groupby('Category')['Debit'].sum().sort_values(ascending=False).head(8)
+            top_categories = [
+                {"category": cat, "amount": float(amount)} 
+                for cat, amount in category_spending.items()
+            ]
+        else:
+            top_categories = []
+        
+        portfolio_insights = {
+            "total_transactions": int(total_transactions),
+            "external_transactions": int(external_count),
+            "self_transfers_ignored": int(self_transfer_count),
+            "external_inflows": float(external_inflows),
+            "external_outflows": float(external_outflows),
+            "net_portfolio_change": float(net_portfolio_change),
+            "top_spending_categories": top_categories,
+            "analysis_type": analysis_type,
+            "note": "Self-transfer transactions are completely ignored in portfolio analysis"
+        }
+        
+        return {
+            "analysis_id": analysis_id,
+            "portfolio_insights": convert_numpy_types(portfolio_insights)
+        }
+        
+    except Exception as e:
+        return {
+            "analysis_id": analysis_id,
+            "portfolio_insights": {},
+            "error": f"Failed to generate portfolio analysis: {str(e)}"
+        }
 
 @app.get("/api/analysis/upi/{analysis_id}")
 async def get_upi_analysis(analysis_id: str):
