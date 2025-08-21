@@ -9,7 +9,7 @@ Usage:
 import argparse
 import sys
 from pathlib import Path
-from finance_analyzer import FinanceAnalyzer
+from .finance_analyzer import FinanceAnalyzer
 
 
 def main():
