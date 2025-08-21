@@ -115,15 +115,29 @@ async def analyze_files(
                 # Handle both single return and tuple return
                 if isinstance(result, tuple):
                     output_file, portfolio_summary = result
+                    print(f"Portfolio tuple result - file: {output_file}, summary keys: {list(portfolio_summary.keys()) if portfolio_summary else 'None'}")
                 else:
                     output_file = result
                     portfolio_summary = None
+                    print(f"Portfolio single result: {output_file}")
                 
                 print(f"Portfolio result type: {type(result)}")
-                print(f"Portfolio summary: {portfolio_summary}")
+                
+                # Check if output file exists and has the right sheets
+                if output_file and Path(output_file).exists():
+                    print(f"Portfolio Excel file exists: {output_file}")
+                    try:
+                        xl = pd.ExcelFile(output_file)
+                        print(f"Excel sheets: {xl.sheet_names}")
+                    except Exception as e:
+                        print(f"Error reading Excel sheets: {e}")
+                else:
+                    print(f"Portfolio Excel file missing: {output_file}")
                 
             except Exception as e:
                 print(f"Portfolio processing error: {e}")
+                import traceback
+                traceback.print_exc()
                 output_file = None
                 portfolio_summary = None
             
