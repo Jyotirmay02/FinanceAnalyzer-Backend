@@ -175,21 +175,38 @@ async def get_transactions(analysis_id: str):
     try:
         analyzer = analysis_storage[analysis_id]["analyzer"]
         
+        # Check if analyzer and data exist
+        if not analyzer or not hasattr(analyzer, 'categorized_df') or analyzer.categorized_df is None:
+            return {
+                "analysis_id": analysis_id,
+                "transactions": [],
+                "total_shown": 0,
+                "error": "No transaction data available"
+            }
+        
         # Get categorized transactions (first 100)
         transactions = analyzer.categorized_df.head(100)
+        
+        if transactions.empty:
+            return {
+                "analysis_id": analysis_id,
+                "transactions": [],
+                "total_shown": 0,
+                "error": "No transactions found"
+            }
         
         # Normalize field names for frontend compatibility
         transactions_list = []
         for _, row in transactions.iterrows():
             transaction = {
-                "Date": row.get("Txn Date", row.get("Date", "")),
-                "Description": row.get("Description", ""),
-                "Amount": row.get("Credit", 0) - row.get("Debit", 0) if "Credit" in row and "Debit" in row else row.get("Amount", 0),
-                "Category": row.get("Category", ""),
-                "Reference": row.get("Reference", ""),
-                "Balance": row.get("Balance", 0),
-                "Debit": row.get("Debit", 0),
-                "Credit": row.get("Credit", 0)
+                "Date": str(row.get("Txn Date", row.get("Date", ""))),
+                "Description": str(row.get("Description", "")),
+                "Amount": float(row.get("Credit", 0) - row.get("Debit", 0)) if "Credit" in row and "Debit" in row else float(row.get("Amount", 0)),
+                "Category": str(row.get("Category", "")),
+                "Reference": str(row.get("Reference", "")),
+                "Balance": float(row.get("Balance", 0)),
+                "Debit": float(row.get("Debit", 0)),
+                "Credit": float(row.get("Credit", 0))
             }
             transactions_list.append(transaction)
         
@@ -197,11 +214,16 @@ async def get_transactions(analysis_id: str):
             "analysis_id": analysis_id,
             "transactions": transactions_list,
             "total_shown": len(transactions_list),
-            "note": "Showing first 100 transactions. Pagination coming soon."
+            "note": "Showing first 100 transactions"
         }
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        return {
+            "analysis_id": analysis_id,
+            "transactions": [],
+            "total_shown": 0,
+            "error": f"Failed to load transactions: {str(e)}"
+        }
 
 @app.get("/api/summary/categories/{analysis_id}")
 async def get_category_summary(analysis_id: str):
