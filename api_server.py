@@ -107,10 +107,14 @@ async def analyze_files(
             }
         else:
             # Multi-file analysis
+            # Multi-file analysis
             output_file = process_multiple_files(temp_files)
             
-            # Create analyzer for the combined result
+            # Create analyzer for the combined result and run full analysis
             analyzer = FinanceAnalyzer(output_file)
+            analyzer.load_data()
+            analyzer.process_transactions()
+            analyzer.generate_summaries()
             
             analysis_storage[analysis_id] = {
                 "type": "multi",
