@@ -108,19 +108,19 @@ async def analyze_files(
                 "files": [files[0].filename]
             }
         elif portfolio_mode:
-            # Portfolio analysis
-            output_file = process_portfolio_files(temp_files)
+            # Portfolio analysis - get both output file and summary data
+            output_file, portfolio_summary = process_portfolio_files(temp_files)
             
-            # Create analyzer for the portfolio result
-            analyzer = FinanceAnalyzer(output_file)
+            # Create a simple analyzer for compatibility
+            analyzer = FinanceAnalyzer(temp_files[0])  # Use first file as base
             analyzer.load_data()
             analyzer.process_transactions()
-            analyzer.generate_summaries()
             
             analysis_storage[analysis_id] = {
                 "type": "portfolio",
                 "analyzer": analyzer,
                 "output_file": output_file,
+                "portfolio_summary": portfolio_summary,  # Store the actual portfolio results
                 "files": [f.filename for f in files]
             }
         else:
@@ -331,8 +331,32 @@ async def get_portfolio_analysis(analysis_id: str):
         raise HTTPException(status_code=404, detail="Analysis not found")
     
     try:
-        analyzer = analysis_storage[analysis_id]["analyzer"]
-        analysis_type = analysis_storage[analysis_id]["type"]
+        analysis_data = analysis_storage[analysis_id]
+        analysis_type = analysis_data["type"]
+        
+        # Use the stored portfolio summary if available
+        if "portfolio_summary" in analysis_data and analysis_data["portfolio_summary"]:
+            portfolio_summary = analysis_data["portfolio_summary"]
+            
+            portfolio_insights = {
+                "total_transactions": portfolio_summary["total_transactions"],
+                "external_transactions": portfolio_summary["external_transactions"],
+                "self_transfers_ignored": portfolio_summary["self_transfers_ignored"],
+                "external_inflows": portfolio_summary["external_inflows"],
+                "external_outflows": portfolio_summary["external_outflows"],
+                "net_portfolio_change": portfolio_summary["net_portfolio_change"],
+                "top_spending_categories": portfolio_summary["top_spending_categories"],
+                "analysis_type": analysis_type,
+                "note": "Self-transfer transactions are completely ignored in portfolio analysis"
+            }
+            
+            return {
+                "analysis_id": analysis_id,
+                "portfolio_insights": convert_numpy_types(portfolio_insights)
+            }
+        
+        # Fallback to basic calculation if no stored summary
+        analyzer = analysis_data["analyzer"]
         
         if not analyzer or not hasattr(analyzer, 'categorized_df') or analyzer.categorized_df is None:
             return {
@@ -343,7 +367,7 @@ async def get_portfolio_analysis(analysis_id: str):
         
         df = analyzer.categorized_df
         
-        # Portfolio-specific calculations
+        # Portfolio-specific calculations (fallback)
         self_transfers = df[df['Category'].str.contains('Self Transfer', na=False)]
         external_transactions = df[~df['Category'].str.contains('Self Transfer', na=False)]
         

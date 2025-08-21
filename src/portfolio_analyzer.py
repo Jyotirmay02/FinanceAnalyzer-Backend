@@ -386,7 +386,7 @@ def process_portfolio_files(input_files, output_filename="portfolio_analysis.xls
         print(f"   {row['Broad_Category']}: ₹{row['Total_Debits']:,.2f}")
     
     print(f"\n✅ Portfolio analysis complete! Results saved to: {output_path}")
-    return str(output_path)
+    return str(output_path), portfolio_summary
 
 def main():
     """Main function for portfolio analysis"""
