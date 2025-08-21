@@ -14,6 +14,7 @@ from data_loader import DataLoader
 from transaction_processor import TransactionProcessor
 from excel_writer import ExcelWriter
 from finance_analyzer import FinanceAnalyzer
+from data_transformer import DataTransformer
 
 def detect_bank_format(file_path):
     """Detect bank format by examining file content"""

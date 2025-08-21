@@ -21,6 +21,7 @@ sys.path.append(str(Path(__file__).parent / "src"))
 from src.finance_analyzer import FinanceAnalyzer
 from src.multi_file_analyzer import process_multiple_files
 from src.portfolio_analyzer import process_portfolio_files
+from src.data_transformer import DataTransformer
 
 app = FastAPI(
     title="FinanceAnalyzer API",
@@ -106,20 +107,45 @@ async def analyze_files(
                 "files": [files[0].filename]
             }
         else:
-            # Multi-file analysis
-            # Multi-file analysis
-            output_file = process_multiple_files(temp_files)
+            # Multi-file analysis - use individual files and combine results
+            analyzers = []
+            all_transactions = []
             
-            # Create analyzer for the combined result and run full analysis
-            analyzer = FinanceAnalyzer(output_file)
-            analyzer.load_data()
-            analyzer.process_transactions()
-            analyzer.generate_summaries()
+            for temp_file in temp_files:
+                try:
+                    # Process each file individually
+                    analyzer = FinanceAnalyzer(temp_file, from_date=from_date, to_date=to_date)
+                    analyzer.run_full_analysis()
+                    analyzers.append(analyzer)
+                    
+                    # Collect transactions
+                    if analyzer.categorized_df is not None:
+                        all_transactions.append(analyzer.categorized_df)
+                except Exception as e:
+                    print(f"Error processing {temp_file}: {e}")
+                    continue
+            
+            if not analyzers:
+                raise HTTPException(status_code=400, detail="Failed to process any files")
+            
+            # Combine all transactions
+            if all_transactions:
+                combined_df = pd.concat(all_transactions, ignore_index=True)
+                combined_df = combined_df.sort_values('Txn Date') if 'Txn Date' in combined_df.columns else combined_df
+                
+                # Create a combined analyzer with proper summaries
+                main_analyzer = analyzers[0]  # Use first analyzer as base
+                main_analyzer.categorized_df = combined_df
+                main_analyzer.generate_summaries()  # Regenerate summaries with combined data
+                
+                analyzer = main_analyzer
+            else:
+                analyzer = analyzers[0]  # Fallback to first analyzer
             
             analysis_storage[analysis_id] = {
                 "type": "multi",
                 "analyzer": analyzer,
-                "output_file": output_file,
+                "output_file": None,
                 "files": [f.filename for f in files]
             }
         
@@ -225,6 +251,11 @@ async def get_overall_summary(analysis_id: str):
         
         # Get overall summary
         overall_summary = analyzer.overall_summary
+        
+        # Ensure it's in the correct format
+        if overall_summary is None or 'Total Spends (Debits)' not in overall_summary:
+            overall_summary = DataTransformer.ensure_standard_format(analyzer)
+        
         overall_summary = convert_numpy_types(overall_summary)
         
         # Get top categories for dashboard
