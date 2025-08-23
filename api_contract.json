@@ -1,0 +1,337 @@
+# Finance Analyzer API Contract
+
+## 1. Health Check
+URL: /
+
+Request: GET (no body)
+
+Response:
+{
+    "message": "FinanceAnalyzer API is running",
+    "version": "1.0.0"
+}
+
+## 2. Upload and Analyze Files
+URL: /api/analyze
+
+Request: POST (multipart/form-data)
+{
+    "files": [file1.xls, file2.csv],
+    "from_date": "01-2024",
+    "to_date": "12-2024",
+    "portfolio_mode": true
+}
+
+Response:
+{
+    "analysis_id": "uuid-here",
+    "files_processed": 2,
+    "file_names": ["SBI_2024.xls", "SBI_2023.xls"],
+    "status": "completed"
+}
+
+## 3. Overall Summary (Dashboard)
+URL: /api/summary/overall/{analysis_id}
+
+Request: GET (no body)
+
+Response:
+{
+    "analysis_id": "uuid-here",
+    "overall_summary": {
+        "Total Spends (Debits)": 12199753.42,
+        "Total Credits": 12313938.0,
+        "Net Change": 114184.58,
+        "Total Transactions": 368
+    },
+    "top_spending_categories": [
+        {
+            "Category": "Self Canara",
+            "Total Debit": 2895000.0,
+            "Debit Count": 45
+        },
+        {
+            "Category": "Cheq",
+            "Total Debit": 2626950.0,
+            "Debit Count": 15
+        },
+        {
+            "Category": "Loan Account 1",
+            "Total Debit": 952978.0,
+            "Debit Count": 25
+        }
+    ],
+    "top_earning_categories": [
+        {
+            "Category": "Loan Account 1",
+            "Total Credit": 3000000.0,
+            "Credit Count": 3
+        },
+        {
+            "Category": "SALARY",
+            "Total Credit": 2995393.0,
+            "Credit Count": 15
+        },
+        {
+            "Category": "Loan Account 2",
+            "Total Credit": 2400000.0,
+            "Credit Count": 4
+        }
+    ],
+    "date_range": {
+        "start_date": "2022-06-29",
+        "end_date": "2025-08-02"
+    },
+    "filter_info": {
+        "applied": "All Data"
+    }
+}
+
+## 4. Category Summary
+URL: /api/summary/categories/{analysis_id}
+
+Request: GET (no body)
+
+Response:
+{
+    "analysis_id": "uuid-here",
+    "category_summary": {
+        "category_summary": [
+            {
+                "Category": "SALARY",
+                "Total Debit": 0.0,
+                "Debit Count": 0,
+                "Total Credit": 2995393.0,
+                "Credit Count": 15,
+                "Net Amount": 2995393.0,
+                "Transaction Type": "Income"
+            },
+            {
+                "Category": "Self Canara",
+                "Total Debit": 2895000.0,
+                "Debit Count": 45,
+                "Total Credit": 40001.0,
+                "Credit Count": 2,
+                "Net Amount": -2854999.0,
+                "Transaction Type": "Transfer"
+            },
+            {
+                "Category": "Cheq",
+                "Total Debit": 2626950.0,
+                "Debit Count": 15,
+                "Total Credit": 0.0,
+                "Credit Count": 0,
+                "Net Amount": -2626950.0,
+                "Transaction Type": "Cash Withdrawal"
+            },
+            {
+                "Category": "Shopping",
+                "Total Debit": 1010.32,
+                "Debit Count": 1,
+                "Total Credit": 1325668.0,
+                "Credit Count": 6,
+                "Net Amount": 1324657.68,
+                "Transaction Type": "Mixed"
+            }
+        ]
+    }
+}
+
+## 5. Portfolio Analysis
+URL: /api/analysis/portfolio/{analysis_id}
+
+Request: GET (no body)
+
+Response:
+{
+    "analysis_id": "uuid-here",
+    "portfolio_insights": {
+        "summary": {
+            "total_transactions": 368,
+            "external_transactions": 300,
+            "self_transfers_ignored": 68,
+            "external_inflows": 12313938.0,
+            "external_outflows": 8500000.0,
+            "net_portfolio_change": 3813938.0
+        },
+        "external_inflows_breakdown": [
+            {
+                "category": "SALARY",
+                "amount": 2995393.0,
+                "count": 15,
+                "percentage": 24.3
+            },
+            {
+                "category": "Loan Account 1",
+                "amount": 3000000.0,
+                "count": 3,
+                "percentage": 24.4
+            },
+            {
+                "category": "Shopping",
+                "amount": 1325668.0,
+                "count": 6,
+                "percentage": 10.8
+            }
+        ],
+        "external_outflows_breakdown": [
+            {
+                "category": "Cheq",
+                "amount": 2626950.0,
+                "count": 15,
+                "percentage": 30.9
+            },
+            {
+                "category": "Gangadhar Hardware",
+                "amount": 834487.6,
+                "count": 4,
+                "percentage": 9.8
+            },
+            {
+                "category": "Dad",
+                "amount": 630003.0,
+                "count": 12,
+                "percentage": 7.4
+            }
+        ],
+        "analysis_type": "portfolio",
+        "note": "Self-transfer transactions are completely ignored in portfolio analysis"
+    }
+}
+
+## 6. UPI Analysis
+URL: /api/analysis/upi/{analysis_id}
+
+Request: GET (no body)
+
+Response:
+{
+    "analysis_id": "uuid-here",
+    "upi_analysis": {
+        "summary": {
+            "total_upi_transactions": 34,
+            "total_upi_debit": 104302.0,
+            "total_upi_credit": 60000.0,
+            "net_upi_amount": -44302.0
+        },
+        "upi_spending_categories": [
+            {
+                "category": "UPI-Friends-Soubhagya",
+                "total_debit": 32200.0,
+                "debit_count": 2,
+                "total_credit": 0.0,
+                "credit_count": 0,
+                "net_amount": -32200.0
+            },
+            {
+                "category": "UPI-Construction-Plumbing",
+                "total_debit": 23800.0,
+                "debit_count": 1,
+                "total_credit": 0.0,
+                "credit_count": 0,
+                "net_amount": -23800.0
+            },
+            {
+                "category": "UPI-Friends-Self Transfer",
+                "total_debit": 0.0,
+                "debit_count": 0,
+                "total_credit": 60000.0,
+                "credit_count": 1,
+                "net_amount": 60000.0
+            }
+        ],
+        "upi_hierarchy": {
+            "Friends": {
+                "total_debit": 38729.0,
+                "total_credit": 60000.0,
+                "net_amount": 21271.0,
+                "subcategories": {
+                    "Soubhagya": {"debit": 32200.0, "credit": 0.0, "count": 2},
+                    "Bhajan": {"debit": 3529.0, "credit": 0.0, "count": 2},
+                    "Self Transfer": {"debit": 0.0, "credit": 60000.0, "count": 1}
+                }
+            },
+            "Construction": {
+                "total_debit": 64340.0,
+                "total_credit": 0.0,
+                "net_amount": -64340.0,
+                "subcategories": {
+                    "Plumbing": {"debit": 23800.0, "credit": 0.0, "count": 1},
+                    "Electrician": {"debit": 12000.0, "credit": 0.0, "count": 1},
+                    "Electric Appliance": {"debit": 10490.0, "credit": 0.0, "count": 1}
+                }
+            },
+            "Travel": {
+                "total_debit": 680.0,
+                "total_credit": 0.0,
+                "net_amount": -680.0,
+                "subcategories": {
+                    "Daily Commute": {"debit": 310.0, "credit": 0.0, "count": 5},
+                    "Daily Commute (rapido/uber)": {"debit": 370.0, "credit": 0.0, "count": 6}
+                }
+            }
+        }
+    }
+}
+
+## 7. Transaction List
+URL: /api/transactions/{analysis_id}
+
+Request: GET (no body)
+
+Response:
+{
+    "analysis_id": "uuid-here",
+    "transactions": [
+        {
+            "Date": "2025-08-02",
+            "Description": "BY TRANSFER-NEFT*HSBC0560002*HSBCN21464240115*AMAZON DEVELOPME",
+            "Amount": 1250.0,
+            "Category": "Amazon - Reimbursement",
+            "Reference": "TRANSFER FROM 99509044300",
+            "Balance": 114184.58,
+            "Debit": 0.0,
+            "Credit": 1250.0,
+            "Transaction_Type": "Credit",
+            "Source_File": "SBI_2025.xls",
+            "Bank": "SBI",
+            "Year": 2025
+        },
+        {
+            "Date": "2025-07-28",
+            "Description": "WITHDRAWAL TRANSFER",
+            "Amount": -80000.0,
+            "Category": "Loan Account 1",
+            "Reference": "TRANSFER TO 42560298142",
+            "Balance": 117934.58,
+            "Debit": 80000.0,
+            "Credit": 0.0,
+            "Transaction_Type": "Debit",
+            "Source_File": "SBI_2025.xls",
+            "Bank": "SBI",
+            "Year": 2025
+        }
+    ],
+    "total_shown": 100,
+    "summary": {
+        "total_debits_shown": 45000.0,
+        "total_credits_shown": 25000.0,
+        "net_amount_shown": -20000.0
+    },
+    "note": "Showing first 100 transactions"
+}
+
+## 8. Export Analysis
+URL: /api/export/{analysis_id}?format=excel
+
+Request: GET (no body)
+Query Parameters:
+- format: "excel" or "csv" (default: "excel")
+
+Response: Binary file download (Excel or CSV)
+
+## Error Response Format
+For any API error:
+{
+    "detail": "Error message here"
+}

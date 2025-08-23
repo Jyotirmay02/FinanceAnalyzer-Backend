@@ -3,8 +3,9 @@ FinanceAnalyzer Backend API Server
 FastAPI server providing REST APIs for financial analysis
 """
 
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Form
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 import pandas as pd
 import numpy as np
 import sys
@@ -13,23 +14,22 @@ from pathlib import Path
 import tempfile
 import uuid
 from typing import Optional, Dict, Any, List
-import json
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent / "src"))
 
 from src.finance_analyzer import FinanceAnalyzer
-from src.multi_file_analyzer import process_multiple_files
-from src.portfolio_analyzer import process_portfolio_files
 from src.data_transformer import DataTransformer
+from src.api_models import *
+from src.api_transformers import APITransformer
+from src.excel_models import PortfolioAnalysisData, PortfolioOverallSummaryData, PortfolioCategorySummaryItem, PortfolioUpiAnalysisItem, PortfolioUpiSummary, PortfolioCategorizedTransactionItem
+import json
+from datetime import datetime
 
-app = FastAPI(
-    title="FinanceAnalyzer API",
-    description="Backend API for financial transaction analysis",
-    version="1.0.0"
-)
+# Initialize FastAPI app
+app = FastAPI(title="FinanceAnalyzer API", version="1.0.0")
 
-# CORS middleware
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -41,52 +41,35 @@ app.add_middleware(
 # In-memory storage for analysis results
 analysis_storage: Dict[str, Dict[str, Any]] = {}
 
-def convert_numpy_types(obj):
-    """Convert numpy types to native Python types"""
-    if isinstance(obj, np.integer):
-        return int(obj)
-    elif isinstance(obj, np.floating):
-        return float(obj)
-    elif isinstance(obj, np.ndarray):
-        return obj.tolist()
-    elif isinstance(obj, dict):
-        return {k: convert_numpy_types(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [convert_numpy_types(v) for v in obj]
-    return obj
-
-@app.get("/")
+@app.get("/", response_model=HealthResponse)
 async def root():
     """Health check"""
-    return {"message": "FinanceAnalyzer API is running", "version": "1.0.0"}
+    return HealthResponse()
 
-@app.post("/api/analyze")
+@app.post("/api/analyze", response_model=AnalyzeResponse)
 async def analyze_files(
     files: List[UploadFile] = File(...),
-    from_date: Optional[str] = None,
-    to_date: Optional[str] = None,
-    portfolio_mode: Optional[bool] = False
+    from_date: Optional[str] = Form(None),
+    to_date: Optional[str] = Form(None),
+    portfolio_mode: Optional[str] = Form(None)
 ):
-    """
-    Analyze single or multiple financial files
-    """
+    """Upload and analyze financial files"""
+    # Convert portfolio_mode string to boolean
+    portfolio_mode_bool = portfolio_mode and portfolio_mode.lower() in ['true', '1', 'yes']
+    
     # Validate file count
     if len(files) > 20:
         raise HTTPException(status_code=400, detail="Maximum 20 files allowed")
     
-    # Validate files
+    # Save uploaded files temporarily
     temp_files = []
+    file_names = []
+    
     try:
         for file in files:
-            if not file.filename.lower().endswith(('.csv', '.xlsx', '.xls')):
-                raise HTTPException(status_code=400, detail=f"Unsupported file type: {file.filename}")
-            
+            file_names.append(file.filename)
             content = await file.read()
-            if len(content) > 1024 * 1024:  # 1MB limit
-                raise HTTPException(status_code=400, detail=f"File too large: {file.filename}")
-            
-            # Save temp file
-            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=Path(file.filename).suffix)
+            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=f"_{file.filename}")
             temp_file.write(content)
             temp_file.close()
             temp_files.append(temp_file.name)
@@ -95,487 +78,306 @@ async def analyze_files(
         analysis_id = str(uuid.uuid4())
         
         # Perform analysis
-        if len(temp_files) == 1:
+        if portfolio_mode_bool:
+            # Portfolio analysis using v2 method
+            from src.portfolio_analyzer import process_portfolio_files_v2
+            try:
+                result = process_portfolio_files_v2(temp_files)
+                if result and len(result) == 2:
+                    output_file, portfolio_data = result
+                    
+                    # Create analyzer for compatibility
+                    analyzer = FinanceAnalyzer(temp_files[0])
+                    analyzer.load_data()
+                    analyzer.process_transactions()
+                    
+                    analysis_storage[analysis_id] = {
+                        "type": "portfolio",
+                        "analyzer": analyzer,
+                        "output_file": output_file,
+                        "portfolio_data": portfolio_data,
+                        "files": file_names
+                    }
+                else:
+                    raise Exception("Portfolio processing failed")
+            except Exception as e:
+                import traceback
+                raise HTTPException(status_code=500, detail=f"Portfolio analysis failed: {str(e)}")
+        elif len(temp_files) == 1:
             # Single file analysis
             analyzer = FinanceAnalyzer(temp_files[0], from_date=from_date, to_date=to_date)
-            output_file = analyzer.run_full_analysis()
+            analyzer.load_data()
+            analyzer.process_transactions()
+            analyzer.generate_summaries()
+            output_file = analyzer.export_results()
             
-            # Store results
             analysis_storage[analysis_id] = {
                 "type": "single",
                 "analyzer": analyzer,
                 "output_file": output_file,
-                "files": [files[0].filename]
-            }
-        elif portfolio_mode:
-            # Portfolio analysis - get both output file and summary data
-            try:
-                result = process_portfolio_files(temp_files)
-                
-                # Handle both single return and tuple return
-                if isinstance(result, tuple):
-                    output_file, portfolio_summary = result
-                    print(f"Portfolio tuple result - file: {output_file}, summary keys: {list(portfolio_summary.keys()) if portfolio_summary else 'None'}")
-                else:
-                    output_file = result
-                    portfolio_summary = None
-                    print(f"Portfolio single result: {output_file}")
-                
-                print(f"Portfolio result type: {type(result)}")
-                
-                # Check if output file exists and has the right sheets
-                if output_file and Path(output_file).exists():
-                    print(f"Portfolio Excel file exists: {output_file}")
-                    try:
-                        xl = pd.ExcelFile(output_file)
-                        print(f"Excel sheets: {xl.sheet_names}")
-                    except Exception as e:
-                        print(f"Error reading Excel sheets: {e}")
-                else:
-                    print(f"Portfolio Excel file missing: {output_file}")
-                
-            except Exception as e:
-                print(f"Portfolio processing error: {e}")
-                import traceback
-                traceback.print_exc()
-                output_file = None
-                portfolio_summary = None
-            
-            # Create a simple analyzer for compatibility
-            analyzer = FinanceAnalyzer(temp_files[0])  # Use first file as base
-            analyzer.load_data()
-            analyzer.process_transactions()
-            
-            analysis_storage[analysis_id] = {
-                "type": "portfolio",
-                "analyzer": analyzer,
-                "output_file": output_file,
-                "portfolio_summary": portfolio_summary,  # Store the actual portfolio results
-                "files": [f.filename for f in files]
+                "files": file_names
             }
         else:
-            # Multi-file analysis - use individual files and combine results
+            # Multi-file analysis
             analyzers = []
-            all_transactions = []
-            
             for temp_file in temp_files:
-                try:
-                    # Process each file individually
-                    analyzer = FinanceAnalyzer(temp_file, from_date=from_date, to_date=to_date)
-                    analyzer.run_full_analysis()
-                    analyzers.append(analyzer)
-                    
-                    # Collect transactions
-                    if analyzer.categorized_df is not None:
-                        all_transactions.append(analyzer.categorized_df)
-                except Exception as e:
-                    print(f"Error processing {temp_file}: {e}")
-                    continue
+                analyzer = FinanceAnalyzer(temp_file, from_date=from_date, to_date=to_date)
+                analyzer.load_data()
+                analyzer.process_transactions()
+                analyzers.append(analyzer)
             
-            if not analyzers:
-                raise HTTPException(status_code=400, detail="Failed to process any files")
-            
-            # Combine all transactions
-            if all_transactions:
-                combined_df = pd.concat(all_transactions, ignore_index=True)
-                combined_df = combined_df.sort_values('Txn Date') if 'Txn Date' in combined_df.columns else combined_df
-                
-                # Create a combined analyzer with proper summaries
-                main_analyzer = analyzers[0]  # Use first analyzer as base
-                main_analyzer.categorized_df = combined_df
-                main_analyzer.generate_summaries()  # Regenerate summaries with combined data
-                
-                analyzer = main_analyzer
-            else:
-                analyzer = analyzers[0]  # Fallback to first analyzer
+            # Use first analyzer as primary
+            primary_analyzer = analyzers[0]
+            primary_analyzer.generate_summaries()
+            output_file = primary_analyzer.export_results()
             
             analysis_storage[analysis_id] = {
                 "type": "multi",
-                "analyzer": analyzer,
-                "output_file": None,
-                "files": [f.filename for f in files]
+                "analyzer": primary_analyzer,
+                "analyzers": analyzers,
+                "output_file": output_file,
+                "files": file_names
             }
         
-        return {
-            "analysis_id": analysis_id,
-            "files_processed": len(files),
-            "file_names": [f.filename for f in files],
-            "status": "completed"
-        }
+        return AnalyzeResponse(
+            analysis_id=analysis_id,
+            files_processed=len(files),
+            file_names=file_names
+        )
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
     finally:
-        # Cleanup temp files
+        # Clean up temp files
         for temp_file in temp_files:
             try:
                 os.unlink(temp_file)
             except:
                 pass
 
-@app.get("/api/transactions/{analysis_id}")
-async def get_transactions(analysis_id: str):
-    """Get first 100 transactions for an analysis"""
-    if analysis_id not in analysis_storage:
-        raise HTTPException(status_code=404, detail="Analysis not found")
-    
-    try:
-        analyzer = analysis_storage[analysis_id]["analyzer"]
-        
-        # Check if analyzer and data exist
-        if not analyzer or not hasattr(analyzer, 'categorized_df') or analyzer.categorized_df is None:
-            return {
-                "analysis_id": analysis_id,
-                "transactions": [],
-                "total_shown": 0,
-                "error": "No transaction data available"
-            }
-        
-        # Get categorized transactions (first 100)
-        transactions = analyzer.categorized_df.head(100)
-        
-        if transactions.empty:
-            return {
-                "analysis_id": analysis_id,
-                "transactions": [],
-                "total_shown": 0,
-                "error": "No transactions found"
-            }
-        
-        # Normalize field names for frontend compatibility
-        transactions_list = []
-        for _, row in transactions.iterrows():
-            transaction = {
-                "Date": str(row.get("Txn Date", row.get("Date", ""))),
-                "Description": str(row.get("Description", "")),
-                "Amount": float(row.get("Credit", 0) - row.get("Debit", 0)) if "Credit" in row and "Debit" in row else float(row.get("Amount", 0)),
-                "Category": str(row.get("Category", "")),
-                "Reference": str(row.get("Reference", "")),
-                "Balance": float(row.get("Balance", 0)),
-                "Debit": float(row.get("Debit", 0)),
-                "Credit": float(row.get("Credit", 0))
-            }
-            transactions_list.append(transaction)
-        
-        return {
-            "analysis_id": analysis_id,
-            "transactions": transactions_list,
-            "total_shown": len(transactions_list),
-            "note": "Showing first 100 transactions"
-        }
-        
-    except Exception as e:
-        return {
-            "analysis_id": analysis_id,
-            "transactions": [],
-            "total_shown": 0,
-            "error": f"Failed to load transactions: {str(e)}"
-        }
-
-@app.get("/api/summary/categories/{analysis_id}")
-async def get_category_summary(analysis_id: str):
-    """Get category-wise spending summary"""
-    if analysis_id not in analysis_storage:
-        raise HTTPException(status_code=404, detail="Analysis not found")
-    
-    try:
-        analyzer = analysis_storage[analysis_id]["analyzer"]
-        
-        # Get category summary
-        category_summary = analyzer.category_summary
-        
-        # Convert DataFrame to list format expected by frontend
-        if hasattr(category_summary, 'to_dict'):
-            # Convert DataFrame to list of dictionaries
-            category_list = []
-            df = category_summary
-            for category in df.index:
-                category_list.append({
-                    'Category': str(category),
-                    'Total Debit': float(df.loc[category, 'Total Debit']) if 'Total Debit' in df.columns else 0.0,
-                    'Debit Count': int(df.loc[category, 'Debit Count']) if 'Debit Count' in df.columns else 0,
-                    'Total Credit': float(df.loc[category, 'Total Credit']) if 'Total Credit' in df.columns else 0.0,
-                    'Credit Count': int(df.loc[category, 'Credit Count']) if 'Credit Count' in df.columns else 0
-                })
-            category_summary = {"category_summary": category_list}
-        else:
-            category_summary = {"category_summary": []}
-        
-        return {
-            "analysis_id": analysis_id,
-            "category_summary": category_summary
-        }
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/summary/overall/{analysis_id}")
+@app.get("/api/summary/overall/{analysis_id}", response_model=OverallSummaryResponse)
 async def get_overall_summary(analysis_id: str):
-    """Get overall financial summary"""
+    """Get overall financial summary with top categories and date range"""
     if analysis_id not in analysis_storage:
         raise HTTPException(status_code=404, detail="Analysis not found")
     
     try:
         analyzer = analysis_storage[analysis_id]["analyzer"]
         
-        # Get overall summary
-        overall_summary = analyzer.overall_summary
+        # Ensure overall summary is in correct format
+        if analyzer.overall_summary is None or 'Total Spends (Debits)' not in analyzer.overall_summary:
+            analyzer.overall_summary = DataTransformer.ensure_standard_format(analyzer)
         
-        # Ensure it's in the correct format
-        if overall_summary is None or 'Total Spends (Debits)' not in overall_summary:
-            overall_summary = DataTransformer.ensure_standard_format(analyzer)
-        
-        overall_summary = convert_numpy_types(overall_summary)
-        
-        # Get top categories for dashboard
-        top_categories = []
-        if analyzer.category_summary is not None and not analyzer.category_summary.empty:
-            # Convert DataFrame to list format
-            df = analyzer.category_summary
-            categories_list = []
-            for category in df.index:
-                debit_amount = float(df.loc[category, 'Total Debit']) if 'Total Debit' in df.columns else 0.0
-                if debit_amount > 0:  # Only spending categories
-                    categories_list.append({
-                        'Category': str(category),
-                        'Total Debit': debit_amount
-                    })
-            
-            # Sort by amount and take top 5
-            top_categories = sorted(categories_list, key=lambda x: x['Total Debit'], reverse=True)[:5]
-        
-        return {
-            "analysis_id": analysis_id,
-            "overall_summary": overall_summary,
-            "top_categories": top_categories or [],
-            "filter_info": {"applied": "All Data"}
-        }
+        result = APITransformer.to_overall_summary_response(analysis_id, analyzer)
+        return result
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/analysis/portfolio/{analysis_id}")
-async def get_portfolio_analysis(analysis_id: str):
-    """Get portfolio-specific analysis with self-transfer insights"""
+@app.get("/api/summary/categories/{analysis_id}", response_model=CategorySummaryResponse)
+async def get_category_summary(analysis_id: str):
+    """Get detailed category-wise summary"""
     if analysis_id not in analysis_storage:
         raise HTTPException(status_code=404, detail="Analysis not found")
     
     try:
         analysis_data = analysis_storage[analysis_id]
-        analysis_type = analysis_data["type"]
+        portfolio_data = analysis_data["portfolio_data"]
+        return APITransformer.to_category_summary_response(analysis_id, portfolio_data.category_summary)
         
-        # For portfolio analysis, try to read from the actual Excel output
-        if analysis_type == "portfolio" and "output_file" in analysis_data and analysis_data["output_file"]:
-            output_file = analysis_data["output_file"]
-            
-            try:
-                # Read the Overall Summary sheet from the Excel file
-                import pandas as pd
-                summary_df = pd.read_excel(output_file, sheet_name='Overall Summary')
-                
-                # Extract values from the summary
-                summary_dict = dict(zip(summary_df['Metric'], summary_df['Value']))
-                
-                # Also try to read category summary for top categories
-                try:
-                    category_df = pd.read_excel(output_file, sheet_name='Category Summary')
-                    # Get top 8 categories by Total Debit
-                    if 'Total Debit' in category_df.columns:
-                        top_categories = category_df.nlargest(8, 'Total Debit')[['Category', 'Total Debit']]
-                        top_spending_categories = [
-                            {"category": row['Category'], "amount": float(row['Total Debit'])}
-                            for _, row in top_categories.iterrows()
-                        ]
-                    else:
-                        top_spending_categories = []
-                except:
-                    top_spending_categories = []
-                
-                portfolio_insights = {
-                    "total_transactions": int(summary_dict.get('total_transactions', 0)),
-                    "external_transactions": int(summary_dict.get('external_transactions', 0)),
-                    "self_transfers_ignored": int(summary_dict.get('self_transfers_ignored', 0)),
-                    "external_inflows": float(summary_dict.get('external_inflows', 0)),
-                    "external_outflows": float(summary_dict.get('external_outflows', 0)),
-                    "net_portfolio_change": float(summary_dict.get('net_portfolio_change', 0)),
-                    "top_spending_categories": top_spending_categories,
-                    "analysis_type": analysis_type,
-                    "note": "Self-transfer transactions are completely ignored in portfolio analysis"
-                }
-                
-                return {
-                    "analysis_id": analysis_id,
-                    "portfolio_insights": convert_numpy_types(portfolio_insights)
-                }
-                
-            except Exception as e:
-                print(f"Error reading Excel summary: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/transactions/{analysis_id}", response_model=TransactionsResponse)
+async def get_transactions(analysis_id: str):
+    """Get transaction list (first 100 transactions)"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    try:
+        analysis_data = analysis_storage[analysis_id]
+        if "portfolio_data" in analysis_data:
+            portfolio_data = analysis_data["portfolio_data"]
+            return APITransformer.to_transactions_response(analysis_id, portfolio_data.categorized_transactions)
+        else:
+            # Fallback to analyzer for old data
+            analyzer = analysis_data["analyzer"]
+            return APITransformer.to_transactions_response(analysis_id, analyzer)
         
-        # Use the stored portfolio summary if available
-        if "portfolio_summary" in analysis_data and analysis_data["portfolio_summary"]:
-            portfolio_summary = analysis_data["portfolio_summary"]
+    except Exception as e:
+        return TransactionsResponse(
+            analysis_id=analysis_id,
+            transactions=[],
+            total_shown=0,
+            summary=TransactionSummary(
+                total_debits_shown=0,
+                total_credits_shown=0,
+                net_amount_shown=0
+            ),
+            note=f"Error: {str(e)}"
+        )
+
+@app.get("/api/analysis/portfolio/{analysis_id}", response_model=PortfolioResponse)
+async def get_portfolio_analysis(analysis_id: str):
+    """Get portfolio-specific analysis with external flows breakdown"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    try:
+        analysis_data = analysis_storage[analysis_id]
+        
+        # Use stored portfolio_data if available
+        if "portfolio_data" in analysis_data and analysis_data["portfolio_data"]:
+            portfolio_data = analysis_data["portfolio_data"]
+            analyzer = analysis_data["analyzer"]
             
-            portfolio_insights = {
-                "total_transactions": portfolio_summary["total_transactions"],
-                "external_transactions": portfolio_summary["external_transactions"],
-                "self_transfers_ignored": portfolio_summary["self_transfers_ignored"],
-                "external_inflows": portfolio_summary["external_inflows"],
-                "external_outflows": portfolio_summary["external_outflows"],
-                "net_portfolio_change": portfolio_summary["net_portfolio_change"],
-                "top_spending_categories": portfolio_summary["top_spending_categories"],
-                "analysis_type": analysis_type,
-                "note": "Self-transfer transactions are completely ignored in portfolio analysis"
+            # Calculate external flows from category_summary excluding Self Transfer
+            total_inflows = sum(item.total_credit for item in portfolio_data.category_summary if item.category != "Self Transfer")
+            total_outflows = sum(item.total_debit for item in portfolio_data.category_summary if item.category != "Self Transfer")
+            
+            # Create breakdown arrays
+            external_inflows_breakdown = []
+            external_outflows_breakdown = []
+            
+            for item in portfolio_data.category_summary:
+                if item.category == "Self Transfer":
+                    continue
+                    
+                if item.total_credit > 0:
+                    external_inflows_breakdown.append({
+                        "category": item.category,
+                        "amount": item.total_credit,
+                        "count": item.credit_count,
+                        "percentage": round((item.total_credit / total_inflows * 100), 1) if total_inflows > 0 else 0
+                    })
+                
+                if item.total_debit > 0:
+                    external_outflows_breakdown.append({
+                        "category": item.category,
+                        "amount": item.total_debit,
+                        "count": item.debit_count,
+                        "percentage": round((item.total_debit / total_outflows * 100), 1) if total_outflows > 0 else 0
+                    })
+            
+            # Sort by amount descending
+            external_inflows_breakdown.sort(key=lambda x: x["amount"], reverse=True)
+            external_outflows_breakdown.sort(key=lambda x: x["amount"], reverse=True)
+            
+            # Get self transfer count
+            self_transfer_item = next((item for item in portfolio_data.category_summary if item.category == "Self Transfer"), None)
+            self_transfers_count = (self_transfer_item.debit_count + self_transfer_item.credit_count) if self_transfer_item else 0
+            
+            # Extract summary from portfolio_data for backward compatibility
+            portfolio_summary = {
+                'external_inflows': total_inflows,
+                'external_outflows': total_outflows,
+                'net_external_change': total_inflows - total_outflows,
+                'total_transactions': portfolio_data.overall_summary.total_transactions,
+                'external_transactions': portfolio_data.overall_summary.external_transactions,
+                'self_transfers_ignored': self_transfers_count,
+                'external_inflows_breakdown': external_inflows_breakdown,
+                'external_outflows_breakdown': external_outflows_breakdown
             }
             
-            return {
-                "analysis_id": analysis_id,
-                "portfolio_insights": convert_numpy_types(portfolio_insights)
-            }
+            return APITransformer.to_portfolio_response(analysis_id, portfolio_summary, analyzer)
         
-        # Fallback to basic calculation if no stored summary
+        # Fallback for non-portfolio analysis
         analyzer = analysis_data["analyzer"]
         
         if not analyzer or not hasattr(analyzer, 'categorized_df') or analyzer.categorized_df is None:
-            return {
-                "analysis_id": analysis_id,
-                "portfolio_insights": {},
-                "error": "No portfolio data available"
-            }
+            # Return empty portfolio response
+            return PortfolioResponse(
+                analysis_id=analysis_id,
+                portfolio_insights=PortfolioInsights(
+                    summary=PortfolioSummary(
+                        total_transactions=0,
+                        external_transactions=0,
+                        self_transfers_ignored=0,
+                        external_inflows=0,
+                        external_outflows=0,
+                        net_portfolio_change=0
+                    ),
+                    external_inflows_breakdown=[],
+                    external_outflows_breakdown=[],
+                    note="No portfolio data available"
+                )
+            )
         
+        # Basic portfolio calculation for fallback
         df = analyzer.categorized_df
-        
-        # Portfolio-specific calculations (fallback)
         self_transfers = df[df['Category'].str.contains('Self Transfer', na=False)]
         external_transactions = df[~df['Category'].str.contains('Self Transfer', na=False)]
         
-        # Calculate portfolio metrics
         total_transactions = len(df)
         external_count = len(external_transactions)
         self_transfer_count = len(self_transfers)
         
-        # External flows (ignoring self-transfers)
         external_inflows = external_transactions['Credit'].sum() if 'Credit' in external_transactions.columns else 0
         external_outflows = external_transactions['Debit'].sum() if 'Debit' in external_transactions.columns else 0
         net_portfolio_change = external_inflows - external_outflows
         
-        # Top categories (excluding self-transfers)
-        if not external_transactions.empty and 'Category' in external_transactions.columns:
-            category_spending = external_transactions.groupby('Category')['Debit'].sum().sort_values(ascending=False).head(8)
-            top_categories = [
-                {"category": cat, "amount": float(amount)} 
-                for cat, amount in category_spending.items()
-            ]
-        else:
-            top_categories = []
-        
-        portfolio_insights = {
+        # Create basic portfolio summary for transformer
+        basic_portfolio_summary = {
             "total_transactions": int(total_transactions),
             "external_transactions": int(external_count),
             "self_transfers_ignored": int(self_transfer_count),
             "external_inflows": float(external_inflows),
             "external_outflows": float(external_outflows),
-            "net_portfolio_change": float(net_portfolio_change),
-            "top_spending_categories": top_categories,
-            "analysis_type": analysis_type,
-            "note": "Self-transfer transactions are completely ignored in portfolio analysis"
+            "net_portfolio_change": float(net_portfolio_change)
         }
         
-        return {
-            "analysis_id": analysis_id,
-            "portfolio_insights": convert_numpy_types(portfolio_insights)
-        }
+        return APITransformer.to_portfolio_response(analysis_id, basic_portfolio_summary, analyzer)
         
     except Exception as e:
-        return {
-            "analysis_id": analysis_id,
-            "portfolio_insights": {},
-            "error": f"Failed to generate portfolio analysis: {str(e)}"
-        }
+        # Return error response in correct format
+        return PortfolioResponse(
+            analysis_id=analysis_id,
+            portfolio_insights=PortfolioInsights(
+                summary=PortfolioSummary(
+                    total_transactions=0,
+                    external_transactions=0,
+                    self_transfers_ignored=0,
+                    external_inflows=0,
+                    external_outflows=0,
+                    net_portfolio_change=0
+                ),
+                external_inflows_breakdown=[],
+                external_outflows_breakdown=[],
+                note=f"Error: {str(e)}"
+            )
+        )
 
-@app.get("/api/analysis/upi/{analysis_id}")
+@app.get("/api/analysis/upi/{analysis_id}", response_model=UPIResponse)
 async def get_upi_analysis(analysis_id: str):
-    """Get UPI-specific analysis"""
+    """Get UPI-specific analysis with hierarchy"""
     if analysis_id not in analysis_storage:
         raise HTTPException(status_code=404, detail="Analysis not found")
     
     try:
-        analyzer = analysis_storage[analysis_id]["analyzer"]
-        
-        # Get UPI analysis
-        upi_analysis = {
-            "upi_categories": {},
-            "total_upi_transactions": 0,
-            "total_upi_debit": 0,
-            "upi_hierarchy": {}
-        }
-        
-        if analyzer.categorized_df is not None and not analyzer.categorized_df.empty:
-            # Filter UPI transactions
-            upi_transactions = analyzer.categorized_df[
-                analyzer.categorized_df['Description'].str.contains('UPI', case=False, na=False) |
-                analyzer.categorized_df['Category'].str.contains('UPI', case=False, na=False)
-            ]
-            
-            if not upi_transactions.empty:
-                upi_analysis["total_upi_transactions"] = len(upi_transactions)
-                upi_analysis["total_upi_debit"] = float(upi_transactions['Debit'].sum()) if 'Debit' in upi_transactions.columns else 0
-                
-                # Create hierarchy by category
-                hierarchy = {}
-                for _, row in upi_transactions.iterrows():
-                    category = row.get('Category', 'Others')
-                    debit = float(row.get('Debit', 0))
-                    
-                    if category not in hierarchy:
-                        hierarchy[category] = {
-                            'total_debit': 0,
-                            'subcategories': {}
-                        }
-                    
-                    hierarchy[category]['total_debit'] += debit
-                    
-                    # Use description as subcategory
-                    desc = str(row.get('Description', 'Unknown'))[:50]
-                    if desc not in hierarchy[category]['subcategories']:
-                        hierarchy[category]['subcategories'][desc] = {
-                            'count': 0,
-                            'total_debit': 0
-                        }
-                    
-                    hierarchy[category]['subcategories'][desc]['count'] += 1
-                    hierarchy[category]['subcategories'][desc]['total_debit'] += debit
-                
-                upi_analysis["upi_hierarchy"] = hierarchy
-        
-        return {
-            "analysis_id": analysis_id,
-            "upi_analysis": upi_analysis
-        }
-        
+        analysis_data = analysis_storage[analysis_id]
+        if "portfolio_data" in analysis_data:
+            portfolio_data = analysis_data["portfolio_data"]
+            return APITransformer.to_upi_response(analysis_id, portfolio_data.upi_summary, portfolio_data.upi_analysis)
+        else:
+            # Fallback to analyzer for old data
+            analyzer = analysis_data["analyzer"]
+            return APITransformer.to_upi_response(analysis_id, [], [])
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/export/{analysis_id}")
 async def export_analysis(analysis_id: str, format: str = "excel"):
-    """Export analysis results (summaries only)"""
+    """Export analysis results"""
     if analysis_id not in analysis_storage:
         raise HTTPException(status_code=404, detail="Analysis not found")
     
-    if format not in ["excel", "csv"]:
-        raise HTTPException(status_code=400, detail="Format must be 'excel' or 'csv'")
-    
     try:
-        output_file = analysis_storage[analysis_id]["output_file"]
+        analysis_data = analysis_storage[analysis_id]
         
-        if format == "excel":
-            return FileResponse(
-                output_file,
-                media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                filename=f"analysis_{analysis_id}.xlsx"
-            )
-        else:
-            # Convert to CSV (summary only)
-            analyzer = analysis_storage[analysis_id]["analyzer"]
+        if format.lower() == "csv":
+            # Export as CSV
+            analyzer = analysis_data["analyzer"]
             summary_df = pd.DataFrame([analyzer.overall_summary])
             
             csv_file = f"/tmp/analysis_{analysis_id}.csv"
@@ -584,11 +386,91 @@ async def export_analysis(analysis_id: str, format: str = "excel"):
             return FileResponse(
                 csv_file,
                 media_type="text/csv",
-                filename=f"analysis_{analysis_id}.csv"
+                filename=f"financial_analysis_{analysis_id}.csv"
             )
+        else:
+            # Export as Excel (default)
+            output_file = analysis_data.get("output_file")
             
+            if output_file and os.path.exists(output_file):
+                return FileResponse(
+                    output_file,
+                    media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    filename=f"financial_analysis_{analysis_id}.xlsx"
+                )
+            else:
+                raise HTTPException(status_code=404, detail="Export file not found")
+                
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Export failed: {str(e)}")
+
+def _create_portfolio_analysis_data(analyzer, portfolio_summary) -> PortfolioAnalysisData:
+    """Create PortfolioAnalysisData from analyzer and portfolio summary"""
+    
+    # Create overall summary
+    overall_summary = PortfolioOverallSummaryData(
+        total_earned=float(portfolio_summary.get('external_inflows', 0)) if portfolio_summary else 0,
+        total_spent=float(portfolio_summary.get('external_outflows', 0)) if portfolio_summary else 0,
+        net_portfolio_change=float(portfolio_summary.get('net_portfolio_change', 0)) if portfolio_summary else 0,
+        total_transactions=int(portfolio_summary.get('total_transactions', 0)) if portfolio_summary else 0,
+        external_transactions=int(portfolio_summary.get('external_transactions', 0)) if portfolio_summary else 0,
+        self_transfer_transactions=int(portfolio_summary.get('self_transfers_ignored', 0)) if portfolio_summary else 0,
+        external_outflows=int(portfolio_summary.get('external_transactions', 0)) if portfolio_summary else 0,
+        external_inflows=float(portfolio_summary.get('external_inflows', 0)) if portfolio_summary else 0,
+        net_portfolio_change_transactions=float(portfolio_summary.get('net_portfolio_change', 0)) if portfolio_summary else 0,
+        self_transfers_ignored=int(portfolio_summary.get('self_transfers_ignored', 0)) if portfolio_summary else 0,
+        data_range_start=analyzer.from_date or "N/A",
+        data_range_end=analyzer.to_date or "N/A",
+        report_generation_time=datetime.now().isoformat()
+    )
+    
+    # Create categorized transactions
+    categorized_transactions = []
+    if hasattr(analyzer, 'categorized_df') and analyzer.categorized_df is not None:
+        for _, row in analyzer.categorized_df.iterrows():
+            transaction = PortfolioCategorizedTransactionItem(
+                txn_date=str(row.get('Txn Date', '')),
+                value_date=str(row.get('Value Date', '')),
+                cheque_no=str(row.get('Cheque No.', '')),
+                description=str(row.get('Description', '')),
+                debit_amount=float(row.get('Debit', 0) or 0),
+                credit_amount=float(row.get('Credit', 0) or 0),
+                balance_amount=float(row.get('Balance', 0) or 0),
+                category=str(row.get('Category', '')),
+                source_file=str(row.get('Source File', '')),
+                bank=str(row.get('Bank', '')),
+                reference=str(row.get('Reference', '')),
+                year=int(row.get('Year', 0) or 0),
+                broad_category=str(row.get('Broad Category', ''))
+            )
+            categorized_transactions.append(transaction)
+    
+    # Create category summary
+    category_summary = []
+    if hasattr(analyzer, 'category_summary') and analyzer.category_summary is not None:
+        for category, row in analyzer.category_summary.iterrows():
+            summary_item = PortfolioCategorySummaryItem(
+                category=str(category),
+                total_debit=float(row.get('Total Debit', 0) or 0),
+                debit_count=int(row.get('Debit Count', 0) or 0),
+                total_credit=float(row.get('Total Credit', 0) or 0),
+                credit_count=int(row.get('Credit Count', 0) or 0),
+                net_amount=float(row.get('Net Amount', 0) or 0)
+            )
+            category_summary.append(summary_item)
+    
+    # Create UPI summary and analysis (placeholder for now)
+    upi_summary = []
+    upi_analysis = []
+    categorized_transactions = []
+    
+    return PortfolioAnalysisData(
+        overall_summary=overall_summary,
+        categorized_transactions=categorized_transactions,
+        category_summary=category_summary,
+        upi_summary=upi_summary,
+        upi_analysis=upi_analysis
+    )
 
 if __name__ == "__main__":
     import uvicorn

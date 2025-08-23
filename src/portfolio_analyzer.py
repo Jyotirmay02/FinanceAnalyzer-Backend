@@ -14,6 +14,8 @@ from data_loader import DataLoader
 from transaction_processor import TransactionProcessor
 from excel_writer import ExcelWriter
 from finance_analyzer import FinanceAnalyzer
+from excel_models import PortfolioAnalysisData, PortfolioOverallSummaryData, PortfolioCategorySummaryItem, PortfolioUpiAnalysisItem, PortfolioUpiSummary, PortfolioCategorizedTransactionItem
+from datetime import datetime
 
 # Comprehensive Broad Category Mapping
 BROAD_CATEGORIES = {
@@ -195,6 +197,17 @@ BROAD_CATEGORIES = {
     "Interest": "Miscellaneous"
 }
 
+def safe_year_conversion(year_value, description="Unknown transaction"):
+    """Safely convert year value to integer, handling text and NaN values"""
+    try:
+        year_numeric = pd.to_numeric(year_value, errors='coerce')
+        if pd.isna(year_numeric):
+            return 0
+        else:
+            return int(year_numeric)
+    except Exception:
+        return 0
+
 def detect_bank_format(file_path):
     """Detect bank format by examining file content"""
     try:
@@ -266,19 +279,13 @@ def process_portfolio_files(input_files, output_filename="portfolio_analysis.xls
     
     files = input_files
     if not files:
-        print(f"❌ No files provided")
         return None
     
     files.sort()
-    print(f"🔍 Found {len(files)} files to process:")
-    for file in files:
-        print(f"  - {file}")
-    
     all_transactions = []
     
     # Process each file
     for file_path in files:
-        print(f"\n📊 Processing {file_path}...")
         try:
             # Create analyzer and use normal flow for categorization
             analyzer = FinanceAnalyzer(file_path)
@@ -286,7 +293,6 @@ def process_portfolio_files(input_files, output_filename="portfolio_analysis.xls
             analyzer.process_transactions()
             
             processed_df = analyzer.categorized_df.copy()
-            print(f"  ✅ Loaded and categorized {len(processed_df)} transactions")
             
             # Add metadata
             processed_df['Source_File'] = Path(file_path).name
@@ -294,16 +300,13 @@ def process_portfolio_files(input_files, output_filename="portfolio_analysis.xls
             
             all_transactions.append(processed_df)
             
-        except Exception as e:
-            print(f"  ❌ Error processing {file_path}: {e}")
+        except Exception:
             continue
     
     if not all_transactions:
-        print("❌ No transactions were successfully loaded")
         return None
     
     # Combine all transactions
-    print(f"\n🔄 Combining all transactions...")
     combined_df = pd.concat(all_transactions, ignore_index=True)
     
     # Process dates and years
@@ -317,10 +320,8 @@ def process_portfolio_files(input_files, output_filename="portfolio_analysis.xls
     # Handle loan transactions separately (disbursements vs EMI payments)
     combined_df = map_loan_transactions(combined_df)
     
-    print(f"✅ Combined {len(combined_df)} total transactions from {len(files)} files")
     
     # Calculate portfolio summary
-    print(f"\n📈 Generating portfolio analysis...")
     
     debit_col = 'Debit (₹)' if 'Debit (₹)' in combined_df.columns else 'Debit'
     credit_col = 'Credit (₹)' if 'Credit (₹)' in combined_df.columns else 'Credit'
@@ -367,26 +368,182 @@ def process_portfolio_files(input_files, output_filename="portfolio_analysis.xls
     writer.write_analysis_report(combined_df, overall_summary, broad_category_summary)
     
     # Print portfolio summary (ignoring self-transfers)
-    print(f"\n📊 PORTFOLIO SUMMARY (Self-Transfers Ignored):")
-    print(f"   Total Transactions: {portfolio_summary['total_transactions']:,}")
-    print(f"   External Transactions: {portfolio_summary['external_transactions']:,}")
-    print(f"   Self Transfers (Ignored): {portfolio_summary['self_transfer_transactions']:,}")
-    print(f"   External Inflows: ₹{portfolio_summary['external_inflows']:,.2f}")
-    print(f"   External Outflows: ₹{portfolio_summary['external_outflows']:,.2f}")
-    print(f"   Net Portfolio Change: ₹{portfolio_summary['net_external_change']:,.2f}")
     
-    print(f"\n💡 NOTE: All self-transfer transactions have been completely ignored")
-    print(f"   This shows only true external income and spending across all accounts")
     
     # Top spending categories (excluding self transfers)
-    print(f"\n🏷️  TOP SPENDING CATEGORIES:")
     spending_categories = broad_category_summary[broad_category_summary['Broad_Category'] != 'Self Transfer']
     spending_categories = spending_categories.sort_values('Total_Debits', ascending=False).head(8)
-    for _, row in spending_categories.iterrows():
-        print(f"   {row['Broad_Category']}: ₹{row['Total_Debits']:,.2f}")
     
-    print(f"\n✅ Portfolio analysis complete! Results saved to: {output_path}")
     return str(output_path), portfolio_summary
+
+def process_portfolio_files_v2(input_files, output_filename="portfolio_analysis.xlsx"):
+    """Process multiple bank files for portfolio analysis and return PortfolioAnalysisData"""
+    
+    # Run existing logic to get Excel file and summary
+    result = process_portfolio_files(input_files, output_filename)
+    if not result:
+        return None
+    
+    output_path, portfolio_summary = result
+    
+    # Re-process to get structured data for PortfolioAnalysisData
+    files = input_files
+    all_transactions = []
+    
+    # Process each file again to collect data
+    for file_path in files:
+        try:
+            analyzer = FinanceAnalyzer(file_path)
+            analyzer.load_data()
+            analyzer.process_transactions()
+            
+            processed_df = analyzer.categorized_df.copy()
+            processed_df['Source_File'] = Path(file_path).name
+            processed_df['Bank'] = detect_bank_format(file_path)
+            all_transactions.append(processed_df)
+        except:
+            continue
+    
+    if not all_transactions:
+        return None
+    
+    # Combine and process
+    combined_df = pd.concat(all_transactions, ignore_index=True)
+    combined_df['Txn Date'] = pd.to_datetime(combined_df['Txn Date'], errors='coerce')
+    combined_df = combined_df.sort_values('Txn Date')
+    combined_df['Year'] = combined_df['Txn Date'].dt.year.astype(str)
+    combined_df['Broad_Category'] = combined_df['Category'].apply(map_to_broad_category)
+    combined_df = map_loan_transactions(combined_df)
+    
+    debit_col = 'Debit (₹)' if 'Debit (₹)' in combined_df.columns else 'Debit'
+    credit_col = 'Credit (₹)' if 'Credit (₹)' in combined_df.columns else 'Credit'
+    
+    # Create PortfolioAnalysisData
+    overall_summary = PortfolioOverallSummaryData(
+        total_earned=float(portfolio_summary['external_inflows']),
+        total_spent=float(portfolio_summary['external_outflows']),
+        net_portfolio_change=float(portfolio_summary['net_external_change']),
+        total_transactions=int(portfolio_summary['total_transactions']),
+        external_transactions=int(portfolio_summary['external_transactions']),
+        self_transfer_transactions=int(portfolio_summary['self_transfer_transactions']),
+        external_outflows=int(portfolio_summary['external_transactions']),
+        external_inflows=float(portfolio_summary['external_inflows']),
+        net_portfolio_change_transactions=float(portfolio_summary['net_external_change']),
+        self_transfers_ignored=int(portfolio_summary['self_transfers_ignored']),
+        data_range_start=combined_df['Txn Date'].min().strftime('%Y-%m-%d') if pd.notna(combined_df['Txn Date'].min()) else 'N/A',
+        data_range_end=combined_df['Txn Date'].max().strftime('%Y-%m-%d') if pd.notna(combined_df['Txn Date'].max()) else 'N/A',
+        report_generation_time=datetime.now().isoformat()
+    )
+    
+    # Create categorized transactions
+    categorized_transactions = []
+    for _, row in combined_df.iterrows():
+        transaction = PortfolioCategorizedTransactionItem(
+            txn_date=str(row.get('Txn Date', '')),
+            value_date=str(row.get('Value Date', '')),
+            cheque_no=str(row.get('Cheque No.', '')),
+            description=str(row.get('Description', '')),
+            debit_amount=float(row.get(debit_col, 0) or 0),
+            credit_amount=float(row.get(credit_col, 0) or 0),
+            balance_amount=float(row.get('Balance', 0) or 0),
+            category=str(row.get('Category', '')),
+            source_file=str(row.get('Source_File', '')),
+            bank=str(row.get('Bank', '')),
+            reference=str(row.get('Reference', '')),
+            year=safe_year_conversion(row.get('Year', 0), row.get('Description', '')),
+            broad_category=str(row.get('Broad_Category', ''))
+        )
+        categorized_transactions.append(transaction)
+    
+    # Create category summary
+    category_summary = []
+    broad_category_summary = combined_df.groupby('Broad_Category').agg({
+        debit_col: 'sum',
+        credit_col: 'sum',
+        'Txn Date': 'count'
+    }).reset_index()
+    
+    for _, row in broad_category_summary.iterrows():
+        summary_item = PortfolioCategorySummaryItem(
+            category=str(row['Broad_Category']),
+            total_debit=float(row[debit_col]),
+            debit_count=int(row['Txn Date']),
+            total_credit=float(row[credit_col]),
+            credit_count=int(row['Txn Date']),
+            net_amount=float(row[credit_col] - row[debit_col])
+        )
+        category_summary.append(summary_item)
+    
+    # Create UPI summary and analysis
+    upi_summary = []
+    upi_analysis = []
+    
+    # Extract UPI transactions and create hierarchical structure
+    upi_transactions = [item for item in categorized_transactions if item.category.startswith('UPI-')]
+    
+    if upi_transactions:
+        # Group by broad category (extract from UPI-BroadCategory-SubCategory)
+        upi_broad_categories = {}
+        
+        for transaction in upi_transactions:
+            category_parts = transaction.category.split('-')
+            if len(category_parts) >= 2:
+                broad_category = category_parts[1]  # e.g., "Bills & Entertainment"
+                
+                if broad_category not in upi_broad_categories:
+                    upi_broad_categories[broad_category] = {
+                        'total_debit': 0,
+                        'total_credit': 0,
+                        'subcategories': {}
+                    }
+                
+                # Add to broad category totals
+                upi_broad_categories[broad_category]['total_debit'] += transaction.debit_amount
+                upi_broad_categories[broad_category]['total_credit'] += transaction.credit_amount
+                
+                # Track subcategories
+                full_category = transaction.category
+                if full_category not in upi_broad_categories[broad_category]['subcategories']:
+                    upi_broad_categories[broad_category]['subcategories'][full_category] = {
+                        'total_debit': 0,
+                        'total_credit': 0,
+                        'count': 0
+                    }
+                
+                upi_broad_categories[broad_category]['subcategories'][full_category]['total_debit'] += transaction.debit_amount
+                upi_broad_categories[broad_category]['subcategories'][full_category]['total_credit'] += transaction.credit_amount
+                upi_broad_categories[broad_category]['subcategories'][full_category]['count'] += 1
+        
+        # Create UPI summary (broad categories)
+        for broad_cat, data in upi_broad_categories.items():
+            total_amount = data['total_credit'] - data['total_debit']
+            upi_summary.append(PortfolioUpiSummary(
+                category=broad_cat,
+                total_amount=total_amount
+            ))
+        
+        # Create UPI analysis (detailed subcategories)
+        for broad_cat, data in upi_broad_categories.items():
+            for subcat, subdata in data['subcategories'].items():
+                net_amount = subdata['total_credit'] - subdata['total_debit']
+                upi_analysis.append(PortfolioUpiAnalysisItem(
+                    category=subcat,
+                    total_debit=subdata['total_debit'],
+                    debit_count=subdata['count'] if subdata['total_debit'] > 0 else 0,
+                    total_credit=subdata['total_credit'],
+                    credit_count=subdata['count'] if subdata['total_credit'] > 0 else 0,
+                    net_amount=net_amount
+                ))
+    
+    portfolio_data = PortfolioAnalysisData(
+        overall_summary=overall_summary,
+        categorized_transactions=categorized_transactions,
+        category_summary=category_summary,
+        upi_summary=upi_summary,
+        upi_analysis=upi_analysis
+    )
+    
+    return output_path, portfolio_data
 
 def main():
     """Main function for portfolio analysis"""
@@ -410,16 +567,9 @@ def main():
         else:
             input_files.append(file)
     
-    print("🚀 Portfolio Financial Analyzer")
     print("=" * 50)
     
     result = process_portfolio_files(input_files, args.output)
-    
-    if result:
-        print(f"\n🎉 Portfolio analysis completed successfully!")
-        print(f"📁 Output file: {result}")
-    else:
-        print(f"\n❌ Portfolio analysis failed!")
 
 if __name__ == "__main__":
     main()
