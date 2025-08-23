@@ -143,8 +143,8 @@ class APIv2Transformer:
         top_spending = spending_cats[:5]
         top_income = income_cats[:5]
         
-        # Get recent transactions (limit to 10)
-        recent_txns, _ = APIv2Transformer.transform_transactions(transactions[-10:])
+        # Get recent transactions (limit to 5)
+        recent_txns, _ = APIv2Transformer.transform_transactions(transactions[-5:])
         
         return DashboardResponse(
             overall_summary=summary,

@@ -171,21 +171,39 @@ async def analyze_files(
             temp_files.append(temp_file.name)
             file_names.append(file.filename)
         
-        # Initialize analyzer with first file
-        analyzer = FinanceAnalyzer(temp_files[0])
-        
-        # Load and process data
-        analyzer.load_data()
-        analyzer.process_transactions()
-        analyzer.generate_summaries()
-        
-        # Apply date filters if provided
-        if from_date or to_date:
-            # Use the analyze_with_date_filter method
-            analyzer.analyze_with_date_filter(from_date, to_date)
-        
-        # Transform to structured data
-        analysis_data = transform_analyzer_to_portfolio_data(analyzer)
+        # Process all files
+        if len(temp_files) == 1:
+            # Single file analysis
+            analyzer = FinanceAnalyzer(temp_files[0])
+            analyzer.load_data()
+            analyzer.process_transactions()
+            analyzer.generate_summaries()
+            
+            # Apply date filters if provided
+            if from_date or to_date:
+                analyzer.analyze_with_date_filter(from_date, to_date)
+            
+            # Transform to structured data
+            analysis_data = transform_analyzer_to_portfolio_data(analyzer)
+        else:
+            # Multi-file analysis - use portfolio analysis v2 method
+            from src.portfolio_analyzer import process_portfolio_files_v2
+            try:
+                result = process_portfolio_files_v2(temp_files)
+                if result and len(result) == 2:
+                    output_file, portfolio_data = result
+                    
+                    # Create analyzer for compatibility
+                    analyzer = FinanceAnalyzer(temp_files[0])
+                    analyzer.load_data()
+                    analyzer.process_transactions()
+                    
+                    # Use portfolio_data directly as analysis_data
+                    analysis_data = portfolio_data
+                else:
+                    raise Exception("Portfolio processing failed")
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=f"Portfolio analysis failed: {str(e)}")
         
         # Store analysis results
         analysis_storage[analysis_id] = analysis_data
@@ -260,9 +278,9 @@ async def get_transactions(
     
     if transaction_type:
         if transaction_type == TransactionType.DEBIT:
-            transactions = [t for t in transactions if t.debit > 0]
+            transactions = [t for t in transactions if t.debit_amount > 0]
         else:
-            transactions = [t for t in transactions if t.credit > 0]
+            transactions = [t for t in transactions if t.credit_amount > 0]
     
     if search:
         search_lower = search.lower()
@@ -322,6 +340,148 @@ async def list_analyses():
             for aid, data in analysis_storage.items()
         ]
     }
+
+# ============================================================================
+# NEW ENDPOINTS FOR MISSING UI SECTIONS
+# ============================================================================
+
+@app.get("/api/v2/accounts/{analysis_id}", response_model=AccountBalancesResponse, tags=["Accounts"])
+async def get_account_balances(analysis_id: str):
+    """Get account balances with calculated values"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    # Get analysis data
+    analysis_data = analysis_storage[analysis_id]
+    net_change = analysis_data.overall_summary.net_portfolio_change
+    
+    # Bank account = max(net_change, 0) - never negative
+    bank_balance = max(net_change, 0.0)
+    
+    # Default account structure with calculated bank balance
+    accounts = [
+        AccountBalance(account_type="checking", balance=bank_balance, account_name="Bank Account"),
+        AccountBalance(account_type="savings", balance=0.0, account_name="Savings Account"),
+        AccountBalance(account_type="credit_cards", balance=0.0, account_name="Credit Cards"),
+        AccountBalance(account_type="investments", balance=0.0, account_name="Investments"),
+        AccountBalance(account_type="loans", balance=0.0, account_name="Loans")
+    ]
+    
+    return AccountBalancesResponse(
+        accounts=accounts,
+        total_balance=bank_balance
+    )
+
+@app.get("/api/v2/monthly-trend/{analysis_id}", response_model=MonthlyTrendResponse, tags=["Trends"])
+async def get_monthly_trend(analysis_id: str):
+    """Get monthly trend data parsed from actual transactions"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    # Get analysis data
+    analysis_data = analysis_storage[analysis_id]
+    transactions = analysis_data.categorized_transactions
+    
+    # Parse monthly data from transactions
+    from datetime import datetime, timedelta
+    from collections import defaultdict
+    
+    monthly_totals = defaultdict(lambda: {"income": 0.0, "expenses": 0.0})
+    
+    for txn in transactions:
+        try:
+            # Parse transaction date (format: "2023-04-01" or "2023-04-01 00:00:00")
+            date_str = txn.txn_date.split()[0]  # Get date part only
+            date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+            month_key = date_obj.strftime("%Y-%m")  # "2024-08", "2024-07", etc.
+            
+            # Add to monthly totals
+            if txn.credit_amount > 0:
+                monthly_totals[month_key]["income"] += txn.credit_amount
+            if txn.debit_amount > 0:
+                monthly_totals[month_key]["expenses"] += txn.debit_amount
+                
+        except (ValueError, AttributeError) as e:
+            # Skip invalid dates
+            continue
+    
+    # Generate last 6 months from current date (Aug 2024 -> Feb 2024)
+    current_date = datetime.now()
+    last_6_months = []
+    
+    for i in range(6):
+        month_date = current_date - timedelta(days=30 * i)  # Approximate month back
+        month_date = month_date.replace(day=1)  # First day of month
+        month_key = month_date.strftime("%Y-%m")
+        month_name = month_date.strftime("%b")  # "Aug", "Jul", etc.
+        
+        last_6_months.append({
+            "key": month_key,
+            "name": month_name
+        })
+    
+    # Reverse to get chronological order (Feb -> Aug)
+    last_6_months.reverse()
+    
+    # Build response with actual data or 0 if no data
+    monthly_data = []
+    for month_info in last_6_months:
+        month_key = month_info["key"]
+        month_name = month_info["name"]
+        
+        income = monthly_totals.get(month_key, {}).get("income", 0.0)
+        expenses = monthly_totals.get(month_key, {}).get("expenses", 0.0)
+        savings = income - expenses
+        
+        monthly_data.append(MonthlyTrendItem(
+            month=month_name,
+            income=income,
+            expenses=expenses,
+            savings=savings
+        ))
+    
+    return MonthlyTrendResponse(
+        monthly_data=monthly_data,
+        period_months=6
+    )
+
+@app.get("/api/v2/budget-progress/{analysis_id}", response_model=BudgetProgressResponse, tags=["Budget"])
+async def get_budget_progress(analysis_id: str):
+    """Get budget progress with default values"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    # Default budget categories with 100/100 values as requested
+    categories = ["Food & Dining", "Transportation", "Shopping", "Entertainment", "Healthcare"]
+    budget_items = [
+        BudgetProgressItem(category=category, spent=100.0, budget=100.0, percentage=100.0)
+        for category in categories
+    ]
+    
+    return BudgetProgressResponse(
+        budget_items=budget_items,
+        total_budget=500.0,
+        total_spent=500.0
+    )
+
+@app.get("/api/v2/upcoming-bills/{analysis_id}", response_model=UpcomingBillsResponse, tags=["Bills"])
+async def get_upcoming_bills(analysis_id: str):
+    """Get upcoming bills with default values"""
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    
+    # Default bills with 0 amounts as requested
+    bills = [
+        UpcomingBill(name="Home Loan EMI", amount=0.0, due_date="2024-01-25", status="pending"),
+        UpcomingBill(name="Credit Card Bill", amount=0.0, due_date="2024-01-28", status="pending"),
+        UpcomingBill(name="Internet Bill", amount=0.0, due_date="2024-01-30", status="pending"),
+        UpcomingBill(name="Mobile Bill", amount=0.0, due_date="2024-02-02", status="upcoming")
+    ]
+    
+    return UpcomingBillsResponse(
+        bills=bills,
+        total_amount=0.0
+    )
 
 # ============================================================================
 # ERROR HANDLERS

@@ -2,21 +2,284 @@
 
 A comprehensive financial analysis tool that processes bank statements and provides detailed insights through both CLI and web API interfaces.
 
-## 🚀 Quick Start
+## 🚀 Quick Setup
 
 ### Prerequisites
-- Python 3.8+
-- Poetry (recommended for dependency management)
+- **Python 3.8+**
+- **Poetry** (recommended) or **pip**
 
 ### Installation & Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/Jyotirmay02/FinanceAnalyzer-Backend.git
+git clone <repository-url>
 cd FinanceAnalyzer-Backend
 
-# Install dependencies using Poetry (recommended)
+# Option 1: Using Poetry (recommended)
 poetry install
+poetry shell
+
+# Option 2: Using pip
+pip install -r requirements.txt
+```
+
+### Start the Server
+
+```bash
+# Using Poetry
+poetry run uvicorn api_v2_server:app --host 0.0.0.0 --port 8001 --reload
+
+# Using Python directly
+python -m uvicorn api_v2_server:app --host 0.0.0.0 --port 8001 --reload
+
+# Alternative: Using the run script
+python api_v2_server.py
+```
+
+The server will start on `http://localhost:8001`
+
+### API Documentation
+Once the server is running, visit:
+- **Swagger UI**: http://localhost:8001/docs
+- **ReDoc**: http://localhost:8001/redoc
+
+## 📁 Project Structure
+
+```
+├── api_v2_server.py           # FastAPI server with all endpoints
+├── api_v2_transformers.py     # Data transformation logic
+├── api_models.py              # Pydantic models for API
+├── excel_models.py            # Excel data models
+├── financial_portfolio_model.py # Core portfolio model
+├── portfolio_analysis.py      # Analysis algorithms
+├── requirements.txt           # Python dependencies
+└── uploads/                   # Uploaded files storage
+```
+
+## 🔧 API Endpoints
+
+### File Upload & Analysis
+```bash
+# Upload bank statements
+POST /api/v2/analyze
+Content-Type: multipart/form-data
+Body: files (Excel/CSV files)
+
+# Get available analyses
+GET /api/v2/analysis
+```
+
+### Transaction Data
+```bash
+# Get transactions with filtering
+GET /api/v2/transactions/{analysis_id}
+Query params: page, page_size, category, transaction_type, search
+
+# Get overall summary
+GET /api/v2/summary/overall/{analysis_id}
+
+# Get category summary
+GET /api/v2/summary/category/{analysis_id}
+```
+
+### UPI Analysis
+```bash
+# Get UPI analysis with hierarchical categories
+GET /api/v2/upi-analysis/{analysis_id}
+```
+
+## 🎯 Key Features
+
+### File Processing
+- **Excel/CSV Support** - Process bank statements in multiple formats
+- **Automatic Categorization** - Smart transaction categorization
+- **Multi-bank Support** - Handle different bank statement formats
+- **Data Validation** - Comprehensive input validation
+
+### Analysis Engine
+- **Portfolio Analysis** - Complete financial portfolio breakdown
+- **Category Analysis** - Spending analysis by categories
+- **UPI Analysis** - Hierarchical UPI transaction analysis
+- **Time-based Analysis** - Trends and patterns over time
+
+### API Features
+- **RESTful Design** - Clean, consistent API design
+- **Pagination** - Efficient handling of large datasets
+- **Filtering** - Advanced filtering and search capabilities
+- **Error Handling** - Comprehensive error responses
+- **Documentation** - Auto-generated API documentation
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env` file:
+
+```env
+# Server Configuration
+HOST=0.0.0.0
+PORT=8001
+DEBUG=True
+
+# File Upload
+MAX_FILE_SIZE=50MB
+UPLOAD_DIR=./uploads
+
+# CORS Settings
+ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+```
+
+### CORS Configuration
+The server is configured to allow requests from:
+- `http://localhost:3000` (Frontend dev server)
+- `http://127.0.0.1:3000`
+
+## 📊 Data Models
+
+### Transaction Model
+```python
+{
+    "id": "unique_id",
+    "date": "2024-01-01",
+    "description": "Transaction description",
+    "amount": -1000.00,
+    "balance": 5000.00,
+    "category": "Food & Dining",
+    "bank": "SBI"
+}
+```
+
+### UPI Analysis Model
+```python
+{
+    "total_upi_transactions": 156,
+    "total_upi_debit": 85000.00,
+    "total_upi_credit": 5000.00,
+    "net_upi_amount": -80000.00,
+    "upi_categories": [
+        {
+            "category": "UPI-Food & Dining-Restaurant",
+            "total_debit": 15000.00,
+            "debit_count": 45,
+            "percentage": 18.5
+        }
+    ]
+}
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Server won't start**
+   ```bash
+   # Check Python version
+   python --version
+   
+   # Install dependencies
+   poetry install
+   
+   # Check port availability
+   lsof -i :8001
+   ```
+
+2. **File upload errors**
+   - Check file size (max 50MB)
+   - Ensure file format is supported (Excel/CSV)
+   - Verify upload directory permissions
+
+3. **CORS errors**
+   - Check allowed origins in server configuration
+   - Ensure frontend is running on allowed port
+
+4. **Memory issues with large files**
+   - Increase system memory allocation
+   - Process files in smaller batches
+   - Use streaming for large datasets
+
+## 🔄 Development Workflow
+
+### Running in Development
+```bash
+# Start with auto-reload
+uvicorn api_v2_server:app --reload --port 8001
+
+# Run with debug logging
+uvicorn api_v2_server:app --reload --port 8001 --log-level debug
+```
+
+### Testing API Endpoints
+```bash
+# Test server health
+curl http://localhost:8001/
+
+# Test file upload
+curl -X POST http://localhost:8001/api/v2/analyze \
+  -F "files=@sample_statement.xlsx"
+
+# Test transactions endpoint
+curl http://localhost:8001/api/v2/transactions/{analysis_id}
+```
+
+### Adding New Endpoints
+1. Add endpoint to `api_v2_server.py`
+2. Create data models in `api_models.py`
+3. Add transformation logic in `api_v2_transformers.py`
+4. Update API documentation
+5. Test with sample data
+
+## 📝 Dependencies
+
+### Core Dependencies
+- **FastAPI** - Modern web framework
+- **Uvicorn** - ASGI server
+- **Pandas** - Data manipulation
+- **Openpyxl** - Excel file processing
+- **Pydantic** - Data validation
+
+### Development Dependencies
+- **Poetry** - Dependency management
+- **Black** - Code formatting
+- **Pytest** - Testing framework
+
+## 🚀 Production Deployment
+
+### Using Docker
+```dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+EXPOSE 8001
+
+CMD ["uvicorn", "api_v2_server:app", "--host", "0.0.0.0", "--port", "8001"]
+```
+
+### Using Gunicorn
+```bash
+gunicorn api_v2_server:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8001
+```
+
+## 📈 Performance Considerations
+
+- **File Processing**: Large files are processed in chunks
+- **Memory Management**: Efficient memory usage for large datasets
+- **Caching**: Consider adding Redis for frequently accessed data
+- **Database**: Consider PostgreSQL for persistent storage
+
+## 📝 Contributing
+
+1. Follow PEP 8 style guidelines
+2. Add type hints to all functions
+3. Write comprehensive docstrings
+4. Add unit tests for new features
+5. Update API documentation
+
+---
+
+*For frontend setup instructions, see the Frontend README.*
 
 # Alternative: Using pip
 pip install -r requirements.txt

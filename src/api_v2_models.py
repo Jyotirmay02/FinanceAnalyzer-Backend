@@ -48,6 +48,75 @@ class TransactionV2(BaseModel):
 
 class OverallSummaryV2(BaseModel):
     """Overall summary for v2 API"""
+    total_earned: float = Field(..., description="Total amount earned")
+    total_spent: float = Field(..., description="Total amount spent")
+    net_change: float = Field(..., description="Net portfolio change")
+    total_transactions: int = Field(..., description="Total number of transactions")
+    date_range_start: str = Field(..., description="Start date of data range")
+    date_range_end: str = Field(..., description="End date of data range")
+
+# ============================================================================
+# NEW MODELS FOR MISSING SECTIONS
+# ============================================================================
+
+class AccountBalance(BaseModel):
+    """Account balance model"""
+    account_type: str = Field(..., description="Account type (checking, savings, etc.)")
+    balance: float = Field(0.0, description="Current balance")
+    account_name: str = Field(..., description="Account display name")
+
+class MonthlyTrendItem(BaseModel):
+    """Monthly trend data point"""
+    month: str = Field(..., description="Month name (Jan, Feb, etc.)")
+    income: float = Field(0.0, description="Monthly income")
+    expenses: float = Field(0.0, description="Monthly expenses")
+    savings: float = Field(0.0, description="Monthly savings")
+
+class BudgetProgressItem(BaseModel):
+    """Budget progress for a category"""
+    category: str = Field(..., description="Category name")
+    spent: float = Field(0.0, description="Amount spent")
+    budget: float = Field(0.0, description="Budget amount")
+    percentage: float = Field(0.0, description="Percentage of budget used")
+
+class UpcomingBill(BaseModel):
+    """Upcoming bill item"""
+    name: str = Field(..., description="Bill name")
+    amount: float = Field(0.0, description="Bill amount")
+    due_date: str = Field(..., description="Due date (YYYY-MM-DD)")
+    status: str = Field("pending", description="Bill status")
+
+# ============================================================================
+# RESPONSE MODELS FOR NEW ENDPOINTS
+# ============================================================================
+
+class AccountBalancesResponse(BaseModel):
+    """Response model for account balances"""
+    accounts: List[AccountBalance] = Field(..., description="List of account balances")
+    total_balance: float = Field(0.0, description="Total balance across all accounts")
+
+class MonthlyTrendResponse(BaseModel):
+    """Response model for monthly trend data"""
+    monthly_data: List[MonthlyTrendItem] = Field(..., description="Monthly trend data")
+    period_months: int = Field(6, description="Number of months in the trend")
+
+class BudgetProgressResponse(BaseModel):
+    """Response model for budget progress"""
+    budget_items: List[BudgetProgressItem] = Field(..., description="Budget progress items")
+    total_budget: float = Field(0.0, description="Total budget amount")
+    total_spent: float = Field(0.0, description="Total amount spent")
+
+class UpcomingBillsResponse(BaseModel):
+    """Response model for upcoming bills"""
+    bills: List[UpcomingBill] = Field(..., description="List of upcoming bills")
+    total_amount: float = Field(0.0, description="Total amount of upcoming bills")
+
+# ============================================================================
+# EXISTING RESPONSE MODELS
+# ============================================================================
+
+class OverallSummaryV2(BaseModel):
+    """Overall summary for v2 API"""
     total_earned: float = Field(..., description="Total income/credits")
     total_spent: float = Field(..., description="Total expenses/debits") 
     net_change: float = Field(..., description="Net portfolio change")
