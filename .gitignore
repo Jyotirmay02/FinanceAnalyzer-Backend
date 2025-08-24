@@ -174,3 +174,4 @@ exports/
 *.temp
 token.json
 credentials.json
+credentials/token_*.pickle
