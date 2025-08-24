@@ -175,3 +175,19 @@ exports/
 token.json
 credentials.json
 credentials/token_*.pickle
+# Personal financial data
+statements/
+*.json
+!requirements.json
+!package.json
+!config.json
+
+# Personal documents
+*.pdf
+*.xls
+*.xlsx
+*.csv
+
+# Logs
+*.log
+logs/
