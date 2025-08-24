@@ -441,8 +441,6 @@ class GmailTransactionReader:
                         # Convert to structured model
                         structured_transaction = TransactionFactory.create_transaction(transaction)
                         transactions.append(transaction_to_dict(structured_transaction))
-                    else:
-                    
             except Exception as e:
                 continue
                 
@@ -523,8 +521,6 @@ class GmailTransactionReader:
                         # Convert to structured model
                         structured_transaction = TransactionFactory.create_transaction(transaction)
                         transactions.append(transaction_to_dict(structured_transaction))
-                    else:
-                    
             except Exception as e:
                 continue
                 
