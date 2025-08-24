@@ -1,0 +1,278 @@
+{
+  "ICICI_CC": [
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 114.00 on Aug 24, 2025 at 10:26:07. Info: TPNODL. The Available Credit Limit on your card is INR 1,50,169.96 and Total Credit Limit is INR 1,50,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 114.0,
+      "transaction_type": "debit",
+      "date": "2025-08-24",
+      "time": "10:26:07",
+      "merchant": "TPNODL",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "198da6f2a33263ac",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    },
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 744.00 on Aug 24, 2025 at 10:18:24. Info: AMAZON PAY IN GROCERY. The Available Credit Limit on your card is INR 1,50,283.96 and Total Credit Limit is INR 1,50,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 744.0,
+      "transaction_type": "debit",
+      "date": "2025-08-24",
+      "time": "10:18:24",
+      "merchant": "AMAZON PAY IN GROCERY",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "198da6821131ac04",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    },
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 749.00 on Aug 01, 2025 at 11:55:29. Info: AMAZON. The Available Credit Limit on your card is INR 1,01,027.96 and Total Credit Limit is INR 1,00,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 749.0,
+      "transaction_type": "debit",
+      "date": "2025-08-01",
+      "time": "11:55:29",
+      "merchant": "AMAZON",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "198644eca38771c2",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    },
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 252.00 on Jul 27, 2025 at 09:12:28. Info: SWIGGY. The Available Credit Limit on your card is INR 1,01,776.96 and Total Credit Limit is INR 1,00,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 252.0,
+      "transaction_type": "debit",
+      "date": "2025-07-27",
+      "time": "09:12:28",
+      "merchant": "SWIGGY",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "1984c8d248b1bf86",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    },
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 164.00 on Jul 27, 2025 at 12:55:36. Info: SWIGGY. The Available Credit Limit on your card is INR 1,02,028.96 and Total Credit Limit is INR 1,00,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 164.0,
+      "transaction_type": "debit",
+      "date": "2025-07-27",
+      "time": "12:55:36",
+      "merchant": "SWIGGY",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "1984ac607d42e253",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    },
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 218.00 on Jul 26, 2025 at 06:26:53. Info: SWIGGY. The Available Credit Limit on your card is INR 1,02,192.96 and Total Credit Limit is INR 1,00,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 218.0,
+      "transaction_type": "debit",
+      "date": "2025-07-26",
+      "time": "06:26:53",
+      "merchant": "SWIGGY",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "19846cf253a21513",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    },
+    {
+      "bank": "ICICI_CC",
+      "raw_content": "ICICI Bank Online Dear Customer, Your ICICI Bank Credit Card XX6007 has been used for a transaction of INR 1,023.60 on Jul 26, 2025 at 12:50:16. Info: Amazon Pay India pvt ltd. The Available Credit Limit on your card is INR 1,02,410.96 and Total Credit Limit is INR 1,00,000.00. The above limits are a total of the limits of all the Credit Cards issued to the primary card holder, including any supplementary cards. In case you have not done this transaction, to report it please call on 18002662 or SMS BLOCK space 6007 to 9215676766 from your registered mobile number and if you are outside India, call on 04071403333. In case you require any further information, you may call our Customer Care or write to us at customer.care@icicibank.com Contact your RM @ Express Relationship Banking 022-44400000. Never share your OTP, URN, CVV or passwords with anyone even if the person claims to be a bank employee. Sincerely, Team ICICI Bank This is an auto-generated e-mail. Please do not reply. Discover a new way of paying your Credit Card bills from your bank account anytime anywhere by using ICICI Bank iMobile Pay. GPRS users, SMS iMobile Pay to 56767661. For details, please click here . Now banking is more convenient with: More than 5000 Branches 24x7 ATM Services Customer Care Internet Banking iMobile Banking Disclaimer",
+      "account_number": "XX6007",
+      "amount": 1023.6,
+      "transaction_type": "debit",
+      "date": "2025-07-26",
+      "time": "12:50:16",
+      "merchant": "Amazon Pay India pvt ltd",
+      "transaction_method": "Credit Card",
+      "metadata": {
+        "source": "email",
+        "email_id": "198459ac9a46e7de",
+        "email_address": "credit_cards@icicibank.com"
+      }
+    }
+  ],
+  "CANARA": [
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 25.00 has been DEBITED to your account XXXX5159 on 24/08/2025. Total Avail.bal INR 79,770.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 25.0,
+      "transaction_type": "debit",
+      "date": "2025-08-24",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 79770.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198da51fd4e2d9fb",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 40.00 has been DEBITED to your account XXXX5159 on 22/08/2025. Total Avail.bal INR 79,815.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 40.0,
+      "transaction_type": "debit",
+      "date": "2025-08-22",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 79815.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198d206c2108d57e",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 170.00 has been DEBITED to your account XXXX5159 on 19/08/2025. Total Avail.bal INR 79,855.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 170.0,
+      "transaction_type": "debit",
+      "date": "2025-08-19",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 79855.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198c2f0d51ffe30e",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 30.00 has been DEBITED to your account XXXX5159 on 18/08/2025. Total Avail.bal INR 65,337.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 30.0,
+      "transaction_type": "debit",
+      "date": "2025-08-18",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 65337.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198bd99d049c5b17",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 30.00 has been DEBITED to your account XXXX5159 on 18/08/2025. Total Avail.bal INR 65,337.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 30.0,
+      "transaction_type": "debit",
+      "date": "2025-08-18",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 65337.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198bd97bf10bab06",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 90.00 has been DEBITED to your account XXXX5159 on 17/08/2025. Total Avail.bal INR 65,367.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 90.0,
+      "transaction_type": "debit",
+      "date": "2025-08-17",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 65367.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198b69a201346542",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 20,000.00 has been DEBITED to your account XXXX5159 on 16/08/2025. Total Avail.bal INR 65,457.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 20000.0,
+      "transaction_type": "debit",
+      "date": "2025-08-16",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 65457.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198b2a40918f25dd",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 90.00 has been DEBITED to your account XXXX5159 on 16/08/2025. Total Avail.bal INR 85,457.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 90.0,
+      "transaction_type": "debit",
+      "date": "2025-08-16",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 85457.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198b10025c0c0535",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 38,800.00 has been DEBITED to your account XXXX5159 on 15/08/2025. Total Avail.bal INR 85,547.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 38800.0,
+      "transaction_type": "debit",
+      "date": "2025-08-15",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 85547.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198ac3f515d62de0",
+        "email_address": "canarabank@canarabank.com"
+      }
+    },
+    {
+      "bank": "CANARA",
+      "raw_content": "Dear Customer,\r\n\r\nThanking you for banking with Canara Bank.\r\n\r\nAn amount of INR 699.00 has been DEBITED to your account XXXX5159 on 14/08/2025. Total Avail.bal INR 1,24,347.73.To report fraud & stop further debit SMS SUSPECT to 56161.\r\n\r\nIf not done by you, send an email from your registered e-mail id with the subject line as per below format to reportfraud@canarabank.com to block the respective channels or account.\r\n\r\nTo block Internet banking: LOCKIBU<Space><Internet Banking Userid>\r\nTo block Mobile Banking:   BLOCKMB<Space><Mobile Number prefixed with Country Code>\r\nTo block UPI: BLOCKUPI<Space><Mobile Number prefixed with Country Code>\r\nTo block Accounts: BLOCKACC<Space><<Mobile Number prefixed with Country Code>\r\n\r\n*Once you choose BLOCKACC,  you may have to visit the home branch to unblock the accounts. Other options will block only the particular channel.\r\n\r\nFor blocking through SMS, send SMS from Registered Mobile Number as per below formats:\r\nTo block the Account : SUSPECT to 56161\r\nTo block UPI: BLOCKUPI to 9901771222\r\nTo block Mobile Banking : BLOCKMB  to 9901771222\r\nTo block Internet Banking : LOCKIBU <USERID> to 9010982223\r\n\r\nThis is an auto generated mail\r\n\r\nWith Regards,\r\nCanara Bank\r\nToll Free No:1800 1030\r\n",
+      "account_number": "XXXX5159",
+      "amount": 699.0,
+      "transaction_type": "debit",
+      "date": "2025-08-14",
+      "merchant": "ATM/IMPS/UPI Transaction",
+      "balance": 124347.73,
+      "transaction_method": "Bank Transfer",
+      "metadata": {
+        "source": "email",
+        "email_id": "198a98995c3ebefd",
+        "email_address": "canarabank@canarabank.com"
+      }
+    }
+  ]
+}

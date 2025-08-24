@@ -1,0 +1,3113 @@
+[
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2025-06-16",
+      "end": "2025-07-15"
+    },
+    "transactions": [
+      {
+        "date": "2025-06-26",
+        "description": "BBPS",
+        "amount": 65861.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-16",
+        "description": "UPI RAJIV KUMAR 553320856971",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-21",
+        "description": "UPI KARTHIK KUMAR 553817481558",
+        "amount": 200.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 4
+      },
+      {
+        "date": "2025-06-26",
+        "description": "UPI TP NORTHERN ODISHA 517753726794",
+        "amount": 3.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-27",
+        "description": "UPI JAGADISH R 517855575936",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-06-27",
+        "description": "UPI INTERNATIONAL SOCI 517855555729",
+        "amount": 1.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-28",
+        "description": "UPI BHAGYAMMA K V 554507364011",
+        "amount": 240.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-06-28",
+        "description": "UPI SENDHOOR COFFEE 554525380026",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-29",
+        "description": "UPI BMTC BUS KA57F4379 554600495370",
+        "amount": 280.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 6
+      },
+      {
+        "date": "2025-07-02",
+        "description": "UPI MUKTIKANT SAHU 554926992140",
+        "amount": 120.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-07-04",
+        "description": "UPI GANGADHAR HARDWARE 555128378073",
+        "amount": 22320.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RECREATION",
+        "reward_points": 446
+      },
+      {
+        "date": "2025-07-04",
+        "description": "UPI GANGADHAR HARDWARE 555111407634",
+        "amount": 320.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RECREATION",
+        "reward_points": 6
+      },
+      {
+        "date": "2025-07-04",
+        "description": "UPI JITU RANJAN DAS 555128361166",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-07-05",
+        "description": "UPI M1FG7PHG18P3 555226514872",
+        "amount": 500.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 10
+      },
+      {
+        "date": "2025-07-08",
+        "description": "UPI MED807LHZ 555511026853",
+        "amount": 3280.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "CONSUMER",
+        "reward_points": 66
+      },
+      {
+        "date": "2025-07-13",
+        "description": "UPI BMTC BUS KA57F2240 556002735386",
+        "amount": 330.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 7
+      },
+      {
+        "date": "2025-07-13",
+        "description": "UPI MPSI2ZN53 556020705063",
+        "amount": 150.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-07-15",
+        "description": "GST @ 18%",
+        "amount": 14.05,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-07-15",
+        "description": "EMI PRIN FOR POLICYBAZAARINSU (005/006)",
+        "amount": 2906.76,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-07-15",
+        "description": "EMI INT-POLICYBAZAARINSURANCE (005/006)",
+        "amount": 78.03,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 65861.0,
+      "total_debits": 30932.84,
+      "reward_points_opening": 3222,
+      "reward_points_earned": 560,
+      "reward_points_redeemed": 842,
+      "reward_points_closing": 4624,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2024-10-16",
+      "end": "2024-11-15"
+    },
+    "transactions": [
+      {
+        "date": "2024-10-05",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 1143.24,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 11
+      },
+      {
+        "date": "2024-10-05",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 707.65,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 7
+      },
+      {
+        "date": "2024-10-20",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 614.94,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 6
+      },
+      {
+        "date": "2024-10-20",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 590.7,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 6
+      },
+      {
+        "date": "2024-10-26",
+        "description": "BBPS",
+        "amount": 7165.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-19",
+        "description": "UPI BETTADALUR VEEREGO 429347226840",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-20",
+        "description": "UPI OLA STORES TECHNOL 429451165891",
+        "amount": 291.8,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 6
+      },
+      {
+        "date": "2024-10-20",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 7429.83,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 74
+      },
+      {
+        "date": "2024-10-20",
+        "description": "UPI SIDDESH S V 429446904801",
+        "amount": 240.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 5
+      },
+      {
+        "date": "2024-10-20",
+        "description": "UPI M223QCF7UK17S 429431620265",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-10-20",
+        "description": "UPI M223QCF7UK17S 429470040654",
+        "amount": 32.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-10-20",
+        "description": "UPI M223QCF7UK17S 429467142532",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-26",
+        "description": "UPI M1VUUQMJR4UM 430086375301",
+        "amount": 130.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2024-10-27",
+        "description": "UPI GAVI RANGA LAKKUR 430100130217",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-10-27",
+        "description": "UPI BEFRESH 2206 430117955922",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-10-30",
+        "description": "UPI BETTADALUR VEEREGO 430462916778",
+        "amount": 120.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-10-31",
+        "description": "UPI MLD1EGYOW 430562994293",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-11-01",
+        "description": "UPI MR S AJITHKUMAR 430629772645",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-01",
+        "description": "UPI GAVI RANGA LAKKUR 430662291959",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-11-01",
+        "description": "UPI DEEKSHA S SHETTY M 430651737732",
+        "amount": 190.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 4
+      },
+      {
+        "date": "2024-11-02",
+        "description": "UPI M1VUUQMJR4UM 430741636138",
+        "amount": 200.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 4
+      },
+      {
+        "date": "2024-11-07",
+        "description": "UPI M22AVO1P6ZVZC 431251485477",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-11-08",
+        "description": "UPI M22AVO1P6ZVZC 431361102077",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-11-09",
+        "description": "UPI DURGASHREE UDUPI V 431449890706",
+        "amount": 70.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 10221.53,
+      "total_debits": 9233.63,
+      "reward_points_opening": 82,
+      "reward_points_earned": 80,
+      "reward_points_redeemed": 0,
+      "reward_points_closing": 162,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2024-09-16",
+      "end": "2024-10-15"
+    },
+    "transactions": [
+      {
+        "date": "2024-10-05",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 371.97,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 4
+      },
+      {
+        "date": "2024-09-24",
+        "description": "UPI TWENTY3VENTURES 426800478250",
+        "amount": 552.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 11
+      },
+      {
+        "date": "2024-09-28",
+        "description": "UPI M22JZVZ8C1RD7 427200298612",
+        "amount": 150.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2024-10-05",
+        "description": "UPI M22AVO1P6ZVZC 427934430168",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-10-05",
+        "description": "RELIANCERETAILLIMITED 356",
+        "amount": 6505.04,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "APPAREL",
+        "reward_points": 65
+      },
+      {
+        "date": "2024-10-05",
+        "description": "UPI M22JZVZ8C1RD7 427909714428",
+        "amount": 70.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-10-08",
+        "description": "UPI M22JZVZ8C1RD7 428254691159",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-10-10",
+        "description": "UPI M22JZVZ8C1RD7 428484147326",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-10-14",
+        "description": "UPI BETTADALUR VEEREGO 428823422537",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 371.97,
+      "total_debits": 7537.04,
+      "reward_points_opening": 0,
+      "reward_points_earned": 82,
+      "reward_points_redeemed": 0,
+      "reward_points_closing": 82,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2024-11-16",
+      "end": "2024-12-15"
+    },
+    "transactions": [
+      {
+        "date": "2024-11-29",
+        "description": "BBPS",
+        "amount": 6177.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-16",
+        "description": "UPI BETTADALUR VEEREGO 432125817967",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-11-17",
+        "description": "UPI GAVI RANGA LAKKUR 432221552603",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-11-22",
+        "description": "UPI M1S870IHG8IX 432749453513",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-22",
+        "description": "UPI BETTADALUR VEEREGO 432701434694",
+        "amount": 110.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-11-23",
+        "description": "UPI BHAGYAMMA K V 432801947519",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-11-24",
+        "description": "UPI MBRYTH8CG 432930014262",
+        "amount": 700.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 14
+      },
+      {
+        "date": "2024-11-29",
+        "description": "UPI BMTC BUS KA01F3973 433400047258",
+        "amount": 170.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 3
+      },
+      {
+        "date": "2024-11-29",
+        "description": "UPI M22OHPUJE8026 433401182184",
+        "amount": 15.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "FOOTWEAR",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-30",
+        "description": "UPI NA 433511085451",
+        "amount": 900.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "CONSUMER",
+        "reward_points": 18
+      },
+      {
+        "date": "2024-12-02",
+        "description": "MYJIO 356",
+        "amount": 57.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-03",
+        "description": "UPI MZRDTMSRD 433828475584",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-12-03",
+        "description": "UPI FUEL SURCHARGE 433829512193",
+        "amount": 0.6,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-03",
+        "description": "UPI FUEL SURCHARGE GST 433829512193",
+        "amount": 0.11,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-03",
+        "description": "UPI HPCL 433829512193",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PETROL",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-03",
+        "description": "UPI MP2QONLDZ 433829653296",
+        "amount": 1090.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MEDICAL",
+        "reward_points": 22
+      },
+      {
+        "date": "2024-12-04",
+        "description": "MYJIO 356",
+        "amount": 57.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-05",
+        "description": "MYJIO 356",
+        "amount": 180.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-12-11",
+        "description": "UPI RADHA ENTERPRISES 434670137889",
+        "amount": 3921.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "FOOTWEAR",
+        "reward_points": 78
+      },
+      {
+        "date": "2024-12-11",
+        "description": "UPI SATYANARAYAN MANNA 434670958188",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-12-13",
+        "description": "MYJIO 356",
+        "amount": 237.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 2
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 6177.0,
+      "total_debits": 7847.71,
+      "reward_points_opening": 162,
+      "reward_points_earned": 147,
+      "reward_points_redeemed": 148,
+      "reward_points_closing": 161,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2025-02-16",
+      "end": "2025-03-15"
+    },
+    "transactions": [
+      {
+        "date": "2025-03-02",
+        "description": "BBPS",
+        "amount": 37107.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-02-15",
+        "description": "ZEPTONOW 356",
+        "amount": 1873.13,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 19
+      },
+      {
+        "date": "2025-02-16",
+        "description": "UPI AVENUE SUPERMARTS 504797913175",
+        "amount": 1333.25,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 27
+      },
+      {
+        "date": "2025-02-16",
+        "description": "UPI UDUPI AARADHYA 504704648013",
+        "amount": 134.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-02-19",
+        "description": "UPI M22I3UPJT6C0F 505097919941",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-02-19",
+        "description": "UPI MV54DBGD3 541640342180",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-21",
+        "description": "UPI SHARATH 505223943447",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-21",
+        "description": "UPI M22LXSMOTUJQO 505202677322",
+        "amount": 156.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-02-22",
+        "description": "UPI ENHANCE SALON 505356457909",
+        "amount": 900.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 18
+      },
+      {
+        "date": "2025-02-22",
+        "description": "UPI SRI CHOWDESHWARI T 505358418779",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-23",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 212.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-23",
+        "description": "UPI M22I3UPJT6C0F 505494157439",
+        "amount": 170.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-02-24",
+        "description": "UPI SHARATH 505582752563",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-24",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 238.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-25",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 240.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-26",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 1100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 11
+      },
+      {
+        "date": "2025-02-26",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 220.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-26",
+        "description": "UPI SHARATH 505714645870",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-27",
+        "description": "UPI M7YA1SLQ1 505815099292",
+        "amount": 15.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-02-27",
+        "description": "UPI ASUTOSH NAYAK 542451980899",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-27",
+        "description": "UPI BMTC BUS KA57F2201 542406467910",
+        "amount": 330.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 7
+      },
+      {
+        "date": "2025-02-27",
+        "description": "UPI M22I3UPJT6C0F 505828725500",
+        "amount": 52.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-03",
+        "description": "MYJIO 356",
+        "amount": 190.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-03",
+        "description": "POLICYBAZAARINSURANCE 356",
+        "amount": 17101.86,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "INSURANCE",
+        "reward_points": 120
+      },
+      {
+        "date": "2025-03-10",
+        "description": "MYJIO 356",
+        "amount": 190.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-07",
+        "description": "TRANSFERRED",
+        "amount": 17101.86,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "TO EMI",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-07",
+        "description": "EPP",
+        "amount": 249.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "CONVERSION FEE SEPARATE",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-07",
+        "description": "GST @ 18%",
+        "amount": 44.82,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-15",
+        "description": "GST @ 18%",
+        "amount": 41.04,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-15",
+        "description": "EMI INT-POLICYBAZAARINSURANCE (001/006)",
+        "amount": 228.02,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-15",
+        "description": "EMI PRIN FOR POLICYBAZAARINSU (001/006)",
+        "amount": 2756.77,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 54208.86,
+      "total_debits": 28116.89,
+      "reward_points_opening": 1544,
+      "reward_points_earned": 110,
+      "reward_points_redeemed": 492,
+      "reward_points_closing": 1162,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2025-05-16",
+      "end": "2025-06-15"
+    },
+    "transactions": [
+      {
+        "date": "2025-05-29",
+        "description": "BBPS",
+        "amount": 27776.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-14",
+        "description": "AMAZON 356",
+        "amount": 2.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MERCHANDISE",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-05-15",
+        "description": "UPI ZOMATO 550125099023",
+        "amount": 265.9,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-05-17",
+        "description": "UPI M226QKI6PJI2V 550309283288",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-17",
+        "description": "UPI ASHWINI A 550315289498",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-18",
+        "description": "UPI RELIANCE JIO INFOC 620954125829",
+        "amount": 249.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-05-22",
+        "description": "UPI GANGADHAR HARDWARE 550824972286",
+        "amount": 57000.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RECREATION",
+        "reward_points": 1140
+      },
+      {
+        "date": "2025-05-24",
+        "description": "UPI KARTHIK KUMAR 551014267982",
+        "amount": 200.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 4
+      },
+      {
+        "date": "2025-05-25",
+        "description": "UPI M226QKI6PJI2V 551112383974",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-05-25",
+        "description": "UPI M22I3UPJT6C0F 551121390243",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-05-28",
+        "description": "UPI ICICI 551429897584",
+        "amount": 221.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 4
+      },
+      {
+        "date": "2025-05-30",
+        "description": "UPI NARAYANA NETHRALAY 551627141767",
+        "amount": 600.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MEDICAL",
+        "reward_points": 12
+      },
+      {
+        "date": "2025-05-30",
+        "description": "UPI NN DRUGS AND OPTIC 551620152569",
+        "amount": 755.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MEDICAL",
+        "reward_points": 15
+      },
+      {
+        "date": "2025-05-31",
+        "description": "UPI M226QKI6PJI2V 551702251272",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-31",
+        "description": "UPI ASHWINI A 551700249277",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-01",
+        "description": "UPI M22I3UPJT6C0F 551823433394",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-01",
+        "description": "UPI SHIVANNI GAUTAM 551804434067",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-01",
+        "description": "UPI CINEPOLIS 551800507039",
+        "amount": 570.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "CINEMA",
+        "reward_points": 11
+      },
+      {
+        "date": "2025-06-01",
+        "description": "UPI SHIVANNI GAUTAM 551814581031",
+        "amount": 120.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-06-01",
+        "description": "UPI M22I3UPJT6C0F 551802581483",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-06-02",
+        "description": "UPI SWIGGY 212421380922",
+        "amount": 239.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-06-04",
+        "description": "UPI M226QKI6PJI2V 201346021387",
+        "amount": 70.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-04",
+        "description": "UPI M22I3UPJT6C0F 552123062942",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-06",
+        "description": "UPI SHIVANNI GAUTAM 552327286879",
+        "amount": 70.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-06",
+        "description": "UPI ASHWINI A 113934244716",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-06",
+        "description": "UPI ZOMATO LTD 552307336734",
+        "amount": 235.38,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-06-07",
+        "description": "UPI ASHWINI A 131743758132",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI ISKCON BANGALORE 552516635897",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI ISKCON BANGALORE 552527636793",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI ISKCON BANGALORE 552523643459",
+        "amount": 1000.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 20
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI TSF FOOD NARASIMHA 152305972704",
+        "amount": 65.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI MAHARUDRA K 154221173868",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI ASHOK GANAPATHI KI 155143540681",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-08",
+        "description": "UPI TSF FOOD VAMANA 151631636317",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-10",
+        "description": "UPI SHARATH 552727969242",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-12",
+        "description": "UPI M226QKI6PJI2V 183956369367",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-06-12",
+        "description": "UPI M22I3UPJT6C0F 185750453141",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-14",
+        "description": "UPI ZOMATO LTD 553127503406",
+        "amount": 186.5,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 4
+      },
+      {
+        "date": "2025-06-14",
+        "description": "AMAZON 356",
+        "amount": 2.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MERCHANDISE",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-15",
+        "description": "UPI TEJASHREEBM 553216653177",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-06-15",
+        "description": "UPI THE BIRYANI CART 553222655465",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-06-15",
+        "description": "UPI L J IYENGAR BAKERY 553228650053",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-15",
+        "description": "GST @ 18%",
+        "amount": 20.93,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-15",
+        "description": "EMI PRIN FOR POLICYBAZAARINSU (004/006)",
+        "amount": 2868.52,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-06-15",
+        "description": "EMI INT-POLICYBAZAARINSURANCE (004/006)",
+        "amount": 116.27,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 27778.0,
+      "total_debits": 65862.5,
+      "reward_points_opening": 1969,
+      "reward_points_earned": 1253,
+      "reward_points_redeemed": 0,
+      "reward_points_closing": 3222,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2025-03-16",
+      "end": "2025-04-15"
+    },
+    "transactions": [
+      {
+        "date": "2025-03-26",
+        "description": "UPI IRCTC 100239585672",
+        "amount": 42.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-26",
+        "description": "UPI IRCTC 100239585593",
+        "amount": 357.7,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-03-29",
+        "description": "BBPS",
+        "amount": 11015.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-17",
+        "description": "UPI BMTC BUS KA57F2387 507639066633",
+        "amount": 300.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 6
+      },
+      {
+        "date": "2025-03-18",
+        "description": "UPI SHARATH 507778650063",
+        "amount": 85.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-03-21",
+        "description": "UPI M22JZVZ8C1RD7 508065916736",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-22",
+        "description": "MYJIO 356",
+        "amount": 217.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-03-23",
+        "description": "UPI M22LANTVSDHVR 213619399535",
+        "amount": 807.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 16
+      },
+      {
+        "date": "2025-03-23",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 199.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-03-23",
+        "description": "UPI ICICI 110432983781",
+        "amount": 971.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "DEPARTMENTAL",
+        "reward_points": 19
+      },
+      {
+        "date": "2025-03-25",
+        "description": "UPI ICICI 508401653859",
+        "amount": 33.33,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-25",
+        "description": "UPI MQOIHPXCS 508401450908",
+        "amount": 110.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-03-25",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 103.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-26",
+        "description": "UPI IRCTC 100239503718",
+        "amount": 399.7,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-03-28",
+        "description": "UPI PAYTM TRAIN TICKET 545301142555",
+        "amount": 406.7,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-03-28",
+        "description": "UPI AXIS 545301142957",
+        "amount": 352.7,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 7
+      },
+      {
+        "date": "2025-03-28",
+        "description": "UPI M22JZVZ8C1RD7 545302338814",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-29",
+        "description": "OLASTORESTECHNOLOGIE 356",
+        "amount": 204.45,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-03-30",
+        "description": "UPI M22PGOU4P08SQ 545502750764",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-30",
+        "description": "UPI MV54DBGD3 545500080325",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-30",
+        "description": "UPI WE CHAI 545501585672",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-03-30",
+        "description": "UPI ASHWINI A 545502486247",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-03-30",
+        "description": "SWIGGYINSTAMART 356",
+        "amount": 199.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-03-31",
+        "description": "UPI NATIONAL PENSION S 545601639361",
+        "amount": 50000.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 350
+      },
+      {
+        "date": "2025-04-01",
+        "description": "UPI MV54DBGD3 545701952679",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-01",
+        "description": "UPI WE CHAI 545701653393",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-03",
+        "description": "PURCHASE RUPAY UPI REVERSAL 545956713808",
+        "amount": 142.17,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-04-03",
+        "description": "UPI OLA STORES TECHNOL 545956713808",
+        "amount": 142.17,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-04-04",
+        "description": "UPI M22JZVZ8C1RD7 546004933683",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-04",
+        "description": "UPI ZEPTO MARKETPLACE 212441366454",
+        "amount": 542.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 11
+      },
+      {
+        "date": "2025-04-06",
+        "description": "UPI WE CHAI 546218632518",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-06",
+        "description": "UPI SHIVANNI GAUTAM 546290214008",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-04-06",
+        "description": "UPI ASHWINI A 509679609337",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-07",
+        "description": "UPI M22JZVZ8C1RD7 509744613568",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-04-08",
+        "description": "UPI AXIS 546459285189",
+        "amount": 511.7,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 10
+      },
+      {
+        "date": "2025-04-08",
+        "description": "UPI AXIS 546460981383",
+        "amount": 511.7,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 10
+      },
+      {
+        "date": "2025-04-09",
+        "description": "UPI WE CHAI 509999243788",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-09",
+        "description": "UPI MV54DBGD3 546530678116",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-15",
+        "description": "GST @ 18%",
+        "amount": 34.43,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-15",
+        "description": "EMI PRIN FOR POLICYBAZAARINSU (002/006)",
+        "amount": 2793.53,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-15",
+        "description": "EMI INT-POLICYBAZAARINSURANCE (002/006)",
+        "amount": 191.26,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 11556.87,
+      "total_debits": 59712.67,
+      "reward_points_opening": 1162,
+      "reward_points_earned": 459,
+      "reward_points_redeemed": 146,
+      "reward_points_closing": 1475,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2025-04-16",
+      "end": "2025-05-15"
+    },
+    "transactions": [
+      {
+        "date": "2025-04-24",
+        "description": "UPI RBLBANK 511425905914",
+        "amount": 229.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 5
+      },
+      {
+        "date": "2025-04-24",
+        "description": "UPI RBLBANK 511425906495",
+        "amount": 767.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 15
+      },
+      {
+        "date": "2025-04-26",
+        "description": "BBPS",
+        "amount": 59171.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-08",
+        "description": "PURCHASE RUPAY UPI REVERSAL 546459285189",
+        "amount": 134.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-04-08",
+        "description": "PURCHASE RUPAY UPI REVERSAL546460981383",
+        "amount": 134.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-04-16",
+        "description": "UPI V SUBRAMANI SO VEN 547260629612",
+        "amount": 51.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-16",
+        "description": "UPI M22CMGHWLJ4D8 547224913045",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-19",
+        "description": "UPI SWIGGY 510974436598",
+        "amount": 163.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-04-19",
+        "description": "UPI MS SHUBHA N 547517018352",
+        "amount": 120.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-04-19",
+        "description": "UPI ENHANCE SALON 510938047886",
+        "amount": 300.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 6
+      },
+      {
+        "date": "2025-04-20",
+        "description": "UPI L J IYENGAR BAKERY 511060334294",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-20",
+        "description": "UPI M22S5WN7WDVJG 547679331368",
+        "amount": 140.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-04-21",
+        "description": "UPI RAJIV KUMAR 547789959891",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-23",
+        "description": "UPI M22GCYAD6VB41 547913892657",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-23",
+        "description": "UPI M22JZVZ8C1RD7 547960559617",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-24",
+        "description": "UPI RBLBANK 548037345594",
+        "amount": 996.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 20
+      },
+      {
+        "date": "2025-04-25",
+        "description": "UPI M22JZVZ8C1RD7 548106168656",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-26",
+        "description": "UPI A N HARISH 548207276223",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-26",
+        "description": "UPI M22I3UPJT6C0F 548210245760",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-26",
+        "description": "UPI MV54DBGD3 548224243838",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-27",
+        "description": "UPI L J IYENGAR BAKERY 548331408183",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-04-27",
+        "description": "UPI M22S5WN7WDVJG 548302404942",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-04-29",
+        "description": "UPI M22JZVZ8C1RD7 548524700104",
+        "amount": 80.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-04-29",
+        "description": "UPI GANGADHAR HARDWARE 548526691393",
+        "amount": 22800.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RECREATION",
+        "reward_points": 456
+      },
+      {
+        "date": "2025-05-02",
+        "description": "UPI NEW 548826084607",
+        "amount": 250.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-05-02",
+        "description": "UPI JAYA SANIL 548815232276",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-03",
+        "description": "UPI JAYA SANIL 548914247428",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-04",
+        "description": "UPI JAYA SANIL 549016462019",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-05-05",
+        "description": "UPI M226QKI6PJI2V 549127586902",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-05",
+        "description": "UPI M226QKI6PJI2V 549121589137",
+        "amount": 10.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-05-05",
+        "description": "UPI ASHWINI A 549108591103",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-09",
+        "description": "UPI MFINE 549523239040",
+        "amount": 349.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 7
+      },
+      {
+        "date": "2025-05-10",
+        "description": "UPI M226QKI6PJI2V 549605309493",
+        "amount": 60.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-10",
+        "description": "UPI M22I3UPJT6C0F 549609315873",
+        "amount": 12.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-05-11",
+        "description": "UPI SURAJ 549724545924",
+        "amount": 45.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-05-15",
+        "description": "GST @ 18%",
+        "amount": 27.72,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-05-15",
+        "description": "EMI PRIN FOR POLICYBAZAARINSU (003/006)",
+        "amount": 2830.77,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2025-05-15",
+        "description": "EMI INT-POLICYBAZAARINSURANCE (003/006)",
+        "amount": 154.02,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 60435.0,
+      "total_debits": 29040.51,
+      "reward_points_opening": 1475,
+      "reward_points_earned": 494,
+      "reward_points_redeemed": 0,
+      "reward_points_closing": 1969,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2025-01-16",
+      "end": "2025-02-15"
+    },
+    "transactions": [
+      {
+        "date": "2025-01-29",
+        "description": "BBPS",
+        "amount": 46611.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-15",
+        "description": "UPI M1S870IHG8IX 501510786569",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-16",
+        "description": "UPI SHARATH 501613744397",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-01-18",
+        "description": "UPI M22DZT4UF71HQ 501818148201",
+        "amount": 600.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 12
+      },
+      {
+        "date": "2025-01-19",
+        "description": "UPI SAUMEN MANDAL 501921202272",
+        "amount": 2900.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 20
+      },
+      {
+        "date": "2025-01-19",
+        "description": "UPI TSF FOOD VISHNU 501920193357",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-19",
+        "description": "UPI TSF FOOD SITA RAM 501920172869",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-19",
+        "description": "UPI TSF FOOD SITA RAM 501920170320",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-20",
+        "description": "PURCHASE RUPAY UPI REVERSAL 502023449564",
+        "amount": 1005.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "COMPUTERS",
+        "reward_points": 20
+      },
+      {
+        "date": "2025-01-20",
+        "description": "UPI ICICI 502023449564",
+        "amount": 1005.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "COMPUTERS",
+        "reward_points": 20
+      },
+      {
+        "date": "2025-01-23",
+        "description": "UPI OLA STORES TECHNOL 502331340627",
+        "amount": 175.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 4
+      },
+      {
+        "date": "2025-01-26",
+        "description": "UPI SENDHOOR COFFEE 502637164864",
+        "amount": 146.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 3
+      },
+      {
+        "date": "2025-02-01",
+        "description": "UPI BETTADALUR VEEREGO 503253593588",
+        "amount": 15.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-02-01",
+        "description": "UPI M22ZEZIMRFWH6 503254391900",
+        "amount": 450.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 9
+      },
+      {
+        "date": "2025-02-01",
+        "description": "UPI ICICI 503253651955",
+        "amount": 99.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "COMPUTERS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-02",
+        "description": "UPI MV54DBGD3 503389492588",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-02",
+        "description": "UPI RAJIV KUMAR 539912213144",
+        "amount": 25.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-02",
+        "description": "UPI SWIGGY 539972938876",
+        "amount": 259.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-02-02",
+        "description": "UPI M222AVAN0SRD3 503356834780",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-02",
+        "description": "UPI M22I3UPJT6C0F 503356590927",
+        "amount": 72.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-03",
+        "description": "UPI UBER INDIA SYSTEMS 371319108612",
+        "amount": 38.74,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-06",
+        "description": "UPI MOHAMMAD ALI OMAN 540357510561",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-06",
+        "description": "UPI M22LXSMOTUJQO 540371359724",
+        "amount": 90.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-08",
+        "description": "UPI UDUPI AARADHYA 503943739803",
+        "amount": 115.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-09",
+        "description": "MYJIO 356",
+        "amount": 190.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-09",
+        "description": "UPI M22I3UPJT6C0F 540690095130",
+        "amount": 72.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-02-10",
+        "description": "UPI ICICI 540765103314",
+        "amount": 31400.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 628
+      },
+      {
+        "date": "2025-02-11",
+        "description": "UPI BETTADALUR VEEREGO 540864140632",
+        "amount": 110.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-02-11",
+        "description": "UPI MMRRF5T3B 540854440440",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 1
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 47616.0,
+      "total_debits": 38111.74,
+      "reward_points_opening": 883,
+      "reward_points_earned": 699,
+      "reward_points_redeemed": 38,
+      "reward_points_closing": 1544,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "3561XXXXXXXX1289",
+    "statement_period": {
+      "start": "2024-12-16",
+      "end": "2025-01-15"
+    },
+    "transactions": [
+      {
+        "date": "2024-12-26",
+        "description": "BBPS",
+        "amount": 7848.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PAYMENT",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-26",
+        "description": "CHEQDIGITALPVTLTD 356",
+        "amount": 2.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-16",
+        "description": "UPI INDIAN RAILWAYS 435193730889",
+        "amount": 230.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-12-16",
+        "description": "UPI INDIAN RAILWAYS 435193729538",
+        "amount": 460.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 3
+      },
+      {
+        "date": "2024-12-16",
+        "description": "UPI INDIAN RAILWAYS 435193727734",
+        "amount": 460.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RAILWAYS",
+        "reward_points": 3
+      },
+      {
+        "date": "2024-12-18",
+        "description": "UPI MUB2ZIKIE 471904497667",
+        "amount": 95.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MEDICAL",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-12-22",
+        "description": "UPI ICICI 472321777186",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 2
+      },
+      {
+        "date": "2024-12-22",
+        "description": "UPI CHAKRADHAR JENA 472320849489",
+        "amount": 70.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 1
+      },
+      {
+        "date": "2024-12-24",
+        "description": "MYJIO 356",
+        "amount": 57.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-25",
+        "description": "UPI BMTC BUS KA01FA205 472636259995",
+        "amount": 270.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 5
+      },
+      {
+        "date": "2024-12-26",
+        "description": "CHEQDIGITALPVTLTD 356",
+        "amount": 2.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2024-12-28",
+        "description": "MYJIO 356",
+        "amount": 389.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "UTILITIES",
+        "reward_points": 3
+      },
+      {
+        "date": "2024-12-29",
+        "description": "UPI ZEPTO 473048893745",
+        "amount": 261.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "GROCERY &",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-01-01",
+        "description": "UPI MB5KBXDGA 536763223083",
+        "amount": 35.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-01-01",
+        "description": "UPI SAUMEN MANDAL 536763398444",
+        "amount": 3000.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 21
+      },
+      {
+        "date": "2025-01-03",
+        "description": "UPI SENDHOOR COFFEE 536969257419",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-01-03",
+        "description": "UPI SENDHOOR COFFEE 536969269787",
+        "amount": 18.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-04",
+        "description": "UPI MUGILAMMA 537073818141",
+        "amount": 100.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 2
+      },
+      {
+        "date": "2025-01-04",
+        "description": "UPI MUGILAMMA 537073819447",
+        "amount": 10.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-04",
+        "description": "UPI MLG4AIPD0 537073685927",
+        "amount": 205.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 4
+      },
+      {
+        "date": "2025-01-05",
+        "description": "UPI ZOMATO LTD 537178392196",
+        "amount": 233.35,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 5
+      },
+      {
+        "date": "2025-01-06",
+        "description": "UPI GANGADHAR HARDWARE 537282553713",
+        "amount": 38070.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RECREATION",
+        "reward_points": 761
+      },
+      {
+        "date": "2025-01-08",
+        "description": "UPI SENDHOOR COFFEE 537487872187",
+        "amount": 18.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-08",
+        "description": "UPI SENDHOOR COFFEE 537487858986",
+        "amount": 40.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-01-11",
+        "description": "UPI SAUMEN MANDAL 537798001464",
+        "amount": 1700.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "MISCELLANEOUS",
+        "reward_points": 12
+      },
+      {
+        "date": "2025-01-12",
+        "description": "UPI ABUDUL SATTAR S O 501202967694",
+        "amount": 20.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 0
+      },
+      {
+        "date": "2025-01-12",
+        "description": "UPI GAVI RANGA LAKKUR 501202963178",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      },
+      {
+        "date": "2025-01-12",
+        "description": "UPI MBRYTH8CG 501202253024",
+        "amount": 650.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "PERSONAL CARE",
+        "reward_points": 13
+      },
+      {
+        "date": "2025-01-15",
+        "description": "UPI RAVINDRA 501509738008",
+        "amount": 50.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": "RESTAURANTS",
+        "reward_points": 1
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 7850.0,
+      "total_debits": 46613.35,
+      "reward_points_opening": 161,
+      "reward_points_earned": 849,
+      "reward_points_redeemed": 127,
+      "reward_points_closing": 883,
+      "account_summary": null
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "IndusInd Bank",
+    "account_number": "XXXX",
+    "statement_period": {
+      "start": "",
+      "end": ""
+    },
+    "transactions": [],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 0,
+      "total_debits": 0,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": null
+    }
+  }
+]

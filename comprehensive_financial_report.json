@@ -1,0 +1,105 @@
+{
+  "analysis_date": "2025-08-24T21:21:15.164313",
+  "credit_utilization": {
+    "bank_wise": {},
+    "overall_utilization": 0,
+    "total_credit_limit": 0,
+    "total_used_credit": 0,
+    "utilization_grade": "EXCELLENT"
+  },
+  "spending_patterns": {
+    "total_spending": 12952994.789999975,
+    "total_payments": 530906.33,
+    "merchant_categories": {
+      "OTHER": 12120079.190000001,
+      "E-COMMERCE": 380632.2000000001,
+      "FOOD & DINING": 83707.51000000002,
+      "TELECOM": 1303.0,
+      "FUEL": 660.71,
+      "GROCERY": 279.0,
+      "INSURANCE": 77478.80999999998,
+      "RESTAURANTS": 8698.13,
+      "PERSONAL CARE": 3160.0,
+      "UTILITIES": 2016.0,
+      "GROCERY &": 8804.380000000001,
+      "MISCELLANEOUS": 96162.59,
+      "RECREATION": 140510.0,
+      "CONSUMER": 4180.0,
+      "APPAREL": 13934.869999999999,
+      "FOOTWEAR": 3936.0,
+      "PETROL": 60.0,
+      "MEDICAL": 2540.0,
+      "CONVERSION FEE SEPARATE": 249.0,
+      "CINEMA": 570.0,
+      "MERCHANDISE": 2.0,
+      "DEPARTMENTAL": 971.0,
+      "RAILWAYS": 1956.4,
+      "COMPUTERS": 1104.0
+    },
+    "monthly_trends": {},
+    "bank_wise_spending": {
+      "State Bank of India": {
+        "spending": 12332063.86,
+        "payments": 0,
+        "net": 12332063.86
+      },
+      "UNKNOWN": {
+        "spending": 0,
+        "payments": 0,
+        "net": 0
+      },
+      "ICICI": {
+        "spending": 37744.57,
+        "payments": 1272.14,
+        "net": 36472.43
+      },
+      "IndusInd Bank": {
+        "spending": 323008.88,
+        "payments": 292076.23,
+        "net": 30932.650000000023
+      },
+      "HDFC Bank": {
+        "spending": 260177.48000000013,
+        "payments": 237557.96000000002,
+        "net": 22619.520000000106
+      }
+    }
+  },
+  "reward_optimization": {
+    "total_points_earned": 5699,
+    "bank_wise_rewards": {
+      "ICICI": {
+        "points_earned": 760,
+        "spending": 37744.57,
+        "spending_per_point": 49.663907894736845
+      },
+      "IndusInd Bank": {
+        "points_earned": 4939,
+        "spending": 323008.88,
+        "spending_per_point": 65.39965175136668
+      }
+    },
+    "spending_per_point": {
+      "ICICI": 49.663907894736845,
+      "IndusInd Bank": 65.39965175136668
+    },
+    "optimization_opportunities": []
+  },
+  "financial_health": {
+    "credit_utilization_rate": 0,
+    "payment_behavior_score": 40,
+    "spending_diversity_score": 100,
+    "reward_optimization_score": 60,
+    "overall_financial_health": "FAIR",
+    "risk_level": "LOW"
+  },
+  "recommendations": [
+    "\ud83d\udcb3 Increase payment amounts to reduce outstanding balances",
+    "\ud83d\udcca Top spending category: OTHER (\u20b912,120,079)"
+  ],
+  "summary": {
+    "total_banks": 5,
+    "total_statements": 61,
+    "total_transactions": 2788
+  }
+}

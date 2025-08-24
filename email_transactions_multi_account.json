@@ -1,4 +1,125 @@
 {
+  "HSBC": [
+    {
+      "amount": 223.0,
+      "date": "2025-08-23",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198d7cbd06e02370",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "22:08",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 168.0,
+      "date": "2025-08-22",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198d2650e90f1222",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "20:56",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 233.35,
+      "date": "2025-08-18",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198bded7137b7c9b",
+        "transaction_category": "card"
+      },
+      "merchant": "ETERNAL LIMITED",
+      "card_last4": "1032",
+      "time": "21:34",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 168.0,
+      "date": "2025-08-17",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198b8ac0d9f3d512",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "21:05",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 206.0,
+      "date": "2025-08-17",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198b719a8ec9a996",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "13:45",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 435.74,
+      "date": "2025-08-15",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198abfa27c8bfd22",
+        "transaction_category": "card"
+      },
+      "merchant": "ZEPTO MARKETPLACE PRIVATE",
+      "card_last4": "1032",
+      "time": "09:54",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 122.0,
+      "date": "2025-08-19",
+      "bank": "HSBC",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198c4f3fda5117dc",
+        "transaction_category": "card"
+      },
+      "merchant": "Credit Adjustment",
+      "card_last4": "1032",
+      "time": null,
+      "category": null,
+      "reference_number": null
+    }
+  ],
   "Kotak": [
     {
       "amount": 325.0,
@@ -141,234 +262,6 @@
       "remarks": null
     },
     {
-      "amount": 284198.0,
-      "date": "2025-08-01",
-      "bank": "Kotak",
-      "transaction_type": "credit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "19863f07dec4aa63"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": "AMAZON DEVELOPMENT CENTRE INDIA PRIVATE LIMITED Sender Mobile No: 9111XX1111",
-      "sender_account": null,
-      "reference_number": "521310627144",
-      "remarks": null
-    },
-    {
-      "amount": 100000.0,
-      "date": "2025-07-26",
-      "bank": "Kotak",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "198457e8164a6f0f"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": "Mr. JYOTIRMAY SETHI",
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": "520712400179",
-      "remarks": null
-    },
-    {
-      "amount": 77099.0,
-      "date": "2025-07-26",
-      "bank": "Kotak",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "19845555901e2596"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": "JYOTIRMAY SETHI",
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": "520711373958",
-      "remarks": null
-    },
-    {
-      "amount": 400000.0,
-      "date": "2025-07-21",
-      "bank": "Kotak",
-      "transaction_type": "credit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "1982b14450d7e942"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": "JYOTIRMAY SETHI Sender Mobile No: 9163XX9923",
-      "sender_account": null,
-      "reference_number": "520209935240",
-      "remarks": null
-    },
-    {
-      "amount": 1.0,
-      "date": "2025-07-21",
-      "bank": "Kotak",
-      "transaction_type": "credit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "1982b135e7fcd01a"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": "JYOTIRMAY SETHI Sender Mobile No: 9163XX9923",
-      "sender_account": null,
-      "reference_number": "520209934883",
-      "remarks": null
-    },
-    {
-      "amount": 225279.17,
-      "date": "2025-07-16",
-      "bank": "Kotak",
-      "transaction_type": "credit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "198113d5d8a6ef1d"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": "AMAZON DEVELOPMENT CENTRE INDIA PRIVATE LIMITED Sender Mobile No: 9111XX1111",
-      "sender_account": null,
-      "reference_number": "519708833410",
-      "remarks": null
-    },
-    {
-      "amount": 40000.0,
-      "date": "2025-07-14",
-      "bank": "Kotak",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "1980974fcdb60402"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": "JYOTIRMAY SETHI",
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": "519520506431",
-      "remarks": null
-    },
-    {
-      "amount": 30000.0,
-      "date": "2025-07-04",
-      "bank": "Kotak",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "197d2a26baa27a3d"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": "Mr. JYOTIRMAY SETHI",
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": "518505329670",
-      "remarks": null
-    },
-    {
-      "amount": 1.0,
-      "date": "2025-06-18",
-      "bank": "Kotak",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "19783ddde1da780b"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": "Mr. JYOTIRMAY SETHI",
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": "516921860167",
-      "remarks": null
-    },
-    {
-      "amount": 1.0,
-      "date": "2025-06-18",
-      "bank": "Kotak",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "19783cd97562791e"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": "JYOTIRMAY SETHI",
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": "516921852807",
-      "remarks": null
-    },
-    {
-      "amount": 221120.0,
-      "date": "2025-06-01",
-      "bank": "Kotak",
-      "transaction_type": "credit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "1972c3e5728f32c1"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": "AMAZON DEVELOPMENT CENTRE INDIA PRIVATE LIMITED Sender Mobile No: 9111XX1111",
-      "sender_account": null,
-      "reference_number": "515221629641",
-      "remarks": null
-    },
-    {
-      "amount": 7624.83,
-      "date": "2025-06-01",
-      "bank": "Kotak",
-      "transaction_type": "credit",
-      "metadata": {
-        "source": "email",
-        "transaction_category": "transfer",
-        "transfer_type": "IMPS",
-        "email_id": "1972c3c02296e25c"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": "AMAZON DEVELOPMENT CENTRE INDIA PRIVATE LIMITED Sender Mobile No: 9111XX1111",
-      "sender_account": null,
-      "reference_number": "515221629522",
-      "remarks": null
-    },
-    {
       "amount": 65400.0,
       "date": "2025-07-30",
       "bank": "Kotak",
@@ -484,431 +377,6 @@
       "merchant": "Zepto Marketplace",
       "card_last4": "1289",
       "time": "08:54:54",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 100.0,
-      "date": "2025-08-03",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1986ee4d0f6b8274"
-      },
-      "merchant": "Rajadhi Raja Govin",
-      "card_last4": "1289",
-      "time": "01:15:43",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 15.0,
-      "date": "2025-08-03",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1986e1d545c6845c"
-      },
-      "merchant": "We Chai",
-      "card_last4": "1289",
-      "time": "09:37:50",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 60.0,
-      "date": "2025-08-03",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1986e1100bf9f493"
-      },
-      "merchant": "M226qki6pji2v",
-      "card_last4": "1289",
-      "time": "09:24:22",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 650.37,
-      "date": "2025-08-02",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19869381617eeb8d"
-      },
-      "merchant": "Zepto Marketplace",
-      "card_last4": "1289",
-      "time": "10:48:58",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 249.0,
-      "date": "2025-08-01",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19863dea2433c315"
-      },
-      "merchant": "Reliance Jio Infoc",
-      "card_last4": "1289",
-      "time": "09:53:09",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 15.0,
-      "date": "2025-07-27",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1984a3653acc5a6c"
-      },
-      "merchant": "We Chai",
-      "card_last4": "1289",
-      "time": "10:18:49",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 60.0,
-      "date": "2025-07-27",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1984a2cee0829218"
-      },
-      "merchant": "M226qki6pji2v",
-      "card_last4": "1289",
-      "time": "10:08:33",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 22560.0,
-      "date": "2025-07-25",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "198420bfe950fee8"
-      },
-      "merchant": "Gangadhar Hardware",
-      "card_last4": "1289",
-      "time": "08:15:37",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 866.99,
-      "date": "2025-07-23",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "198356c198183cbe"
-      },
-      "merchant": "Zepto Marketplace",
-      "card_last4": "1289",
-      "time": "09:25:31",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 264.0,
-      "date": "2025-07-20",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19827290bfeea68b"
-      },
-      "merchant": "Icici",
-      "card_last4": "1289",
-      "time": "02:57:36",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 15.0,
-      "date": "2025-07-20",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "198260dd2596e604"
-      },
-      "merchant": "We Chai",
-      "card_last4": "1289",
-      "time": "09:48:15",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 60.0,
-      "date": "2025-07-20",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1982609087187471"
-      },
-      "merchant": "M226qki6pji2v",
-      "card_last4": "1289",
-      "time": "09:43:00",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 3280.0,
-      "date": "2025-07-08",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197ea4a9041dbc05"
-      },
-      "merchant": "Med807lhz",
-      "card_last4": "1289",
-      "time": "07:17:22",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 500.0,
-      "date": "2025-07-05",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197d9ae232b81d29"
-      },
-      "merchant": "M1fg7phg18p3",
-      "card_last4": "1289",
-      "time": "01:52:35",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 320.0,
-      "date": "2025-07-04",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197d5c4392150e8c"
-      },
-      "merchant": "Gangadhar Hardware",
-      "card_last4": "1289",
-      "time": "07:38:14",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 22320.0,
-      "date": "2025-07-04",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197d5377026cac0c"
-      },
-      "merchant": "Gangadhar Hardware",
-      "card_last4": "1289",
-      "time": "05:04:27",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 240.0,
-      "date": "2025-06-28",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197b521f74efaf95"
-      },
-      "merchant": "Bhagyamma K V",
-      "card_last4": "1289",
-      "time": "11:33:09",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 200.0,
-      "date": "2025-06-21",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197923b5e0c8e59c"
-      },
-      "merchant": "Karthik Kumar",
-      "card_last4": "1289",
-      "time": "04:54:11",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 25.0,
-      "date": "2025-06-16",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197792370558c32d"
-      },
-      "merchant": "Rajiv Kumar",
-      "card_last4": "1289",
-      "time": "07:57:33",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 90.0,
-      "date": "2025-06-15",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19772902221845b8"
-      },
-      "merchant": "The Biryani Cart",
-      "card_last4": "1289",
-      "time": "01:18:56",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 20.0,
-      "date": "2025-06-15",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "197728a461539f5b"
-      },
-      "merchant": "L J Iyengar Bakery",
-      "card_last4": "1289",
-      "time": "01:12:31",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 186.5,
-      "date": "2025-06-14",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1976d754221f4ef2"
-      },
-      "merchant": "Zomato Ltd",
-      "card_last4": "1289",
-      "time": "01:31:17",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 2.0,
-      "date": "2025-06-14",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "1976cc3839806b66"
-      },
-      "merchant": "Amazon",
-      "card_last4": "1289",
-      "time": "10:17:01",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 12.0,
-      "date": "2025-06-12",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19764535b47a9a68"
-      },
-      "merchant": "M22i3upjt6c0f",
-      "card_last4": "1289",
-      "time": "06:57:51",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 40.0,
-      "date": "2025-06-12",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19764435300631b1"
-      },
-      "merchant": "M226qki6pji2v",
-      "card_last4": "1289",
-      "time": "06:39:58",
       "category": null,
       "reference_number": null
     }

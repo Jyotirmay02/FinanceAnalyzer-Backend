@@ -399,6 +399,156 @@ class GmailTransactionReader:
             
         return None
     
+    def parse_icici_credit_card_transaction(self, email_content: str) -> Optional[Dict]:
+        """Parse ICICI Credit Card transaction emails"""
+        transaction = {
+            'bank': 'ICICI_CC',
+            'raw_content': email_content
+        }
+        
+        # ICICI Credit Card transaction pattern
+        icici_match = re.search(r'Your ICICI Bank Credit Card XX(\d+) has been used for a transaction of INR ([\d,]+\.?\d*) on (\w{3} \d{1,2}, \d{4}) at ([\d:]+).*?Info: ([^.]+)', email_content, re.IGNORECASE | re.DOTALL)
+        if icici_match:
+            card_last4, amount, date, time, merchant = icici_match.groups()
+            
+            # Parse date
+            try:
+                parsed_date = datetime.strptime(date, '%b %d, %Y').strftime('%Y-%m-%d')
+            except:
+                parsed_date = datetime.now().strftime('%Y-%m-%d')
+            
+            transaction.update({
+                'account_number': f"XX{card_last4}",
+                'amount': float(amount.replace(',', '')),
+                'transaction_type': 'debit',
+                'date': parsed_date,
+                'time': time,
+                'merchant': merchant.strip(),
+                'transaction_method': 'Credit Card'
+            })
+            return transaction
+            
+        return None
+
+    def parse_sbi_credit_card_transaction(self, email_content: str) -> Optional[Dict]:
+        """Parse SBI Credit Card transaction emails"""
+        transaction = {
+            'bank': 'SBI_CC',
+            'raw_content': email_content
+        }
+        
+        # SBI Credit Card statement pattern
+        statement_match = re.search(r'SimplyCLICK SBI Card Monthly Statement.*?(\w{3} \d{4})', email_content, re.IGNORECASE)
+        if statement_match:
+            month_year = statement_match.group(1)
+            transaction.update({
+                'transaction_type': 'statement',
+                'date': datetime.now().strftime('%Y-%m-%d'),
+                'merchant': f'SBI Credit Card Statement - {month_year}',
+                'transaction_method': 'Statement'
+            })
+            return transaction
+            
+        return None
+
+    def parse_canara_bank_transaction(self, email_content: str) -> Optional[Dict]:
+        """Parse Canara Bank transaction emails"""
+        transaction = {
+            'bank': 'CANARA',
+            'raw_content': email_content
+        }
+        
+        # Canara Bank transaction pattern
+        canara_match = re.search(r'An amount of INR ([\d,]+\.?\d*) has been (DEBITED|CREDITED) to your account XXXX(\d+) on (\d{2}/\d{2}/\d{4}).*?Total Avail\.bal INR ([\d,]+\.?\d*)', email_content, re.IGNORECASE | re.DOTALL)
+        if canara_match:
+            amount, txn_type, account_last4, date, balance = canara_match.groups()
+            
+            # Parse date
+            try:
+                parsed_date = datetime.strptime(date, '%d/%m/%Y').strftime('%Y-%m-%d')
+            except:
+                parsed_date = datetime.now().strftime('%Y-%m-%d')
+            
+            transaction.update({
+                'account_number': f"XXXX{account_last4}",
+                'amount': float(amount.replace(',', '')),
+                'transaction_type': 'debit' if txn_type == 'DEBITED' else 'credit',
+                'date': parsed_date,
+                'merchant': 'ATM/IMPS/UPI Transaction',
+                'balance': float(balance.replace(',', '')),
+                'transaction_method': 'Bank Transfer'
+            })
+            return transaction
+            
+        return None
+
+    def parse_sbi_transaction(self, email_content: str) -> Optional[Dict]:
+        """Parse SBI transaction emails - 3 main patterns for now"""
+        transaction = {
+            'bank': 'SBI',
+            'raw_content': email_content
+        }
+        
+        # 1. NEFT Credit (Incoming)
+        neft_credit_match = re.search(r'Your account has been credited for NEFT received.*?Credited to Your A/c:\s*XX(\d+).*?Amount:\s*INR\s*([\d,]+\.?\d*).*?UTR No\.:\s*([A-Z0-9]+).*?Date:\s*(\d{2}/\d{2}/\d{4}).*?Sent by:\s*([^\n\r]+)', email_content, re.IGNORECASE | re.DOTALL)
+        if neft_credit_match:
+            account, amount, utr, date, sender = neft_credit_match.groups()
+            transaction.update({
+                'account_number': f"XX{account}",
+                'amount': float(amount.replace(',', '')),
+                'transaction_type': 'credit',
+                'date': datetime.strptime(date, '%d/%m/%Y').strftime('%Y-%m-%d'),
+                'merchant': sender.strip(),
+                'reference_number': utr,
+                'transaction_method': 'NEFT'
+            })
+            return transaction
+            
+        # 2. YONO Transfer (Outgoing)
+        yono_match = re.search(r'FT YONO\. Ref\. No\. is ([A-Z0-9]+) for transaction of Rs\. ([\d,]+\.?\d*) from A/c ending (\d+) to ([^\\n]+) on (\d{2}-\w{3}-\d{2})', email_content, re.IGNORECASE)
+        if yono_match:
+            ref_no, amount, account, beneficiary, date = yono_match.groups()
+            transaction.update({
+                'account_number': f"XX{account}",
+                'amount': float(amount.replace(',', '')),
+                'transaction_type': 'debit',
+                'date': datetime.strptime(date, '%d-%b-%y').strftime('%Y-%m-%d'),
+                'merchant': beneficiary.strip(),
+                'reference_number': ref_no,
+                'transaction_method': 'YONO'
+            })
+            return transaction
+            
+        # 3. ATM Cash Withdrawal
+        if 'CASH WITHDRAWAL' in email_content and 'Amount (INR)' in email_content:
+            amount_match = re.search(r'Amount \(INR\)\s+([\d,]+\.?\d*)', email_content)
+            account_match = re.search(r'Last 4 Digit of Account\s+X(\d+)', email_content)
+            date_match = re.search(r'Date & Time\s+([^\n\r]+)', email_content)
+            location_match = re.search(r'Location\s+([^\n\r]+)', email_content)
+            
+            if amount_match and account_match and date_match and location_match:
+                amount = amount_match.group(1)
+                account = account_match.group(1)
+                date_time = date_match.group(1)
+                location = location_match.group(1)
+                
+                try:
+                    parsed_date = datetime.strptime(date_time.strip(), '%b %d, %Y, %H:%M').strftime('%Y-%m-%d')
+                except:
+                    parsed_date = datetime.now().strftime('%Y-%m-%d')
+                    
+                transaction.update({
+                    'account_number': f"XX{account}",
+                    'amount': float(amount.replace(',', '')),
+                    'transaction_type': 'debit',
+                    'date': parsed_date,
+                    'merchant': f"ATM - {location.strip()}",
+                    'transaction_method': 'ATM'
+                })
+                return transaction
+                
+        return None
+
     def _clean_indusind_merchant(self, raw_merchant: str) -> str:
         """Clean IndusInd merchant name"""
         # Remove 'Upi ' prefix but keep the actual merchant name
@@ -408,7 +558,7 @@ class GmailTransactionReader:
         # Return as-is for now, we'll do mapping later
         return raw_merchant
 
-    def get_bank_transactions(self, bank_email: str, bank_name: str, limit: int = 50) -> List[Dict]:
+    def get_bank_transactions(self, bank_email: str, bank_name: str, limit: int = 10) -> List[Dict]:
         """Get transactions from specific bank email"""
         if not self.service:
             self.authenticate()
@@ -435,6 +585,14 @@ class GmailTransactionReader:
                     transaction = self.parse_kotak_transaction(email_content)                    
                 elif bank_name.upper() == 'INDUSIND':
                     transaction = self.parse_indusind_transaction(email_content)
+                elif bank_name.upper() == 'SBI':
+                    transaction = self.parse_sbi_transaction(email_content)
+                elif bank_name.upper() == 'ICICI_CC':
+                    transaction = self.parse_icici_credit_card_transaction(email_content)
+                elif bank_name.upper() == 'SBI_CC':
+                    transaction = self.parse_sbi_credit_card_transaction(email_content)
+                elif bank_name.upper() == 'CANARA':
+                    transaction = self.parse_canara_bank_transaction(email_content)
                     
                 else:
                     # Add parsers for other banks here
@@ -466,12 +624,20 @@ class GmailTransactionReader:
     def get_all_bank_transactions(self) -> Dict[str, List[Dict]]:
         """Get transactions from all supported banks"""
         bank_configs = {
-            # 'HSBC': ['hsbc@mail.hsbc.co.in', 'alerts@mail.hsbc.co.in'],
+            'HSBC': ['hsbc@mail.hsbc.co.in', 'alerts@mail.hsbc.co.in'],
             'Kotak': ['BankAlerts@kotak.com', 'bankalerts@kotak.com', 'nach.alerts@kotak.com'],
             'IndusInd': ['transactionalert@indusind.com'],
-            # Add more banks here
-            # 'SBI': ['sbi@sbi.co.in'],
-            # 'ICICI': ['alerts@icicibank.com']
+            'SBI': [
+                'neftinfo.itps@alerts.sbi.co.in',
+                'yonobysbi@alerts.sbi.co.in', 
+                'noreply.rlms@alerts.sbi.co.in',
+                'cbsalerts.sbi@alerts.sbi.co.in',
+                'iphinfo.itps@alerts.sbi.co.in',
+                'donotreply.sbiatm@alerts.sbi.co.in'
+            ],
+            # 'ICICI_CC': ['credit_cards@icicibank.com', 'custcomm@icicibank.com'],
+            # 'SBI_CC': ['sbicard.com', 'offers@sbicard.com', 'emailer@sbicard.com'],
+            # 'CANARA': ['canarabank@canarabank.com']
         }
         
         all_transactions = {}
@@ -488,7 +654,7 @@ class GmailTransactionReader:
             
         return all_transactions
     
-    def get_bank_transactions_with_dedup(self, bank_email: str, bank_name: str, seen_transactions: set, limit: int = 50) -> List[Dict]:
+    def get_bank_transactions_with_dedup(self, bank_email: str, bank_name: str, seen_transactions: set, limit: int = 10) -> List[Dict]:
         """Get transactions from specific bank email with deduplication"""
         if not self.service:
             self.authenticate()
@@ -515,6 +681,14 @@ class GmailTransactionReader:
                     transaction = self.parse_kotak_transaction(email_content)                    
                 elif bank_name.upper() == 'INDUSIND':
                     transaction = self.parse_indusind_transaction(email_content)
+                elif bank_name.upper() == 'SBI':
+                    transaction = self.parse_sbi_transaction(email_content)
+                elif bank_name.upper() == 'ICICI_CC':
+                    transaction = self.parse_icici_credit_card_transaction(email_content)
+                elif bank_name.upper() == 'SBI_CC':
+                    transaction = self.parse_sbi_credit_card_transaction(email_content)
+                elif bank_name.upper() == 'CANARA':
+                    transaction = self.parse_canara_bank_transaction(email_content)
                     
                 else:
                     # Add parsers for other banks here

@@ -1,0 +1,692 @@
+{
+  "account_type": "savings",
+  "bank": "SBI",
+  "account_number": "00000041083981739",
+  "statement_period": {
+    "start": "2025-03-30",
+    "end": "2025-07-25"
+  },
+  "transactions": [
+    {
+      "date": "2025-04-03",
+      "description": "CASHCHEQUE-CASHWITHDRAWALBYCHQ-91505",
+      "amount": 200000.0,
+      "type": "debit",
+      "balance": 709371.58,
+      "reference": "91505",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-04-05",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 10000.0,
+      "type": "debit",
+      "balance": 699371.58,
+      "reference": "TRANSFERTO43772632759",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-04-13",
+      "description": "BYTRANSFER-NEFT*HSBC0560002*HSBCN10335289913*AMAZONDEVELOPME-",
+      "amount": 2500.0,
+      "type": "credit",
+      "balance": 701871.58,
+      "reference": "TRANSFERFROM99509044300",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-04-26",
+      "description": "TOTRANSFER-IMPS/511621576576/CNRB-xx159-Jyotirma/Transfer-",
+      "amount": 100000.0,
+      "type": "debit",
+      "balance": 601871.58,
+      "reference": "TRANSFERTO4698296162094",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-04-28",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 61530.0,
+      "type": "debit",
+      "balance": 540341.58,
+      "reference": "TRANSFERTO42560298142",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-04-28",
+      "description": "TOTRANSFER-RECOVERIESFORTPE-ADVOCATE-",
+      "amount": 3650.0,
+      "type": "debit",
+      "balance": 536691.58,
+      "reference": "TRANSFERTO4599193639453",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-04-29",
+      "description": "BYTRANSFER-PFSSalarySALARYAMAZONADCI002855599572SAL-A-",
+      "amount": 98771.0,
+      "type": "credit",
+      "balance": 635462.58,
+      "reference": "TRANSFERFROM4599444105213",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-03",
+      "description": "CASHCHEQUE-CASHWITHDRAWALBYCHQ-91506",
+      "amount": 150000.0,
+      "type": "debit",
+      "balance": 485462.58,
+      "reference": "91506",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-05",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 10000.0,
+      "type": "debit",
+      "balance": 475462.58,
+      "reference": "TRANSFERTO43772632759",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-07",
+      "description": "TOTRANSFER-IMPS/512709974864/CNRB-xx159-Jyotirma/Transfer-",
+      "amount": 100000.0,
+      "type": "debit",
+      "balance": 375462.58,
+      "reference": "TRANSFERTO4698290162099",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-07",
+      "description": "TOTRANSFER-TRANSFERTO-",
+      "amount": 1300.0,
+      "type": "debit",
+      "balance": 374162.58,
+      "reference": "TRANSFERTO43772632759",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-11",
+      "description": "TOTRANSFER-SBIYA25131081702747497704-Transfertofa-",
+      "amount": 5000.0,
+      "type": "debit",
+      "balance": 369162.58,
+      "reference": "TRANSFERTO41860880772",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-11",
+      "description": "BYTRANSFER-NEFT*HSBC0560002*HSBCN13142583355*AMAZONDEVELOPME-",
+      "amount": 1250.0,
+      "type": "credit",
+      "balance": 370412.58,
+      "reference": "TRANSFERFROM99509044300",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-19",
+      "description": "TOTRANSFER-IMPS/513920994064/CNRB-xx159-Jyotirma/Transfer-",
+      "amount": 100000.0,
+      "type": "debit",
+      "balance": 270412.58,
+      "reference": "TRANSFERTO4698286162096",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-28",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 15000.0,
+      "type": "debit",
+      "balance": 255412.58,
+      "reference": "TRANSFERTO43772632759",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-28",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 80000.0,
+      "type": "debit",
+      "balance": 175412.58,
+      "reference": "TRANSFERTO42560298142",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-05-29",
+      "description": "BYTRANSFER-PFSSalarySALARYAMAZONADCI002921792662SAL-A-",
+      "amount": 288188.0,
+      "type": "credit",
+      "balance": 463600.58,
+      "reference": "TRANSFERFROM4697773105214",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-03",
+      "description": "TOTRANSFER-IMPS/515422853574/CNRB-xx159-Jyotirma/Transfer-",
+      "amount": 60000.0,
+      "type": "debit",
+      "balance": 403600.58,
+      "reference": "TRANSFERTO4698288162094",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-08",
+      "description": "TOTRANSFER-UPI/DR/552511697593/BHAJANK/UTIB/bhajankr32/Paid-",
+      "amount": 3000.0,
+      "type": "debit",
+      "balance": 400600.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-09",
+      "description": "TOTRANSFER-UPI/DR/552621820235/TULASIJ/YESB/mab0450001/Paid-",
+      "amount": 40.0,
+      "type": "debit",
+      "balance": 400560.58,
+      "reference": "TRANSFERTO4897691162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-09",
+      "description": "TOTRANSFER-UPI/DR/552611846340/NRAVIKU/FDRL/9740862109/Paid-",
+      "amount": 20.0,
+      "type": "debit",
+      "balance": 400540.58,
+      "reference": "TRANSFERTO4897691162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-10",
+      "description": "ATMWDL-ATMCASH3149KADUGODIADWMBANGALORE-",
+      "amount": 4000.0,
+      "type": "debit",
+      "balance": 396540.58,
+      "reference": null,
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-13",
+      "description": "TOTRANSFER-UPI/DR/553000344204/Abinas/SBIN/abinasseth/Paid-",
+      "amount": 500.0,
+      "type": "debit",
+      "balance": 396040.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-13",
+      "description": "TOTRANSFER-UPI/DR/553021415231/DSANTHOSH/CNRB/santhoshsr/Pai-",
+      "amount": 318.0,
+      "type": "debit",
+      "balance": 395722.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-14",
+      "description": "TOTRANSFER-UPI/DR/553100477986/MAHENDRA/SBIN/mahendrata/Paid-",
+      "amount": 12000.0,
+      "type": "debit",
+      "balance": 383722.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-14",
+      "description": "TOTRANSFER-UPI/DR/553131566003/NRAVIKU/FDRL/9740862109/Paid-",
+      "amount": 20.0,
+      "type": "debit",
+      "balance": 383702.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-15",
+      "description": "TOTRANSFER-UPI/DR/553213731323/Soubhagy/SBIN/soubhagya./nothi-",
+      "amount": 26000.0,
+      "type": "debit",
+      "balance": 357702.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-16",
+      "description": "TOTRANSFER-UPI/DR/553300850926/NRAVIKU/FDRL/9740862109/Paid-",
+      "amount": 20.0,
+      "type": "debit",
+      "balance": 357682.58,
+      "reference": "TRANSFERTO4897691162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-18",
+      "description": "TOTRANSFER-UPI/DR/516944293299/RUDRANA/BKID/rudranaray/Paid-",
+      "amount": 2000.0,
+      "type": "debit",
+      "balance": 355682.58,
+      "reference": "TRANSFERTO4897693162093",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-18",
+      "description": "TOTRANSFER-UPI/DR/553525117579/TULASIJ/YESB/mab0450001/Paid-",
+      "amount": 50.0,
+      "type": "debit",
+      "balance": 355632.58,
+      "reference": "TRANSFERTO4897693162093",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-18",
+      "description": "TOTRANSFER-UPI/DR/516944739381/Soubhagy/SBIN/soubhagya./Fligh-",
+      "amount": 6200.0,
+      "type": "debit",
+      "balance": 349432.58,
+      "reference": "TRANSFERTO4897693162093",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-18",
+      "description": "TOTRANSFER-UPI/DR/516944858508/GOPALSAHU/BARB/gopalsahu7/Ele-",
+      "amount": 10490.0,
+      "type": "debit",
+      "balance": 338942.58,
+      "reference": "TRANSFERTO4897693162093",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-18",
+      "description": "BYTRANSFER-IMPS/516921860167/kmb-XX321-JYOTIRMA/beneficia-",
+      "amount": 1.0,
+      "type": "credit",
+      "balance": 338943.58,
+      "reference": "TRANSFERFROM4698313162099",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-19",
+      "description": "BYTRANSFER-NEFT*HSBC0560002*HSBCN17051705683*AMAZONDEVELOPME-",
+      "amount": 1250.0,
+      "type": "credit",
+      "balance": 340193.58,
+      "reference": "TRANSFERFROM99509044300",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-20",
+      "description": "TOTRANSFER-UPI/DR/553720302107/MSPALLA/BDBL/ramachandr/Plumb-",
+      "amount": 23800.0,
+      "type": "debit",
+      "balance": 316393.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-20",
+      "description": "TOTRANSFER-UPI/DR/553707324267/TULASIJ/YESB/mab0450001/Paid-",
+      "amount": 45.0,
+      "type": "debit",
+      "balance": 316348.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-21",
+      "description": "TOTRANSFER-UPI/DR/553808512777/NRAVIKU/FDRL/9740862109/Paid-",
+      "amount": 20.0,
+      "type": "debit",
+      "balance": 316328.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-21",
+      "description": "TOTRANSFER-UPI/DR/553827515460/BASKARS/CNRB/bhaskarbha/Paid-",
+      "amount": 20.0,
+      "type": "debit",
+      "balance": 316308.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-22",
+      "description": "TOTRANSFER-UPI/DR/553929582326/KAHNUCH/UCBA/kahnucbari/Paid-",
+      "amount": 1050.0,
+      "type": "debit",
+      "balance": 315258.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-22",
+      "description": "TOTRANSFER-UPI/DR/553903593390/KAHNUCH/UCBA/kahnucbari/Paid-",
+      "amount": 9000.0,
+      "type": "debit",
+      "balance": 306258.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-22",
+      "description": "TOTRANSFER-UPI/DR/553913682822/TAPANKU/IBKL/7684817625/Paid-",
+      "amount": 8000.0,
+      "type": "debit",
+      "balance": 298258.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-23",
+      "description": "TOTRANSFER-UPI/DR/554031720103/Abinas/SBIN/abinasseth/Paid-",
+      "amount": 500.0,
+      "type": "debit",
+      "balance": 297758.58,
+      "reference": "TRANSFERTO4897691162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-25",
+      "description": "CREDITINTEREST--",
+      "amount": 3372.0,
+      "type": "credit",
+      "balance": 301130.58,
+      "reference": null,
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-26",
+      "description": "TOTRANSFER-IMPS/517709970097/CNRB-xx159-Jyotirma/Transfer-",
+      "amount": 100000.0,
+      "type": "debit",
+      "balance": 201130.58,
+      "reference": "TRANSFERTO4698292162098",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-27",
+      "description": "TOTRANSFER-UPI/DR/517855441976/Bangalor/INDB/english.bm/UPIIn-",
+      "amount": 90.0,
+      "type": "debit",
+      "balance": 201040.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-27",
+      "description": "TOTRANSFER-UPI/DR/517855451897/MUNIKRIS/BKID/8722839315/Paid-",
+      "amount": 57.0,
+      "type": "debit",
+      "balance": 200983.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-27",
+      "description": "TOTRANSFER-UPI/DR/517855548943/RIYAZAH/CNRB/ryzdinni@y/Paid-",
+      "amount": 50.0,
+      "type": "debit",
+      "balance": 200933.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-27",
+      "description": "TOTRANSFER-UPI/DR/517855792834/LOKESH/KKBK/amzn002677/Paidvi-",
+      "amount": 64.0,
+      "type": "debit",
+      "balance": 200869.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-27",
+      "description": "TOTRANSFER-UPI/DR/517855794304/Bangalor/INDB/english.bm/UPIIn-",
+      "amount": 80.0,
+      "type": "debit",
+      "balance": 200789.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-27",
+      "description": "TOTRANSFER-UPI/DR/517855923877/GMAHESH/FDRL/7892557042/Paid-",
+      "amount": 57.0,
+      "type": "debit",
+      "balance": 200732.58,
+      "reference": "TRANSFERTO4897695162091",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-28",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 15000.0,
+      "type": "debit",
+      "balance": 185732.58,
+      "reference": "TRANSFERTO43772632759",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-28",
+      "description": "WITHDRAWALTRANSFER--",
+      "amount": 80000.0,
+      "type": "debit",
+      "balance": 105732.58,
+      "reference": "TRANSFERTO42560298142",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-28",
+      "description": "TOTRANSFER-UPI/DR/554529358462/Bangalor/INDB/english.bm/UPIIn-",
+      "amount": 50.0,
+      "type": "debit",
+      "balance": 105682.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-28",
+      "description": "TOTRANSFER-UPI/DR/554521360488/ASMABANU/PKGB/178654373@/Paid-",
+      "amount": 56.0,
+      "type": "debit",
+      "balance": 105626.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-28",
+      "description": "TOTRANSFER-UPI/DR/554517460246/BHAJANK/UTIB/bhajankr32/Dinne-",
+      "amount": 529.0,
+      "type": "debit",
+      "balance": 105097.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-28",
+      "description": "TOTRANSFER-UPI/DR/554501464237/MrVINOD/MAHB/8884000517/Paid-",
+      "amount": 86.0,
+      "type": "debit",
+      "balance": 105011.58,
+      "reference": "TRANSFERTO4897696162090",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-29",
+      "description": "ATMWDL-ATMCASH1257SBIKADUGODIBRBANGALORE-",
+      "amount": 3000.0,
+      "type": "debit",
+      "balance": 102011.58,
+      "reference": null,
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-29",
+      "description": "TOTRANSFER-UPI/DR/554609492233/Bangalor/INDB/english.bm/UPIIn-",
+      "amount": 60.0,
+      "type": "debit",
+      "balance": 101951.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-06-29",
+      "description": "TOTRANSFER-UPI/DR/554626493814/BANGALOR/UTIB/paytmocl.d/Paid-",
+      "amount": 30.0,
+      "type": "debit",
+      "balance": 101921.58,
+      "reference": "TRANSFERTO4897690162095",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-04",
+      "description": "BYTRANSFER-IMPS/518505329670/kmb-XX321-JYOTIRMA/KKBKTrans-",
+      "amount": 30000.0,
+      "type": "credit",
+      "balance": 131921.58,
+      "reference": "TRANSFERFROM4698323162097",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-08",
+      "description": "TOCLEARING-ChqNo.091508UCOADMINISTRATORSRIJAGANNAT-91508",
+      "amount": 100000.0,
+      "type": "debit",
+      "balance": 31921.58,
+      "reference": "91508",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-12",
+      "description": "BYTRANSFER-NEFT*HSBC0560002*HSBCN19358445212*AMAZONDEVELOPME-",
+      "amount": 1250.0,
+      "type": "credit",
+      "balance": 33171.58,
+      "reference": "TRANSFERFROM99509044300",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-14",
+      "description": "BYTRANSFER--",
+      "amount": 700000.0,
+      "type": "credit",
+      "balance": 733171.58,
+      "reference": "TRANSFERFROM43772632759",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-15",
+      "description": "DEBIT-ATMCardAMC652294*6838-",
+      "amount": 236.0,
+      "type": "debit",
+      "balance": 732935.58,
+      "reference": null,
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-18",
+      "description": "CASHCHEQUE-CASHWITHDRAWALBYCHQ-91507",
+      "amount": 220000.0,
+      "type": "debit",
+      "balance": 512935.58,
+      "reference": "91507",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-21",
+      "description": "TOTRANSFER-IMPS/520209934883/KKBK-xx321-Jyotirma/Transfer-",
+      "amount": 1.0,
+      "type": "debit",
+      "balance": 512934.58,
+      "reference": "TRANSFERTO4698286162096",
+      "merchant_category": null,
+      "reward_points": 0
+    },
+    {
+      "date": "2025-07-21",
+      "description": "TOTRANSFER-IMPS/520209935240/KKBK-xx321-Jyotirma/Transfer-",
+      "amount": 400000.0,
+      "type": "debit",
+      "balance": 112934.58,
+      "reference": "TRANSFERTO4698286162096",
+      "merchant_category": null,
+      "reward_points": 0
+    }
+  ],
+  "account_metadata": {
+    "crn": "90984592586",
+    "ifsc": "SBIN0006933",
+    "micr": "756002004",
+    "address": "Address  : S/O,Sashikanta Sethi\nMahapada\nMahapada-756027\nBaleshwar",
+    "branch": "MOTIGANJ EVENING BRANCH"
+  },
+  "total_credits": 1126582.0,
+  "total_debits": 1923019.0,
+  "opening_balance": 909371.58,
+  "closing_balance": 112934.58
+}

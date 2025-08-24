@@ -1,0 +1,2727 @@
+[
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "361010XXXX1968",
+    "statement_period": {
+      "start": "2024-10-12",
+      "end": "2024-10-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-09-12",
+        "description": "15:27:59 ZOMATO LIMITED GURGAON",
+        "amount": 147.26,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-12",
+        "description": "21:16:47 ZOMATO LIMITED GURGAON",
+        "amount": 236.47,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-13",
+        "description": "22:05:15 WWW SWIGGY COM GURGAON",
+        "amount": 190.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-14",
+        "description": "23:15:14 ZOMATO LIMITED GURGAON",
+        "amount": 153.4,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-14",
+        "description": "23:16:25 WWW SWIGGY COM GURGAON",
+        "amount": 158.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-15",
+        "description": "21:51:56 ZOMATO LIMITED GURGAON",
+        "amount": 285.8,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-16",
+        "description": "15:13:03 WWW SWIGGY COM GURGAON",
+        "amount": 194.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-16",
+        "description": "23:26:19 ZOMATO LIMITED GURGAON",
+        "amount": 236.47,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-17",
+        "description": "14:48:38 WWW SWIGGY COM GURGAON",
+        "amount": 144.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-17",
+        "description": "21:45:39 WWW SWIGGY COM GURGAON",
+        "amount": 181.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-18",
+        "description": "14:23:46 WWW SWIGGY COM GURGAON",
+        "amount": 142.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-19",
+        "description": "22:08:34 ZOMATO LIMITED GURGAON",
+        "amount": 210.28,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-19",
+        "description": "13:08:38 WWW SWIGGY COM GURGAON",
+        "amount": 181.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-24",
+        "description": "14:47:59 ZOMATO LIMITED GURGAON",
+        "amount": 168.15,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-25",
+        "description": "13:29:40 ZOMATO LIMITED GURGAON",
+        "amount": 172.08,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-26",
+        "description": "15:05:29 ZOMATO LIMITED GURGAON",
+        "amount": 168.15,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-09-26",
+        "description": "20:48:36 ZEPTO GURGAON",
+        "amount": 1062.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 0,
+      "total_debits": 4030.06,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 7384.32,
+        "purchases_and_charges": 39651.69,
+        "cash_advance": 0.0,
+        "payments_and_credits": 7384.0,
+        "total_amount_due": 39652.0,
+        "minimum_amount_due": "1,990.00",
+        "credit_limit": "2,60,000",
+        "available_credit_limit": "2,20,348",
+        "cash_limit": "1,04,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "361010XXXX1968",
+    "statement_period": {
+      "start": "2024-11-12",
+      "end": "2024-11-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-10-13",
+        "description": "13:50:11 WWW SWIGGY COM GURGAON 4",
+        "amount": 185.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-14",
+        "description": "22:33:25 WWW SWIGGY COM GURGAON 4",
+        "amount": 156.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-15",
+        "description": "21:58:39 WWW SWIGGY COM GURGAON 4",
+        "amount": 174.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-16",
+        "description": "21:40:50 WWW SWIGGY COM GURGAON 4",
+        "amount": 187.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-17",
+        "description": "22:17:40 WWW SWIGGY COM GURGAON 4",
+        "amount": 208.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-17",
+        "description": "13:37:57 WWW SWIGGY COM GURGAON 4",
+        "amount": 181.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-19",
+        "description": "13:09:23 WWW SWIGGY COM GURGAON 4",
+        "amount": 188.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-20",
+        "description": "12:13:55 AMAZON SELLER SERVICES MUMBAI",
+        "amount": 129.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-21",
+        "description": "14:38:54 WWW SWIGGY COM GURGAON 4",
+        "amount": 180.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-22",
+        "description": "14:12:31 ZOMATO LIMITED GURGAON 4",
+        "amount": 200.83,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-23",
+        "description": "09:51:43 FLIPKART PAYMENTS GURGAON 4",
+        "amount": 299.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-23",
+        "description": "13:42:20 WWW SWIGGY COM GURGAON 4",
+        "amount": 177.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-24",
+        "description": "12:52:20 ZOMATO LIMITED GURGAON 4",
+        "amount": 182.52,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-24",
+        "description": "21:27:35 TATAAIA MUMBAI",
+        "amount": 19457.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-25",
+        "description": "21:53:46 WWW SWIGGY COM GURGAON 4",
+        "amount": 186.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-26",
+        "description": "08:19:12 TELE TRANSFER CREDIT (Ref# ST243010083000010095524)",
+        "amount": 39652.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-10-26",
+        "description": "21:15:34 WWW SWIGGY COM GURGAON",
+        "amount": 139.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 39652.0,
+      "total_debits": 22229.35,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 39652.01,
+        "purchases_and_charges": 27768.16,
+        "cash_advance": 0.0,
+        "payments_and_credits": 39652.0,
+        "total_amount_due": 27768.0,
+        "minimum_amount_due": "1,390.00",
+        "credit_limit": "2,60,000",
+        "available_credit_limit": "2,23,730",
+        "cash_limit": "1,04,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "361010XXXX1968",
+    "statement_period": {
+      "start": "2024-12-12",
+      "end": "2024-12-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-11-12",
+        "description": "18:47:52 PRINTO DOCUMENT SERVICEBANGALORE 224",
+        "amount": 8502.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-13",
+        "description": "12:48:59 ZOMATO LIMITED GURGAON 4",
+        "amount": 165.42,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-16",
+        "description": "21:10:12 WWW SWIGGY COM GURGAON 4",
+        "amount": 213.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-17",
+        "description": "12:14:39 WWW SWIGGY COM GURGAON 4",
+        "amount": 228.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-20",
+        "description": "20:34:38 ZOMATO LIMITED GURGAON 4",
+        "amount": 180.64,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-21",
+        "description": "13:00:10 ZOMATO LIMITED GURGAON 4",
+        "amount": 153.29,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-23",
+        "description": "13:00:42 WWW SWIGGY COM GURGAON 4",
+        "amount": 210.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-25",
+        "description": "21:31:45 ZOMATO LIMITED GURGAON 12",
+        "amount": 499.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-25",
+        "description": "21:32:18 WWW SWIGGY COM GURGAON 8",
+        "amount": 300.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-26",
+        "description": "22:11:35 WWW SWIGGY COM GURGAON 8",
+        "amount": 300.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-27",
+        "description": "11:23:27 TP NORTHERN ODISHA DISTBALASORE",
+        "amount": 129.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-27",
+        "description": "00:38:26 AMAZON SELLER SERVICES MUMBAI 28",
+        "amount": 1199.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-11-28",
+        "description": "10:58:55 TELE TRANSFER CREDIT (Ref# ST243340083000010086171)",
+        "amount": 27768.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 27768.0,
+      "total_debits": 12079.35,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 27768.17,
+        "purchases_and_charges": 12079.35,
+        "cash_advance": 0.0,
+        "payments_and_credits": 27768.0,
+        "total_amount_due": 12080.0,
+        "minimum_amount_due": "610.00",
+        "credit_limit": "2,60,000",
+        "available_credit_limit": "2,47,920",
+        "cash_limit": "1,04,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-09-12",
+      "end": "2024-09-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-08-17",
+        "description": "SWIGGY BANGALORE",
+        "amount": 309.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-17",
+        "description": "SWIGGY NOIDA",
+        "amount": 213.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-17",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 228.57,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-18",
+        "description": "SWIGGY NOIDA",
+        "amount": 208.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-19",
+        "description": "SWIGGY NOIDA",
+        "amount": 125.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-20",
+        "description": "SWIGGY NOIDA",
+        "amount": 149.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-21",
+        "description": "SWIGGY NOIDA",
+        "amount": 187.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-21",
+        "description": "SWIGGY GURGAON",
+        "amount": 112.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-22",
+        "description": "SWIGGY NOIDA",
+        "amount": 133.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-23",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 199.23,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-25",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 178.23,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-26",
+        "description": "WWW SWIGGY COM GURGAON",
+        "amount": 185.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-27",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 232.28,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-27",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 272.73,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-27",
+        "description": "WWW SWIGGY COM GURGAON",
+        "amount": 231.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-27",
+        "description": "AMAZON SELLER SERVICES MUMBAI",
+        "amount": 1499.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-08-27",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 272.73,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 272.73,
+      "total_debits": 4462.04,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 17351.83,
+        "purchases_and_charges": 7657.22,
+        "cash_advance": 0.0,
+        "payments_and_credits": 17624.73,
+        "total_amount_due": 7384.0,
+        "minimum_amount_due": "370.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,92,232",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2023-12-12",
+      "end": "2023-12-12"
+    },
+    "transactions": [
+      {
+        "date": "2023-11-13",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 148.44,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-13",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 284.94,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-13",
+        "description": "IMPS PMT 331710314962 9211 (Ref# 00000000001113013295464)",
+        "amount": 13809.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 214.3,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-16",
+        "description": "Ratnadeep Super Market BANGALORE",
+        "amount": 812.5,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-16",
+        "description": "ZEPTO GURGAON",
+        "amount": 210.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-18",
+        "description": "FLIPKART PAYMENTS GURGAON",
+        "amount": 309.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-19",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 232.29,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-19",
+        "description": "BLINKIT GURGAON",
+        "amount": 374.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 124.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 216.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 108.02,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-22",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 160.31,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-22",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 284.94,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-23",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 299.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-24",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 228.24,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-11-25",
+        "description": "ZEPTO GURGAON",
+        "amount": 285.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 13809.0,
+      "total_debits": 4292.36,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 13808.83,
+        "purchases_and_charges": 28351.02,
+        "cash_advance": 0.0,
+        "payments_and_credits": 33285.0,
+        "total_amount_due": 8875.0,
+        "minimum_amount_due": "450.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,91,125",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-08-12",
+      "end": "2024-08-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-07-12",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 200.36,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-14",
+        "description": "WWW SWIGGY COM GURGAON",
+        "amount": 305.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-14",
+        "description": "SWIGGY NOIDA",
+        "amount": 151.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-14",
+        "description": "AMAZON IN GROCERY MUMBAI",
+        "amount": 868.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-16",
+        "description": "SWIGGY NOIDA",
+        "amount": 187.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-16",
+        "description": "SWIGGY NOIDA",
+        "amount": 214.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-17",
+        "description": "SWIGGY NOIDA",
+        "amount": 229.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-19",
+        "description": "SWIGGY NOIDA",
+        "amount": 181.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-19",
+        "description": "SWIGGY NOIDA",
+        "amount": 6686.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-20",
+        "description": "SWIGGY NOIDA",
+        "amount": 245.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 195.74,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 199.44,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-22",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 181.8,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-23",
+        "description": "WWW SWIGGY COM GURGAON",
+        "amount": 135.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-23",
+        "description": "SWIGGY NOIDA",
+        "amount": 219.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-24",
+        "description": "SWIGGY NOIDA",
+        "amount": 185.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-24",
+        "description": "WWW SWIGGY COM GURGAON",
+        "amount": 203.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 0,
+      "total_debits": 10585.34,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 1961.11,
+        "purchases_and_charges": 17351.72,
+        "cash_advance": 0.0,
+        "payments_and_credits": 1961.0,
+        "total_amount_due": 17352.0,
+        "minimum_amount_due": "870.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,82,648",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-02-12",
+      "end": "2024-02-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-01-12",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 167.99,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-13",
+        "description": "UDUPI AATITHYA BANGALORE",
+        "amount": 105.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-13",
+        "description": "IMPS PMT 401313439445 9211 (Ref# 00000000000113015379630)",
+        "amount": 2784.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 133.54,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 226.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 174.17,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-14",
+        "description": "ZEPTO GURGAON",
+        "amount": 187.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 179.31,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 216.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 164.51,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-18",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 290.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-18",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 227.48,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 214.42,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 216.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-20",
+        "description": "CASHBACK FOR REDEMPTION OF PO200124 (Ref# ST240210083000010254119)",
+        "amount": 1310.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 262.49,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-22",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 118.52,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 4094.0,
+      "total_debits": 2884.5,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 2783.64,
+        "purchases_and_charges": 13091.21,
+        "cash_advance": 0.0,
+        "payments_and_credits": 4094.0,
+        "total_amount_due": 11781.0,
+        "minimum_amount_due": "590.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,87,653",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-05-12",
+      "end": "2024-05-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-04-12",
+        "description": "ZEPTO GURGAON",
+        "amount": 1378.94,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-12",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 188.37,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-12",
+        "description": "MYNTRA DESIGNS PRIVATE NOIDA",
+        "amount": 1259.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-13",
+        "description": "FLIPKART PAYMENTS GURGAON",
+        "amount": 2038.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-13",
+        "description": "BLINKIT GURGAON",
+        "amount": 318.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-13",
+        "description": "ZEPTO GURGAON",
+        "amount": 1246.24,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-14",
+        "description": "FLIPKART PAYMENTS GURGAON",
+        "amount": 729.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-14",
+        "description": "IMPS PMT 410511068249 9211 (Ref# 00000000000414015129540)",
+        "amount": 16623.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-14",
+        "description": "MYNTRA DESIGNS PRIVATE NOIDA",
+        "amount": 1783.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 180.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-15",
+        "description": "FLIPKART PAYMENTS GURGAON",
+        "amount": 749.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-15",
+        "description": "MYNTRA DESIGNS PRIVATE NOIDA",
+        "amount": 688.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 228.67,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 188.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-17",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 211.55,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-18",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 233.67,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-04-18",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 130.72,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 19319.0,
+      "total_debits": 8854.16,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 16622.82,
+        "purchases_and_charges": 12613.34,
+        "cash_advance": 0.0,
+        "payments_and_credits": 21782.05,
+        "total_amount_due": 7454.0,
+        "minimum_amount_due": "380.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,92,546",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-04-12",
+      "end": "2024-04-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-03-12",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 253.02,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 243.07,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 238.02,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 291.67,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 258.82,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 258.82,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-18",
+        "description": "IMPS PMT 407809378785 9211 (Ref# 00000000000318017669793)",
+        "amount": 21899.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-18",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 202.33,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-19",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 248.32,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 152.19,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 228.67,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 171.88,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-22",
+        "description": "ZEPTO GURGAON",
+        "amount": 469.22,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-23",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 161.03,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-24",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 267.39,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-24",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 213.88,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-03-26",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 189.3,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 22157.82,
+      "total_debits": 3588.81,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 21899.44,
+        "purchases_and_charges": 16881.2,
+        "cash_advance": 0.0,
+        "payments_and_credits": 22157.82,
+        "total_amount_due": 16623.0,
+        "minimum_amount_due": "840.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,81,810",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-03-12",
+      "end": "2024-03-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-02-12",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 216.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-12",
+        "description": "ZEPTO GURGAON",
+        "amount": 349.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-13",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 181.54,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 123.99,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-14",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 228.24,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 182.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 138.46,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-16",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 178.26,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-16",
+        "description": "AMAZON SELLER SERVICES MUMBAI",
+        "amount": 149.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-17",
+        "description": "SGM hospitality servic Bangalore",
+        "amount": 780.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-17",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 237.99,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-18",
+        "description": "SHACOOR HOSPITALITY KH BANGALORE",
+        "amount": 436.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 222.66,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 216.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-22",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 383.94,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-22",
+        "description": "AMAZON GIFT CARD MUMBAI",
+        "amount": 3000.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-02-23",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 186.66,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 0,
+      "total_debits": 7211.12,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 11780.85,
+        "purchases_and_charges": 21899.59,
+        "cash_advance": 0.0,
+        "payments_and_credits": 11781.0,
+        "total_amount_due": 21899.0,
+        "minimum_amount_due": "1,100.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,77,848",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2023-10-12",
+      "end": "2023-10-12"
+    },
+    "transactions": [
+      {
+        "date": "2023-09-18",
+        "description": "AMAZON SELLER SERVICES MUMBAI",
+        "amount": 1499.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-18",
+        "description": "FLIPKART PAYMENTS GURGAON",
+        "amount": 290.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-18",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 248.48,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-18",
+        "description": "AMAZON SELLER SERVICES MUMBAI",
+        "amount": 664.05,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-19",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 526.24,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 188.34,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-23",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 308.04,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-23",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 440.99,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-24",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 365.59,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-24",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 188.34,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-27",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 270.34,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-28",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 171.54,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-09-30",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 200.94,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-01",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 333.24,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-02",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 210.39,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-03",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 181.54,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-03",
+        "description": "AMAZON SELLER SERVICES MUMBAI",
+        "amount": 149.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 0,
+      "total_debits": 6236.0599999999995,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 0.0,
+        "purchases_and_charges": 13036.61,
+        "cash_advance": 0.0,
+        "payments_and_credits": 129.04,
+        "total_amount_due": 12908.0,
+        "minimum_amount_due": "650.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,85,941",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-01-12",
+      "end": "2024-01-12"
+    },
+    "transactions": [
+      {
+        "date": "2023-12-14",
+        "description": "IMPS PMT 334807435487 9211 (Ref# 00000000001214014520122)",
+        "amount": 8875.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-12-18",
+        "description": "PROSPERR IO PRIVATE LIMBANGALORE",
+        "amount": 590.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-12-19",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 203.96,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-12-22",
+        "description": "RITU RAJ BALASORE",
+        "amount": 1440.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-08",
+        "description": "RICE BOWL BHUBANESHWAR",
+        "amount": 252.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-08",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 118.52,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-01-11",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 179.31,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 8875.0,
+      "total_debits": 2783.79,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 8874.85,
+        "purchases_and_charges": 2783.79,
+        "cash_advance": 0.0,
+        "payments_and_credits": 8875.0,
+        "total_amount_due": 2784.0,
+        "minimum_amount_due": "200.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,97,048",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-06-12",
+      "end": "2024-06-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-05-15",
+        "description": "IMPS PMT 413621908411 9211 (Ref# 00000000000515016528322)",
+        "amount": 7454.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-05-31",
+        "description": "VALUE AND VARIETY BALASORE",
+        "amount": 3000.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 7454.0,
+      "total_debits": 3000.0,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 7454.11,
+        "purchases_and_charges": 3000.0,
+        "cash_advance": 0.0,
+        "payments_and_credits": 7454.0,
+        "total_amount_due": 3000.0,
+        "minimum_amount_due": "200.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,97,000",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2024-07-12",
+      "end": "2024-07-12"
+    },
+    "transactions": [
+      {
+        "date": "2024-06-16",
+        "description": "ZEPTO GURGAON",
+        "amount": 1121.18,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-06-16",
+        "description": "CASHBACK FOR REDEMPTION OF PO160624 (Ref# ST241690083000010497628)",
+        "amount": 2529.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-06-26",
+        "description": "IMPS PMT 417809866916 9211 (Ref# 00000000000626016932933)",
+        "amount": 3000.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-06-28",
+        "description": "SWIGGY GURGAON",
+        "amount": 207.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-01",
+        "description": "SWIGGY GURGAON",
+        "amount": 187.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-02",
+        "description": "SWIGGY GURGAON",
+        "amount": 102.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-02",
+        "description": "SWIGGY GURGAON",
+        "amount": 226.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-04",
+        "description": "SWIGGY GURGAON",
+        "amount": 212.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-08",
+        "description": "SWIGGY GURGAON",
+        "amount": 115.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-08",
+        "description": "SWIGGY GURGAON",
+        "amount": 232.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-09",
+        "description": "ZEPTO GURGAON",
+        "amount": 1689.26,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-10",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 183.56,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-10",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 30.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2024-07-11",
+        "description": "SWIGGY GURGAON",
+        "amount": 185.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 5529.0,
+      "total_debits": 4490.0,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 3000.11,
+        "purchases_and_charges": 4490.0,
+        "cash_advance": 0.0,
+        "payments_and_credits": 5529.0,
+        "total_amount_due": 1961.0,
+        "minimum_amount_due": "200.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,97,839",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  },
+  {
+    "account_type": "credit_card",
+    "bank": "HDFC Bank",
+    "account_number": "00361135XXXX7469",
+    "statement_period": {
+      "start": "2023-11-12",
+      "end": "2023-11-12"
+    },
+    "transactions": [
+      {
+        "date": "2023-10-12",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 134.69,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-12",
+        "description": "ANAND SWEETS AND SAVOURBANGALORE",
+        "amount": 1017.01,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-14",
+        "description": "IMPS PMT 328710978339 9211 (Ref# 00000000001014013348719)",
+        "amount": 12908.0,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 138.49,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-15",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 197.5,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-16",
+        "description": "AMAZON IN GROCERY MUMBAI",
+        "amount": 413.05,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-17",
+        "description": "POLICYBAZAAR COM GURGAON",
+        "amount": 18867.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-17",
+        "description": "ZEPTO GURGAON",
+        "amount": 515.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-17",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 232.31,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-19",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 182.73,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-20",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 278.28,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-21",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 206.6,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-22",
+        "description": "BLR Domestic Lounge BENGALURU",
+        "amount": 2.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-29",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 173.32,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-29",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 173.32,
+        "type": "credit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-29",
+        "description": "ZOMATO LIMITED GURGAON",
+        "amount": 181.54,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      },
+      {
+        "date": "2023-10-30",
+        "description": "ZEPTO GURGAON",
+        "amount": 457.0,
+        "type": "debit",
+        "balance": null,
+        "reference": null,
+        "merchant_category": null,
+        "reward_points": 0
+      }
+    ],
+    "summary": {
+      "opening_balance": 0.0,
+      "closing_balance": 0.0,
+      "total_credits": 13081.32,
+      "total_debits": 22996.52,
+      "reward_points_opening": null,
+      "reward_points_earned": null,
+      "reward_points_redeemed": null,
+      "reward_points_closing": null,
+      "account_summary": {
+        "previous_balance": 12907.57,
+        "purchases_and_charges": 28982.58,
+        "cash_advance": 0.0,
+        "payments_and_credits": 28081.32,
+        "total_amount_due": 13809.0,
+        "minimum_amount_due": "700.00",
+        "credit_limit": "2,00,000",
+        "available_credit_limit": "1,86,191",
+        "cash_limit": "80,000",
+        "available_cash_limit": null
+      }
+    }
+  }
+]

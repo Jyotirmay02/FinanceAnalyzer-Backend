@@ -1,0 +1,616 @@
+{
+  "kotak.com\" <Mobilebanking.Alerts@kotak.com": {
+    "category": "banks",
+    "patterns": [
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "29-06-2025"
+      },
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Rs.",
+          "5000"
+        ]
+      }
+    ],
+    "code": "def parse_kotak_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse KOTAK banks emails\"\"\"\n    transaction = {\n        'bank': 'KOTAK',\n        'raw_content': email_content\n    }\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 29-06-2025\n        pass\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Rs.', '5000')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 3
+  },
+  "sbi.co.in": {
+    "category": "banks",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "INR",
+          "108"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "01/07/2025"
+      }
+    ],
+    "code": "def parse_sbi_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse SBI banks emails\"\"\"\n    transaction = {\n        'bank': 'SBI',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('INR', '108')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 01/07/2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 50
+  },
+  "custcomm.icicibank.com": {
+    "category": "banks",
+    "patterns": [],
+    "code": "def parse_custcomm_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CUSTCOMM banks emails\"\"\"\n    transaction = {\n        'bank': 'CUSTCOMM',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 7
+  },
+  "canarabank.com": {
+    "category": "banks",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "INR",
+          "25.00"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "account",
+          "5159"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "24/08/2025"
+      }
+    ],
+    "code": "def parse_canarabank_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CANARABANK banks emails\"\"\"\n    transaction = {\n        'bank': 'CANARABANK',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('INR', '25.00')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('account', '5159')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 24/08/2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 91
+  },
+  "kotak.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Rs.",
+          "325.00"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "6999"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "24/08/2025"
+      }
+    ],
+    "code": "def parse_kotak_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse KOTAK credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'KOTAK',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Rs.', '325.00')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '6999')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 24/08/2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 36
+  },
+  "indusind.com": {
+    "category": "credit_cards",
+    "patterns": [],
+    "code": "def parse_indusind_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse INDUSIND credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'INDUSIND',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 110
+  },
+  "indusind.com\" <transactionalert@indusind.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "INR",
+          "60.00"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "1289"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "24-08-2025"
+      }
+    ],
+    "code": "def parse_indusind_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse INDUSIND credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'INDUSIND',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('INR', '60.00')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '1289')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 24-08-2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 58
+  },
+  "marketing.indusind.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "1289"
+        ]
+      }
+    ],
+    "code": "def parse_marketing_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse MARKETING credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'MARKETING',\n        'raw_content': email_content\n    }\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '1289')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 3
+  },
+  "emailcampaign.indusind.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          "1860"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "1860"
+        ]
+      }
+    ],
+    "code": "def parse_emailcampaign_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse EMAILCAMPAIGN credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'EMAILCAMPAIGN',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', '1860')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '1860')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 2
+  },
+  "crm.indusind.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          "1860"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "1860"
+        ]
+      }
+    ],
+    "code": "def parse_crm_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CRM credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'CRM',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', '1860')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '1860')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 2
+  },
+  "banknewsletter.indusind.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          "1860"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "1860"
+        ]
+      }
+    ],
+    "code": "def parse_banknewsletter_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse BANKNEWSLETTER credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'BANKNEWSLETTER',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', '1860')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '1860')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "emails.kotak.in": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          ","
+        ]
+      }
+    ],
+    "code": "def parse_emails_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse EMAILS credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'EMAILS',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', ',')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 2
+  },
+  "applications.hdfcbank.net": {
+    "category": "credit_cards",
+    "patterns": [],
+    "code": "def parse_applications_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse APPLICATIONS credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'APPLICATIONS',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "communications.sbi.co.in": {
+    "category": "credit_cards",
+    "patterns": [],
+    "code": "def parse_communications_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse COMMUNICATIONS credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'COMMUNICATIONS',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 6
+  },
+  "icicibank.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "INR",
+          "114.00"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "6007"
+        ]
+      }
+    ],
+    "code": "def parse_icicibank_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse ICICIBANK credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'ICICIBANK',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('INR', '114.00')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '6007')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 60
+  },
+  "sbicard.com": {
+    "category": "credit_cards",
+    "patterns": [],
+    "code": "def parse_sbicard_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse SBICARD credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'SBICARD',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 57
+  },
+  "offers.sbicard.com": {
+    "category": "credit_cards",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          "5"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "8377"
+        ]
+      }
+    ],
+    "code": "def parse_offers_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse OFFERS credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'OFFERS',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', '5')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '8377')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 23
+  },
+  "emailer.sbicard.com": {
+    "category": "credit_cards",
+    "patterns": [],
+    "code": "def parse_emailer_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse EMAILER credit_cards emails\"\"\"\n    transaction = {\n        'bank': 'EMAILER',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 3
+  },
+  "paytm.com": {
+    "category": "wallets",
+    "patterns": [],
+    "code": "def parse_paytm_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse PAYTM wallets emails\"\"\"\n    transaction = {\n        'bank': 'PAYTM',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 4
+  },
+  "zomato.com": {
+    "category": "ecommerce",
+    "patterns": [],
+    "code": "def parse_zomato_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse ZOMATO ecommerce emails\"\"\"\n    transaction = {\n        'bank': 'ZOMATO',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 3
+  },
+  "mailers.zomato.com": {
+    "category": "ecommerce",
+    "patterns": [],
+    "code": "def parse_mailers_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse MAILERS ecommerce emails\"\"\"\n    transaction = {\n        'bank': 'MAILERS',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "amazon.in": {
+    "category": "ecommerce",
+    "patterns": [
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Card",
+          "202054720"
+        ]
+      },
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "\u20b9",
+          "740.95"
+        ]
+      }
+    ],
+    "code": "def parse_amazon_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse AMAZON ecommerce emails\"\"\"\n    transaction = {\n        'bank': 'AMAZON',\n        'raw_content': email_content\n    }\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Card', '202054720')\n        pass\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('\u20b9', '740.95')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 11
+  },
+  "amazonpay.in": {
+    "category": "ecommerce",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "\u20b9",
+          "150.00"
+        ]
+      }
+    ],
+    "code": "def parse_amazonpay_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse AMAZONPAY ecommerce emails\"\"\"\n    transaction = {\n        'bank': 'AMAZONPAY',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('\u20b9', '150.00')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 5
+  },
+  "kotak.com\" <bankalerts@kotak.com": {
+    "category": "loans",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Rs.",
+          "250000.00"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "account",
+          "1321"
+        ]
+      }
+    ],
+    "code": "def parse_kotak_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse KOTAK loans emails\"\"\"\n    transaction = {\n        'bank': 'KOTAK',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Rs.', '250000.00')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('account', '1321')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 20
+  },
+  "bankconnect.indusind.com": {
+    "category": "loans",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Rs.",
+          "1"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Account",
+          "1860"
+        ]
+      }
+    ],
+    "code": "def parse_bankconnect_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse BANKCONNECT loans emails\"\"\"\n    transaction = {\n        'bank': 'BANKCONNECT',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Rs.', '1')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Account', '1860')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "cibilscore.transunion.com": {
+    "category": "loans",
+    "patterns": [
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "account",
+          "72300"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "91-22-6140"
+      }
+    ],
+    "code": "def parse_cibilscore_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CIBILSCORE loans emails\"\"\"\n    transaction = {\n        'bank': 'CIBILSCORE',\n        'raw_content': email_content\n    }\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('account', '72300')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 91-22-6140\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 4
+  },
+  "mail.kotak.in": {
+    "category": "loans",
+    "patterns": [],
+    "code": "def parse_mail_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse MAIL loans emails\"\"\"\n    transaction = {\n        'bank': 'MAIL',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "tataneuloan.tataneu.com": {
+    "category": "loans",
+    "patterns": [],
+    "code": "def parse_tataneuloan_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse TATANEULOAN loans emails\"\"\"\n    transaction = {\n        'bank': 'TATANEULOAN',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "mail.hsbc.co.in": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "INR",
+          "223.00"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "card",
+          "1032"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "19/08/2025"
+      }
+    ],
+    "code": "def parse_mail_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse MAIL others emails\"\"\"\n    transaction = {\n        'bank': 'MAIL',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('INR', '223.00')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('card', '1032')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 19/08/2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 14
+  },
+  "quora.com": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Rs.",
+          "25,000"
+        ]
+      }
+    ],
+    "code": "def parse_quora_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse QUORA others emails\"\"\"\n    transaction = {\n        'bank': 'QUORA',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Rs.', '25,000')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 9
+  },
+  "custcomm.hsbc.co.in": {
+    "category": "others",
+    "patterns": [],
+    "code": "def parse_custcomm_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CUSTCOMM others emails\"\"\"\n    transaction = {\n        'bank': 'CUSTCOMM',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 7
+  },
+  "informationservices.hsbc.co.in": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "Account",
+          "8211"
+        ]
+      }
+    ],
+    "code": "def parse_informationservices_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse INFORMATIONSERVICES others emails\"\"\"\n    transaction = {\n        'bank': 'INFORMATIONSERVICES',\n        'raw_content': email_content\n    }\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('Account', '8211')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "cred.club": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "\u20b9",
+          "1,000"
+        ]
+      },
+      {
+        "type": "account",
+        "pattern": "(account|a/c|card).*?(\\d{4,})",
+        "sample": [
+          "CARD",
+          "2025"
+        ]
+      }
+    ],
+    "code": "def parse_cred_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CRED others emails\"\"\"\n    transaction = {\n        'bank': 'CRED',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('\u20b9', '1,000')\n        pass\n    \n    # Account pattern\n    account_match = re.search(r'(account|a/c|card).*?(\\d{4,})', email_content, re.IGNORECASE)\n    if account_match:\n        # Process account - sample: ('CARD', '2025')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 2
+  },
+  "campaigns.upstox.com": {
+    "category": "others",
+    "patterns": [],
+    "code": "def parse_campaigns_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse CAMPAIGNS others emails\"\"\"\n    transaction = {\n        'bank': 'CAMPAIGNS',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 13
+  },
+  "daily.digest.groww.in": {
+    "category": "others",
+    "patterns": [],
+    "code": "def parse_daily_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse DAILY others emails\"\"\"\n    transaction = {\n        'bank': 'DAILY',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 13
+  },
+  "tpnodl.com": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Amount",
+          "2.00"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "23-08-2025"
+      }
+    ],
+    "code": "def parse_tpnodl_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse TPNODL others emails\"\"\"\n    transaction = {\n        'bank': 'TPNODL',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Amount', '2.00')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 23-08-2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 8
+  },
+  "digest.groww.in": {
+    "category": "others",
+    "patterns": [],
+    "code": "def parse_digest_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse DIGEST others emails\"\"\"\n    transaction = {\n        'bank': 'DIGEST',\n        'raw_content': email_content\n    }\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 3
+  },
+  "dominos.co.in": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "Rs.",
+          "392.00"
+        ]
+      },
+      {
+        "type": "date",
+        "pattern": "(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})",
+        "sample": "09-08-2025"
+      }
+    ],
+    "code": "def parse_dominos_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse DOMINOS others emails\"\"\"\n    transaction = {\n        'bank': 'DOMINOS',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('Rs.', '392.00')\n        pass\n    \n    # Date pattern\n    date_match = re.search(r'(\\d{1,2}[-/]\\d{1,2}[-/]\\d{2,4})', email_content, re.IGNORECASE)\n    if date_match:\n        # Process date - sample: 09-08-2025\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  },
+  "linkedin.com": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          ","
+        ]
+      }
+    ],
+    "code": "def parse_linkedin_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse LINKEDIN others emails\"\"\"\n    transaction = {\n        'bank': 'LINKEDIN',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', ',')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 16
+  },
+  "primevideo.com": {
+    "category": "others",
+    "patterns": [
+      {
+        "type": "amount",
+        "pattern": "(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)",
+        "sample": [
+          "rs",
+          ","
+        ]
+      }
+    ],
+    "code": "def parse_primevideo_transaction(self, email_content: str) -> Optional[Dict]:\n    \"\"\"Parse PRIMEVIDEO others emails\"\"\"\n    transaction = {\n        'bank': 'PRIMEVIDEO',\n        'raw_content': email_content\n    }\n    \n    # Amount pattern\n    amount_match = re.search(r'(amount|rs\\.?|inr|\u20b9)\\s*:?\\s*([\\d,]+\\.?\\d*)', email_content, re.IGNORECASE)\n    if amount_match:\n        # Process amount - sample: ('rs', ',')\n        pass\n    \n    return transaction if transaction.get('amount') else None",
+    "email_count": 1
+  }
+}

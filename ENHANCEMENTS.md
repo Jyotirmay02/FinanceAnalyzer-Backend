@@ -1,179 +1,208 @@
-# Finance Analyzer - Enhancement Roadmap
+# Finance Analyzer Backend - Enhancements
 
-## 🚀 Planned Enhancements
+## File Structure Reorganization
 
-### 📧 Email Transaction Processing
+### Proposed Directory Structure
 
-#### **Kotak Bank Statement Reconciliation**
-- **Issue**: Kotak doesn't send email notifications for:
-  - Interest credits added to account
-  - POS transactions (Point of Sale)
-  - Some card transactions
-- **Solution**: Monthly statement reconciliation
-  - Parse monthly PDF/Excel statements from Kotak
-  - Extract missing transactions (interest, POS, etc.)
-  - Reconcile with email transactions to fill gaps
-  - Auto-categorize interest as "Interest Income"
-  - Flag discrepancies between email vs statement data
-- **Implementation**: 
-  - Add PDF parser for Kotak monthly statements
-  - Create reconciliation engine to match transactions
-  - Generate monthly reconciliation reports
-#### **IndusInd Credit Card Statement Reconciliation**
-- **Issue**: IndusInd credit card statements contain transaction categorization that's not available in email notifications
-- **Solution**: Monthly statement reconciliation for categorization
-  - Parse monthly PDF statements from IndusInd
-  - Extract transaction categories (Food, Shopping, Travel, etc.)
-  - Map categories to existing email transactions
-  - Update transaction records with proper categorization
-  - Generate category-wise spending reports
-- **Implementation**: 
-  - Add PDF parser for IndusInd monthly statements
-  - Create category mapping engine
-  - Auto-categorize transactions based on statement data
-- **Priority**: Medium
-- **Impact**: Enhanced spending analysis with proper categorization
+```
+FinanceAnalyzer-Backend/
+├── README.md
+├── requirements.txt
+├── config/
+│   ├── __init__.py
+│   ├── settings.py              # Configuration settings
+│   └── bank_configs.py          # Bank-specific configurations
+├── src/
+│   ├── __init__.py
+│   ├── parsers/
+│   │   ├── __init__.py
+│   │   ├── base_parser.py       # Base parser class
+│   │   ├── pdf_parsers/
+│   │   │   ├── __init__.py
+│   │   │   ├── credit_card_parser.py # pdf_statement_parser.py
+│   │   │   ├── savings_parser.py     # parse_savings_accounts.py
+│   │   │   └── bank_parsers/
+│   │   │       ├── __init__.py
+│   │   │       ├── kotak_parser.py   # Kotak-specific PDF logic
+│   │   │       ├── sbi_parser.py     # SBI-specific PDF logic
+│   │   │       └── canara_parser.py  # Canara-specific PDF logic
+│   │   ├── excel_parsers/
+│   │   │   ├── __init__.py
+│   │   │   ├── base_excel_parser.py  # Base Excel parser
+│   │   │   ├── savings_excel_parser.py # For savings account Excel files
+│   │   │   ├── credit_excel_parser.py  # For credit card Excel files
+│   │   │   └── bank_excel_parsers/
+│   │   │       ├── __init__.py
+│   │   │       ├── kotak_excel_parser.py
+│   │   │       ├── sbi_excel_parser.py
+│   │   │       ├── canara_excel_parser.py # For Canara CSV/Excel
+│   │   │       ├── hdfc_excel_parser.py
+│   │   │       └── icici_excel_parser.py
+│   │   ├── email_parsers/
+│   │   │   ├── __init__.py
+│   │   │   ├── gmail_reader.py       # Gmail API integration
+│   │   │   ├── email_statement_parser.py # Parse statements from emails
+│   │   │   └── email_filters/
+│   │   │       ├── __init__.py
+│   │   │       ├── bank_filters.py   # Bank-specific email filters
+│   │   │       └── transaction_filters.py # Transaction email filters
+│   │   └── csv_parsers/
+│   │       ├── __init__.py
+│   │       ├── base_csv_parser.py    # Base CSV parser
+│   │       └── bank_csv_parsers/
+│   │           ├── __init__.py
+│   │           ├── canara_csv_parser.py # For Canara CSV files
+│   │           └── other_bank_csv_parser.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── transaction.py       # Transaction dataclass
+│   │   ├── account.py          # Account metadata dataclass
+│   │   └── statement.py        # Statement summary dataclass
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── file_utils.py       # File operations
+│   │   ├── date_utils.py       # Date parsing utilities
+│   │   └── text_utils.py       # Text cleaning utilities
+│   └── analyzers/
+│       ├── __init__.py
+│       ├── portfolio_analyzer.py # portfolio_analysis.py
+│       ├── upi_analyzer.py      # upi_category_analysis.py
+│       └── financial_model.py   # financial_portfolio_model.py
+├── data/
+│   ├── statements/
+│   │   ├── creditcard/         # Credit card JSON outputs
+│   │   └── saving/             # Savings account JSON outputs
+│   └── raw/                    # Raw PDF files (optional)
+├── scripts/
+│   ├── __init__.py
+│   ├── pdf_scripts/
+│   │   ├── run_credit_parser.py     # PDF credit card parsing
+│   │   └── run_savings_parser.py    # PDF savings parsing
+│   ├── excel_scripts/
+│   │   ├── run_excel_credit_parser.py
+│   │   ├── run_excel_savings_parser.py
+│   │   └── run_canara_csv_parser.py
+│   ├── email_scripts/
+│   │   ├── run_gmail_reader.py
+│   │   └── run_email_statement_parser.py
+│   ├── run_analysis.py         # Main script to run analysis
+│   └── run_all_parsers.py      # Master script to run all parsers
+├── tests/
+│   ├── __init__.py
+│   ├── test_parsers/
+│   ├── test_models/
+│   └── test_utils/
+└── logs/
+    └── parser.log              # Logging output
+```
 
-#### **HDFC Credit Card Statement Processing**
-- **Issue**: HDFC credit card not actively used, but need historical data processing
-- **Solution**: Statement-only parsing (no live email processing needed)
-  - Parse HDFC credit card PDF statements
-  - Extract transaction history from statements
-  - Support bulk import of historical data
-  - No real-time email monitoring required
-- **Implementation**: 
-  - Add PDF parser for HDFC credit card statements
-  - Create bulk import functionality
-  - Support historical data analysis
-#### **Complete Email History Processing**
-- **Issue**: Gmail API currently limited to 50 messages per bank (e.g., IndusInd has 162+ emails but only 50 processed)
-- **Solution**: Implement pagination to fetch all historical emails
-  - Add pagination support to Gmail API calls
-  - Process emails in batches to avoid timeouts
-  - Implement resume capability for interrupted processing
-  - Add progress tracking for large email sets
-- **Implementation**: 
-  - Modify Gmail API calls to use pagination tokens
-  - Add batch processing with configurable limits
-  - Create progress indicators for large datasets
-- **Priority**: Medium
-- **Impact**: Complete historical transaction coverage
+## Key Benefits
 
-#### **Multi-Bank Support Expansion**
-- Add parsers for additional banks:
-  - SBI (State Bank of India)
-  - ICICI Bank
-  - HDFC Bank
-  - Axis Bank
-  - Yes Bank
-- **Implementation**: Extend transaction models and parsers
+### 1. Separation of Concerns
+- **Parsers**: PDF, Excel, CSV, and Email parsers are clearly separated
+- **Models**: Data structures isolated in their own module
+- **Utils**: Common utilities centralized
+- **Analyzers**: Analysis tools organized separately
 
-#### **Smart Transaction Categorization**
-- ML-based merchant categorization
-- Custom category rules
-- Expense vs Income classification
-- Recurring transaction detection
+### 2. Format Flexibility
+- **PDF Parsers**: For traditional bank statements
+- **Excel Parsers**: For bank-provided Excel/CSV exports
+- **Email Parsers**: For automated statement retrieval via Gmail
+- **CSV Parsers**: For specific CSV formats (like Canara)
 
-### 🔄 Data Integration & Sync
+### 3. Bank-Specific Support
+Each bank can have multiple parser types:
+- **Canara**: PDF parser + CSV parser
+- **SBI**: PDF parser + Excel parser
+- **HDFC/ICICI**: Excel parsers for their specific formats
+- **Kotak**: PDF parser + potential Excel parser
 
-#### **Real-time Email Monitoring**
-- Gmail webhook integration for instant notifications
-- Scheduled sync (hourly/daily)
-- Background processing service
+### 4. Scalability & Maintainability
+- Easy to add new banks or formats
+- Clear responsibility for each component
+- Unified base classes for consistency
+- Testable architecture
 
-#### **File Upload Integration**
-- Bank statement file upload (PDF, Excel, CSV)
-- Automatic format detection
-- Data validation and error handling
+## Code Cleanup Tasks
 
-### 📊 Analytics & Reporting
+### 1. Remove Unnecessary Code
+- [ ] Remove duplicate functions across files
+- [ ] Eliminate unused imports
+- [ ] Clean up commented-out code blocks
+- [ ] Remove debug print statements
+- [ ] Consolidate similar parsing logic
 
-#### **Advanced Financial Analytics**
-- Monthly spending trends
-- Category-wise expense analysis
-- Income vs expense tracking
-- Budget vs actual comparisons
-- Cash flow analysis
+### 2. Remove Unnecessary Files
+- [ ] Delete temporary test files
+- [ ] Remove backup files (.bak, .old, etc.)
+- [ ] Clean up duplicate scripts
+- [ ] Remove unused configuration files
 
-#### **Reconciliation Reports**
-- Email vs statement comparison
-- Missing transaction identification
-- Duplicate detection reports
-- Data quality metrics
+### 3. Optimize Imports
+- [ ] Remove unused imports from all files
+- [ ] Organize imports (standard library, third-party, local)
+- [ ] Use specific imports instead of wildcard imports
+- [ ] Add missing imports for type hints
 
-### 🔧 Technical Improvements
+### 4. Clean Up Logging
+- [ ] Remove excessive print statements
+- [ ] Implement proper logging framework
+- [ ] Add appropriate log levels (DEBUG, INFO, WARNING, ERROR)
+- [ ] Remove temporary debug logs
 
-#### **Performance Optimization**
-- Database indexing for faster queries
-- Caching layer for frequently accessed data
-- Batch processing for large datasets
+### 5. Code Quality Improvements
+- [ ] Add proper docstrings to all functions
+- [ ] Implement consistent error handling
+- [ ] Add type hints where missing
+- [ ] Follow PEP 8 style guidelines
+- [ ] Remove magic numbers and strings
 
-#### **Error Handling & Monitoring**
-- Comprehensive logging
-- Error notification system
-- Health check endpoints
-- Performance monitoring
+## Migration Plan
 
-### 🎯 User Experience
+### Phase 1: Structure Setup
+1. Create new directory structure
+2. Move existing files to appropriate locations
+3. Update import statements
+4. Create base classes
 
-#### **Dashboard Enhancements**
-- Interactive charts and graphs
-- Customizable date ranges
-- Export functionality (PDF, Excel)
-- Mobile-responsive design
+### Phase 2: Code Refactoring
+1. Extract bank-specific logic into separate modules
+2. Create unified data models
+3. Implement common utilities
+4. Add proper error handling
 
-#### **Configuration Management**
-- User-defined categories
-- Custom parsing rules
-- Bank account management
-- Notification preferences
+### Phase 3: Enhancement
+1. Add Excel parsers for different banks
+2. Implement Gmail reader functionality
+3. Create CSV parsers for specific formats
+4. Add comprehensive testing
 
-## 📅 Implementation Timeline
+### Phase 4: Cleanup
+1. Remove all unnecessary code and files
+2. Optimize imports and dependencies
+3. Implement proper logging
+4. Add documentation
 
-### Phase 1 (Current)
-- ✅ Basic email transaction parsing (HSBC, Kotak)
-- ✅ Transaction deduplication
-- ✅ Structured data models
-- ✅ API endpoints
+## Current Status
 
-### Phase 2 (Next 2 weeks)
-- 🔄 Kotak monthly statement reconciliation
-- 🔄 IndusInd credit card statement categorization
-- 🔄 Complete email history processing (pagination)
-- 🔄 Additional bank support (SBI, ICICI)
-- 🔄 Enhanced categorization
+### Completed Features
+- ✅ PDF parsing for Kotak, SBI, and Canara savings accounts
+- ✅ Credit card PDF parsing (multiple banks)
+- ✅ Metadata extraction from first pages
+- ✅ Multi-line transaction handling
+- ✅ JSON output with proper structure
+- ✅ Account metadata extraction (CRN, IFSC, MICR, etc.)
 
-### Phase 3 (Next month)
-- 🔄 HDFC credit card statement processing
-- 🔄 Real-time sync capabilities
-- 🔄 Advanced analytics dashboard
-- 🔄 File upload integration
+### Next Steps
+1. Implement the proposed file structure
+2. Clean up existing codebase
+3. Add Excel and CSV parsers
+4. Implement Gmail integration
+5. Add comprehensive testing
 
-### Phase 4 (Future)
-- 🔄 ML-based insights
-- 🔄 Budget planning tools
-- 🔄 Investment tracking
-
-## 🐛 Known Issues & Fixes
-
-### Current Issues
-- Some Kotak POS transactions missing (email notifications not sent)
-- Interest credits not captured in email parsing
-- IndusInd transaction categorization only available in monthly statements
-- HDFC credit card historical data not processed
-- Gmail API limited to 50 messages per bank (missing historical emails)
-- Manual reconciliation needed for complete accuracy
-
-### Planned Fixes
-- Monthly statement parsing for complete transaction coverage
-- IndusInd statement categorization reconciliation
-- HDFC statement processing for historical data
-- Gmail API pagination for complete email history
-- Automated reconciliation engine
-- Data validation and gap detection
-
----
-
-**Last Updated**: August 24, 2025
-**Version**: 1.0
-**Status**: Active Development
+## Notes
+- Maintain backward compatibility during migration
+- Ensure all existing functionality works after restructuring
+- Add proper configuration management
+- Implement logging framework for better debugging
+- Create comprehensive documentation for each module

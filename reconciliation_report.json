@@ -1,0 +1,3182 @@
+{
+  "reconciliation_summary": {
+    "IndusInd Bank_credit": {
+      "total_matches": 109,
+      "exact_matches": 30,
+      "fuzzy_matches": 66,
+      "partial_matches": 13
+    },
+    "overall": {
+      "total_matches": 109,
+      "exact_matches": 30,
+      "fuzzy_matches": 66,
+      "partial_matches": 13
+    }
+  },
+  "matches": {
+    "IndusInd Bank_credit": [
+      {
+        "pdf_transaction": {
+          "date": "2025-06-16",
+          "description": "UPI RAJIV KUMAR 553320856971 RESTAURANTS 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-21",
+          "description": "UPI KARTHIK KUMAR 553817481558 PERSONAL CARE 4",
+          "amount": 200.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 200.0,
+          "date": "2025-06-21",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197923b5e0c8e59c"
+          },
+          "merchant": "Karthik Kumar",
+          "card_last4": "1289",
+          "time": "04:54:11",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-26",
+          "description": "UPI TP NORTHERN ODISHA 517753726794 UTILITIES 0",
+          "amount": 3.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 2.0,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976cc3839806b66"
+          },
+          "merchant": "Amazon",
+          "card_last4": "1289",
+          "time": "10:17:01",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-27",
+          "description": "UPI JAGADISH R 517855575936 GROCERY & 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-27",
+          "description": "UPI INTERNATIONAL SOCI 517855555729 MISCELLANEOUS 0",
+          "amount": 1.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 2.0,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976cc3839806b66"
+          },
+          "merchant": "Amazon",
+          "card_last4": "1289",
+          "time": "10:17:01",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-28",
+          "description": "UPI BHAGYAMMA K V 554507364011 GROCERY & 5",
+          "amount": 240.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 240.0,
+          "date": "2025-06-28",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197b521f74efaf95"
+          },
+          "merchant": "Bhagyamma K V",
+          "card_last4": "1289",
+          "time": "11:33:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-28",
+          "description": "UPI SENDHOOR COFFEE 554525380026 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-07-04",
+          "description": "UPI GANGADHAR HARDWARE 555128378073 RECREATION 446",
+          "amount": 22320.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 22320.0,
+          "date": "2025-07-04",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197d5377026cac0c"
+          },
+          "merchant": "Gangadhar Hardware",
+          "card_last4": "1289",
+          "time": "05:04:27",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-07-04",
+          "description": "UPI GANGADHAR HARDWARE 555111407634 RECREATION 6",
+          "amount": 320.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 320.0,
+          "date": "2025-07-04",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197d5c4392150e8c"
+          },
+          "merchant": "Gangadhar Hardware",
+          "card_last4": "1289",
+          "time": "07:38:14",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-07-04",
+          "description": "UPI JITU RANJAN DAS 555128361166 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-07-05",
+          "description": "UPI M1FG7PHG18P3 555226514872 RESTAURANTS 10",
+          "amount": 500.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 500.0,
+          "date": "2025-07-05",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197d9ae232b81d29"
+          },
+          "merchant": "M1fg7phg18p3",
+          "card_last4": "1289",
+          "time": "01:52:35",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-07-08",
+          "description": "UPI MED807LHZ 555511026853 CONSUMER 66",
+          "amount": 3280.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 3280.0,
+          "date": "2025-07-08",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197ea4a9041dbc05"
+          },
+          "merchant": "Med807lhz",
+          "card_last4": "1289",
+          "time": "07:17:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-07-15",
+          "description": "GST @ 18% 0",
+          "amount": 14.05,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 15.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986e1d545c6845c"
+          },
+          "merchant": "We Chai",
+          "card_last4": "1289",
+          "time": "09:37:50",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-19",
+          "description": "UPI BETTADALUR VEEREGO 429347226840 RESTAURANTS 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-20",
+          "description": "UPI SIDDESH S V 429446904801 RESTAURANTS 5",
+          "amount": 240.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 240.0,
+          "date": "2025-06-28",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197b521f74efaf95"
+          },
+          "merchant": "Bhagyamma K V",
+          "card_last4": "1289",
+          "time": "11:33:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-20",
+          "description": "UPI M223QCF7UK17S 429467142532 RESTAURANTS 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-31",
+          "description": "UPI MLD1EGYOW 430562994293 GROCERY & 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-11-01",
+          "description": "UPI MR S AJITHKUMAR 430629772645 RESTAURANTS 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-11-02",
+          "description": "UPI M1VUUQMJR4UM 430741636138 RESTAURANTS 4",
+          "amount": 200.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 200.0,
+          "date": "2025-08-23",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198d6c3cc7704431"
+          },
+          "merchant": "Karthik Kumar",
+          "card_last4": "1289",
+          "time": "05:20:11",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-11-08",
+          "description": "UPI M22AVO1P6ZVZC 431361102077 RESTAURANTS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-05",
+          "description": "UPI M22AVO1P6ZVZC 427934430168 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-08",
+          "description": "UPI M22JZVZ8C1RD7 428254691159 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-10",
+          "description": "UPI M22JZVZ8C1RD7 428484147326 RESTAURANTS 2",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-10-14",
+          "description": "UPI BETTADALUR VEEREGO 428823422537 RESTAURANTS 2",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-11-22",
+          "description": "UPI M1S870IHG8IX 432749453513 GROCERY & 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-11-29",
+          "description": "UPI M22OHPUJE8026 433401182184 FOOTWEAR 0",
+          "amount": 15.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 15.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986e1d545c6845c"
+          },
+          "merchant": "We Chai",
+          "card_last4": "1289",
+          "time": "09:37:50",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-12-03",
+          "description": "UPI MZRDTMSRD 433828475584 MISCELLANEOUS 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-12-03",
+          "description": "UPI HPCL 433829512193 PETROL 0",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-12-11",
+          "description": "UPI SATYANARAYAN MANNA 434670958188 PERSONAL CARE 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-19",
+          "description": "UPI M22I3UPJT6C0F 505097919941 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-22",
+          "description": "UPI SRI CHOWDESHWARI T 505358418779 GROCERY & 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-24",
+          "description": "UPI SHARATH 505582752563 GROCERY & 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-25",
+          "description": "SWIGGYINSTAMART 356 GROCERY & 2",
+          "amount": 240.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 240.0,
+          "date": "2025-06-28",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197b521f74efaf95"
+          },
+          "merchant": "Bhagyamma K V",
+          "card_last4": "1289",
+          "time": "11:33:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-26",
+          "description": "UPI SHARATH 505714645870 GROCERY & 2",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-27",
+          "description": "UPI M7YA1SLQ1 505815099292 RESTAURANTS 0",
+          "amount": 15.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 15.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986e1d545c6845c"
+          },
+          "merchant": "We Chai",
+          "card_last4": "1289",
+          "time": "09:37:50",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-07",
+          "description": "EPP CONVERSION FEE SEPARATE 0",
+          "amount": 249.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 249.0,
+          "date": "2025-08-01",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19863dea2433c315"
+          },
+          "merchant": "Reliance Jio Infoc",
+          "card_last4": "1289",
+          "time": "09:53:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-14",
+          "description": "AMAZON 356 MERCHANDISE 0",
+          "amount": 2.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 2.0,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976cc3839806b66"
+          },
+          "merchant": "Amazon",
+          "card_last4": "1289",
+          "time": "10:17:01",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-17",
+          "description": "UPI ASHWINI A 550315289498 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-18",
+          "description": "UPI RELIANCE JIO INFOC 620954125829 UTILITIES 2",
+          "amount": 249.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 249.0,
+          "date": "2025-08-01",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19863dea2433c315"
+          },
+          "merchant": "Reliance Jio Infoc",
+          "card_last4": "1289",
+          "time": "09:53:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-24",
+          "description": "UPI KARTHIK KUMAR 551014267982 PERSONAL CARE 4",
+          "amount": 200.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 200.0,
+          "date": "2025-08-23",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198d6c3cc7704431"
+          },
+          "merchant": "Karthik Kumar",
+          "card_last4": "1289",
+          "time": "05:20:11",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-25",
+          "description": "UPI M22I3UPJT6C0F 551121390243 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-31",
+          "description": "UPI M226QKI6PJI2V 551702251272 RESTAURANTS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-31",
+          "description": "UPI ASHWINI A 551700249277 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-01",
+          "description": "UPI M22I3UPJT6C0F 551823433394 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-02",
+          "description": "UPI SWIGGY 212421380922 RESTAURANTS 5",
+          "amount": 239.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 240.0,
+          "date": "2025-06-28",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197b521f74efaf95"
+          },
+          "merchant": "Bhagyamma K V",
+          "card_last4": "1289",
+          "time": "11:33:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-04",
+          "description": "UPI M22I3UPJT6C0F 552123062942 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-06",
+          "description": "UPI ASHWINI A 113934244716 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-07",
+          "description": "UPI ASHWINI A 131743758132 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-08",
+          "description": "UPI TSF FOOD VAMANA 151631636317 MISCELLANEOUS 1",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-10",
+          "description": "UPI SHARATH 552727969242 GROCERY & 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-12",
+          "description": "UPI M226QKI6PJI2V 183956369367 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-12",
+          "description": "UPI M22I3UPJT6C0F 185750453141 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-14",
+          "description": "UPI ZOMATO LTD 553127503406 RESTAURANTS 4",
+          "amount": 186.5,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 186.5,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976d754221f4ef2"
+          },
+          "merchant": "Zomato Ltd",
+          "card_last4": "1289",
+          "time": "01:31:17",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-14",
+          "description": "AMAZON 356 MERCHANDISE 0",
+          "amount": 2.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 2.0,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976cc3839806b66"
+          },
+          "merchant": "Amazon",
+          "card_last4": "1289",
+          "time": "10:17:01",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-15",
+          "description": "UPI TEJASHREEBM 553216653177 MISCELLANEOUS 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-15",
+          "description": "UPI THE BIRYANI CART 553222655465 RESTAURANTS 2",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-15",
+          "description": "UPI L J IYENGAR BAKERY 553228650053 GROCERY & 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 110.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-15",
+          "description": "GST @ 18% 0",
+          "amount": 20.93,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-15",
+          "description": "EMI PRIN FOR POLICYBAZAARINSU (004/006) 0",
+          "amount": 2868.52,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 40.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-06-15",
+          "description": "EMI INT-POLICYBAZAARINSURANCE (004/006) 0",
+          "amount": 116.27,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 40.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-21",
+          "description": "UPI M22JZVZ8C1RD7 508065916736 RESTAURANTS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-23",
+          "description": "SWIGGYINSTAMART 356 GROCERY & 2",
+          "amount": 199.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 200.0,
+          "date": "2025-08-23",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198d6c3cc7704431"
+          },
+          "merchant": "Karthik Kumar",
+          "card_last4": "1289",
+          "time": "05:20:11",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-28",
+          "description": "UPI M22JZVZ8C1RD7 545302338814 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-30",
+          "description": "UPI M22PGOU4P08SQ 545502750764 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-30",
+          "description": "UPI WE CHAI 545501585672 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-30",
+          "description": "UPI ASHWINI A 545502486247 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-03-30",
+          "description": "SWIGGYINSTAMART 356 GROCERY & 2",
+          "amount": 199.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 200.0,
+          "date": "2025-08-23",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198d6c3cc7704431"
+          },
+          "merchant": "Karthik Kumar",
+          "card_last4": "1289",
+          "time": "05:20:11",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-01",
+          "description": "UPI MV54DBGD3 545701952679 RESTAURANTS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-01",
+          "description": "UPI WE CHAI 545701653393 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-04",
+          "description": "UPI M22JZVZ8C1RD7 546004933683 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-06",
+          "description": "UPI WE CHAI 546218632518 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-06",
+          "description": "UPI SHIVANNI GAUTAM 546290214008 RESTAURANTS 2",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-06",
+          "description": "UPI ASHWINI A 509679609337 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-09",
+          "description": "UPI WE CHAI 509999243788 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-09",
+          "description": "UPI MV54DBGD3 546530678116 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-20",
+          "description": "UPI L J IYENGAR BAKERY 511060334294 GROCERY & 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-21",
+          "description": "UPI RAJIV KUMAR 547789959891 RESTAURANTS 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-23",
+          "description": "UPI M22GCYAD6VB41 547913892657 MISCELLANEOUS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-23",
+          "description": "UPI M22JZVZ8C1RD7 547960559617 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-25",
+          "description": "UPI M22JZVZ8C1RD7 548106168656 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-26",
+          "description": "UPI A N HARISH 548207276223 MISCELLANEOUS 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-26",
+          "description": "UPI M22I3UPJT6C0F 548210245760 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-26",
+          "description": "UPI MV54DBGD3 548224243838 RESTAURANTS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-04-27",
+          "description": "UPI L J IYENGAR BAKERY 548331408183 GROCERY & 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-02",
+          "description": "UPI NEW 548826084607 MISCELLANEOUS 5",
+          "amount": 250.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 249.0,
+          "date": "2025-08-01",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19863dea2433c315"
+          },
+          "merchant": "Reliance Jio Infoc",
+          "card_last4": "1289",
+          "time": "09:53:09",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-04",
+          "description": "UPI JAYA SANIL 549016462019 MISCELLANEOUS 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-05",
+          "description": "UPI M226QKI6PJI2V 549121589137 RESTAURANTS 0",
+          "amount": 10.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 11.0,
+          "date": "2025-08-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198aebb769f080b4"
+          },
+          "merchant": "Reliance Jio Infoc",
+          "card_last4": "1289",
+          "time": "10:46:16",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-05",
+          "description": "UPI ASHWINI A 549108591103 GROCERY & 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-10",
+          "description": "UPI M226QKI6PJI2V 549605309493 RESTAURANTS 1",
+          "amount": 60.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 60.0,
+          "date": "2025-08-24",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198da3ec82002681"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "09:33:22",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-05-10",
+          "description": "UPI M22I3UPJT6C0F 549609315873 RESTAURANTS 0",
+          "amount": 12.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 12.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764535b47a9a68"
+          },
+          "merchant": "M22i3upjt6c0f",
+          "card_last4": "1289",
+          "time": "06:57:51",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-15",
+          "description": "UPI M1S870IHG8IX 501510786569 GROCERY & 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-16",
+          "description": "UPI SHARATH 501613744397 GROCERY & 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-19",
+          "description": "UPI TSF FOOD VISHNU 501920193357 MISCELLANEOUS 0",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-19",
+          "description": "UPI TSF FOOD SITA RAM 501920172869 MISCELLANEOUS 0",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-01",
+          "description": "UPI BETTADALUR VEEREGO 503253593588 RESTAURANTS 0",
+          "amount": 15.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 15.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986e1d545c6845c"
+          },
+          "merchant": "We Chai",
+          "card_last4": "1289",
+          "time": "09:37:50",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-01",
+          "description": "UPI ICICI 503253651955 COMPUTERS 2",
+          "amount": 99.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-02",
+          "description": "UPI MV54DBGD3 503389492588 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-02",
+          "description": "UPI RAJIV KUMAR 539912213144 RESTAURANTS 1",
+          "amount": 25.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 25.0,
+          "date": "2025-06-16",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197792370558c32d"
+          },
+          "merchant": "Rajiv Kumar",
+          "card_last4": "1289",
+          "time": "07:57:33",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 80.0,
+        "match_type": "exact"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-06",
+          "description": "UPI MOHAMMAD ALI OMAN 540357510561 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-02-06",
+          "description": "UPI M22LXSMOTUJQO 540371359724 RESTAURANTS 2",
+          "amount": 90.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 90.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19772902221845b8"
+          },
+          "merchant": "The Biryani Cart",
+          "card_last4": "1289",
+          "time": "01:18:56",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-12-26",
+          "description": "CHEQDIGITALPVTLTD 356 MISCELLANEOUS 0",
+          "amount": 2.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 2.0,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976cc3839806b66"
+          },
+          "merchant": "Amazon",
+          "card_last4": "1289",
+          "time": "10:17:01",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-12-22",
+          "description": "UPI ICICI 472321777186 GROCERY & 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2024-12-26",
+          "description": "CHEQDIGITALPVTLTD 356 MISCELLANEOUS 0",
+          "amount": 2.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 2.0,
+          "date": "2025-06-14",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1976cc3839806b66"
+          },
+          "merchant": "Amazon",
+          "card_last4": "1289",
+          "time": "10:17:01",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-03",
+          "description": "UPI SENDHOOR COFFEE 536969257419 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-04",
+          "description": "UPI MUGILAMMA 537073818141 MISCELLANEOUS 2",
+          "amount": 100.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 100.0,
+          "date": "2025-08-03",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "1986ee4d0f6b8274"
+          },
+          "merchant": "Rajadhi Raja Govin",
+          "card_last4": "1289",
+          "time": "01:15:43",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-04",
+          "description": "UPI MUGILAMMA 537073819447 MISCELLANEOUS 0",
+          "amount": 10.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 11.0,
+          "date": "2025-08-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "198aebb769f080b4"
+          },
+          "merchant": "Reliance Jio Infoc",
+          "card_last4": "1289",
+          "time": "10:46:16",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-08",
+          "description": "UPI SENDHOOR COFFEE 537487858986 RESTAURANTS 1",
+          "amount": 40.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 40.0,
+          "date": "2025-06-12",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19764435300631b1"
+          },
+          "merchant": "M226qki6pji2v",
+          "card_last4": "1289",
+          "time": "06:39:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-12",
+          "description": "UPI ABUDUL SATTAR S O 501202967694 RESTAURANTS 0",
+          "amount": 20.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 20.0,
+          "date": "2025-06-15",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "197728a461539f5b"
+          },
+          "merchant": "L J Iyengar Bakery",
+          "card_last4": "1289",
+          "time": "01:12:31",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 60.0,
+        "match_type": "fuzzy"
+      },
+      {
+        "pdf_transaction": {
+          "date": "2025-01-12",
+          "description": "UPI MBRYTH8CG 501202253024 PERSONAL CARE 13",
+          "amount": 650.0,
+          "type": "debit",
+          "balance": null,
+          "reference": null
+        },
+        "email_transaction": {
+          "amount": 650.37,
+          "date": "2025-08-02",
+          "bank": "IndusInd",
+          "transaction_type": "debit",
+          "metadata": {
+            "source": "email",
+            "card_type": "credit",
+            "transaction_category": "card",
+            "email_id": "19869381617eeb8d"
+          },
+          "merchant": "Zepto Marketplace",
+          "card_last4": "1289",
+          "time": "10:48:58",
+          "category": null,
+          "reference_number": null
+        },
+        "match_score": 50.0,
+        "match_type": "partial"
+      }
+    ]
+  },
+  "generated_at": "2025-08-24T19:41:21.782227"
+}
