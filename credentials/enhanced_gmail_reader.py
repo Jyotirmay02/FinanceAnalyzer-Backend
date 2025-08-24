@@ -40,21 +40,16 @@ class GmailTransactionReader:
             if creds and creds.expired and creds.refresh_token:
                 try:
                     creds.refresh(google.auth.transport.requests.Request())
-                    print("✅ Token refreshed successfully")
                 except RefreshError:
-                    print("⚠️ Refresh token expired, logging in again…")
                     creds = None
             
             if not creds:
-                print("🔐 Starting OAuth flow...")
                 flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
                 creds = flow.run_local_server(port=8080)
-                print("✅ Authentication successful")
 
             # Save creds for next run
             with open(TOKEN_PATH, "w") as token:
                 token.write(creds.to_json())
-            print(f"💾 Token saved to {TOKEN_PATH}")
 
         self.creds = creds
         self.service = build('gmail', 'v1', credentials=creds)
@@ -413,8 +408,6 @@ class GmailTransactionReader:
         transactions = []
         seen_transactions = set()  # Track duplicates
         
-        print(f"📬 Found {len(messages)} {bank_name} messages")
-        
         for msg in messages:
             try:
                 email_content = self.get_email_content(msg['id'])
@@ -449,10 +442,8 @@ class GmailTransactionReader:
                         structured_transaction = TransactionFactory.create_transaction(transaction)
                         transactions.append(transaction_to_dict(structured_transaction))
                     else:
-                        print(f"  ⚠️ Skipping duplicate: ₹{transaction['amount']} on {transaction['date']}")
                     
             except Exception as e:
-                print(f"❌ Error processing message {msg['id']}: {e}")
                 continue
                 
         return transactions
@@ -471,17 +462,14 @@ class GmailTransactionReader:
         all_transactions = {}
         
         for bank_name, emails in bank_configs.items():
-            print(f"\n--- {bank_name} Transactions ---")
             bank_transactions = []
             seen_transactions = set()  # Track duplicates across all emails for this bank
             
             for email in emails:
-                print(f"📧 Checking {email}")
                 transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions)
                 bank_transactions.extend(transactions)
                 
             all_transactions[bank_name] = bank_transactions
-            print(f"✅ Found {len(bank_transactions)} total {bank_name} transactions")
             
         return all_transactions
     
@@ -501,7 +489,6 @@ class GmailTransactionReader:
         messages = results.get('messages', [])
         transactions = []
         
-        print(f"📬 Found {len(messages)} {bank_name} messages")
         
         for msg in messages:
             try:
@@ -537,10 +524,8 @@ class GmailTransactionReader:
                         structured_transaction = TransactionFactory.create_transaction(transaction)
                         transactions.append(transaction_to_dict(structured_transaction))
                     else:
-                        print(f"  ⚠️ Skipping duplicate: ₹{transaction['amount']} on {transaction['date']}")
                     
             except Exception as e:
-                print(f"❌ Error processing message {msg['id']}: {e}")
                 continue
                 
         return transactions
@@ -549,7 +534,6 @@ class GmailTransactionReader:
         """Save transactions to JSON file"""
         with open(filename, 'w') as f:
             json.dump(transactions, f, indent=2, default=str)
-        print(f"💾 Transactions saved to {filename}")
 
     def get_transaction_summary(self, transactions: Dict[str, List[Dict]]) -> Dict:
         """Generate summary of email transactions"""
