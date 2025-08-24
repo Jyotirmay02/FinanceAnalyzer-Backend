@@ -4,6 +4,7 @@ import re
 import base64
 import json
 import sys
+import pickle
 from datetime import datetime
 from typing import List, Dict, Optional
 import google.auth.transport.requests
@@ -16,26 +17,42 @@ from googleapiclient.discovery import build
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from transaction_models import TransactionFactory, transaction_to_dict
 
-# If modifying scopes, delete the token.json file
-SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
+# Gmail API scopes
+SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
-TOKEN_PATH = "token.json"  # Same as original - in root directory
-CREDENTIALS_PATH = "/Users/jmysethi/Downloads/client_secret_885429144379-als8fusnv1vqdo3oosna9j3glp77ckm5.apps.googleusercontent.com.json"
+# Directory paths
+CREDENTIALS_DIR = os.path.dirname(os.path.abspath(__file__))
+CREDENTIALS_PATH = os.path.join(CREDENTIALS_DIR, 'credentials.json')
+
+# ✅ List of Gmail accounts to process
+EMAIL_ACCOUNTS = [
+    "jyotirmays123@gmail.com",
+    "jotirmays123@gmail.com"
+]
 
 class GmailTransactionReader:
-    def __init__(self):
+    def __init__(self, user_email: str = None):
+        self.user_email = user_email
         self.service = None
         self.creds = None
         
-    def authenticate(self) -> Credentials:
-        """Authenticate with Gmail API"""
+    def authenticate(self, user_email: str = None) -> Credentials:
+        """Authenticate Gmail user and return credentials"""
+        if user_email:
+            self.user_email = user_email
+            
+        if not self.user_email:
+            raise ValueError("User email must be provided")
+            
         creds = None
+        token_file = os.path.join(CREDENTIALS_DIR, f"token_{self.user_email}.pickle")
 
-        # Load existing token if available
-        if os.path.exists(TOKEN_PATH):
-            creds = Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
+        # Load credentials from pickle if available
+        if os.path.exists(token_file):
+            with open(token_file, 'rb') as token:
+                creds = pickle.load(token)
 
-        # If no valid creds, ask user to login
+        # If no creds or invalid, authenticate
         if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
                 try:
@@ -47,9 +64,9 @@ class GmailTransactionReader:
                 flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
                 creds = flow.run_local_server(port=8080)
 
-            # Save creds for next run
-            with open(TOKEN_PATH, "w") as token:
-                token.write(creds.to_json())
+            # Save credentials for this user
+            with open(token_file, 'wb') as token:
+                pickle.dump(creds, token)
 
         self.creds = creds
         self.service = build('gmail', 'v1', credentials=creds)
@@ -590,31 +607,52 @@ class GmailTransactionReader:
         return summary
 
 def main():
-    reader = GmailTransactionReader()
+    """Process transactions from multiple Gmail accounts"""
+    all_transactions_combined = {}
     
-    # Authenticate
-    reader.authenticate()
-    print("✅ Gmail Connected Successfully")
+    for email_account in EMAIL_ACCOUNTS:
+        print(f"\n🔑 Processing {email_account}...")
+        
+        # Create reader for this account
+        reader = GmailTransactionReader(email_account)
+        
+        # Authenticate
+        reader.authenticate()
+        print(f"✅ {email_account} Connected Successfully")
+        
+        # Get transactions for this account
+        account_transactions = reader.get_all_bank_transactions()
+        
+        # Merge transactions (each bank should only be in one account)
+        for bank, transactions in account_transactions.items():
+            if transactions:  # Only add if there are transactions
+                if bank in all_transactions_combined:
+                    print(f"⚠️ Warning: {bank} found in multiple accounts!")
+                all_transactions_combined[bank] = transactions
     
-    # Get all transactions
-    all_transactions = reader.get_all_bank_transactions()
-    
-    # Save to file
-    reader.save_transactions_to_json(all_transactions)
-    
-    # Print summary
-    summary = reader.get_transaction_summary(all_transactions)
-    print(f"\n📊 Transaction Summary:")
-    print(f"Total Transactions: {summary['total_transactions']}")
-    print(f"Total Credits: ₹{summary['total_credit_amount']:,.2f} ({summary['total_credit_count']} transactions)")
-    print(f"Total Debits: ₹{summary['total_debit_amount']:,.2f} ({summary['total_debit_count']} transactions)")
-    print(f"Net Change: ₹{summary['net_change']:,.2f}")
-    print(f"Date Range: {summary['date_range']['earliest']} to {summary['date_range']['latest']}")
-    
-    for bank, stats in summary['banks'].items():
-        print(f"{bank}: {stats['count']} transactions, Net: ₹{stats['net_change']:,.2f}")
-        print(f"  Credits: ₹{stats['credit_amount']:,.2f} ({stats['credit_count']})")
-        print(f"  Debits: ₹{stats['debit_amount']:,.2f} ({stats['debit_count']})")
+    # Save combined transactions
+    if all_transactions_combined:
+        filename = 'email_transactions_multi_account.json'
+        with open(filename, 'w') as f:
+            json.dump(all_transactions_combined, f, indent=2, default=str)
+        print(f"\n💾 Combined transactions saved to {filename}")
+        
+        # Print summary
+        reader = GmailTransactionReader()  # Use for utility methods
+        summary = reader.get_transaction_summary(all_transactions_combined)
+        print(f"\n📊 Multi-Account Transaction Summary:")
+        print(f"Total Transactions: {summary['total_transactions']}")
+        print(f"Total Credits: ₹{summary['total_credit_amount']:,.2f} ({summary['total_credit_count']} transactions)")
+        print(f"Total Debits: ₹{summary['total_debit_amount']:,.2f} ({summary['total_debit_count']} transactions)")
+        print(f"Net Change: ₹{summary['net_change']:,.2f}")
+        print(f"Date Range: {summary['date_range']['earliest']} to {summary['date_range']['latest']}")
+        
+        for bank, stats in summary['banks'].items():
+            print(f"{bank}: {stats['count']} transactions, Net: ₹{stats['net_change']:,.2f}")
+            print(f"  Credits: ₹{stats['credit_amount']:,.2f} ({stats['credit_count']})")
+            print(f"  Debits: ₹{stats['debit_amount']:,.2f} ({stats['debit_count']})")
+    else:
+        print("❌ No transactions found across all accounts")
 
 if __name__ == "__main__":
     main()
