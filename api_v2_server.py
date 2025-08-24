@@ -509,6 +509,83 @@ async def general_exception_handler(request, exc):
         ).dict()
     )
 
+# ============================================================================
+# EMAIL TRANSACTION ENDPOINTS
+# ============================================================================
+
+@app.post("/api/v2/email/sync", tags=["Email Transactions"])
+async def sync_email_transactions():
+    """Sync transactions from email sources (Gmail)"""
+    try:
+        from email_transaction_service import EmailTransactionService
+        
+        service = EmailTransactionService()
+        
+        # Fetch email transactions
+        email_transactions = service.fetch_email_transactions()
+        
+        # Convert to standard format
+        standard_transactions = service.convert_to_standard_format(email_transactions)
+        
+        # Generate summary
+        summary = service.get_email_transaction_summary(standard_transactions)
+        
+        return {
+            "status": "success",
+            "message": f"Synced {len(standard_transactions)} email transactions",
+            "summary": summary,
+            "transactions": standard_transactions[:10]  # Return first 10 for preview
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Email sync failed: {str(e)}")
+
+@app.get("/api/v2/email/status", tags=["Email Transactions"])
+async def get_email_sync_status():
+    """Get email integration status"""
+    try:
+        from credentials.enhanced_gmail_reader import GmailTransactionReader
+        import os
+        
+        reader = GmailTransactionReader()
+        
+        # Check if credentials exist
+        creds_exist = os.path.exists("/Users/jmysethi/Downloads/client_secret_885429144379-als8fusnv1vqdo3oosna9j3glp77ckm5.apps.googleusercontent.com.json")
+        token_exist = os.path.exists("credentials/token.json")
+        
+        status = {
+            "credentials_configured": creds_exist,
+            "authenticated": token_exist,
+            "supported_banks": ["HSBC"],
+            "last_sync": None  # TODO: Add last sync timestamp
+        }
+        
+        return status
+        
+    except Exception as e:
+        return {
+            "credentials_configured": False,
+            "authenticated": False,
+            "error": str(e)
+        }
+
+@app.post("/api/v2/email/authenticate", tags=["Email Transactions"])
+async def authenticate_email():
+    """Authenticate with Gmail API"""
+    try:
+        from credentials.enhanced_gmail_reader import GmailTransactionReader
+        
+        reader = GmailTransactionReader()
+        reader.authenticate()
+        
+        return {
+            "status": "success",
+            "message": "Gmail authentication successful"
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Authentication failed: {str(e)}")
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)

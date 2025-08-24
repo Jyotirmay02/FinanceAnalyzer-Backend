@@ -172,3 +172,5 @@ exports/
 /tmp/
 *.tmp
 *.temp
+token.json
+credentials.json
