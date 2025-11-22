@@ -635,9 +635,9 @@ class GmailTransactionReader:
                 'iphinfo.itps@alerts.sbi.co.in',
                 'donotreply.sbiatm@alerts.sbi.co.in'
             ],
-            # 'ICICI_CC': ['credit_cards@icicibank.com', 'custcomm@icicibank.com'],
-            # 'SBI_CC': ['sbicard.com', 'offers@sbicard.com', 'emailer@sbicard.com'],
-            # 'CANARA': ['canarabank@canarabank.com']
+            'ICICI_CC': ['credit_cards@icicibank.com', 'custcomm@icicibank.com'],
+            'SBI_CC': ['sbicard.com', 'offers@sbicard.com', 'emailer@sbicard.com'],
+            'CANARA': ['canarabank@canarabank.com']
         }
         
         all_transactions = {}
@@ -688,14 +688,15 @@ class GmailTransactionReader:
                 elif bank_name.upper() == 'SBI_CC':
                     transaction = self.parse_sbi_credit_card_transaction(email_content)
                 elif bank_name.upper() == 'CANARA':
-                    transaction = self.parse_canara_bank_transaction(email_content)
-                    
+                    transaction = self.parse_canara_bank_transaction(email_content)   
                 else:
                     # Add parsers for other banks here
                     transaction = None
-                    
+
                 if transaction:
-                    transaction['metadata']['email_id'] = msg['id']
+                    metadata = transaction.get('metadata', {})
+                    metadata['email_id'] = msg.get('id')
+                    transaction['metadata'] = metadata
                     
                     # Create unique key for deduplication
                     unique_key = (
