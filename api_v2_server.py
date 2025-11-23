@@ -171,39 +171,24 @@ async def analyze_files(
             temp_files.append(temp_file.name)
             file_names.append(file.filename)
         
-        # Process all files
-        if len(temp_files) == 1:
-            # Single file analysis
-            analyzer = FinanceAnalyzer(temp_files[0])
-            analyzer.load_data()
-            analyzer.process_transactions()
-            analyzer.generate_summaries()
-            
-            # Apply date filters if provided
-            if from_date or to_date:
-                analyzer.analyze_with_date_filter(from_date, to_date)
-            
-            # Transform to structured data
-            analysis_data = transform_analyzer_to_portfolio_data(analyzer)
-        else:
-            # Multi-file analysis - use portfolio analysis v2 method
-            from src.portfolio_analyzer import process_portfolio_files_v2
-            try:
-                result = process_portfolio_files_v2(temp_files)
-                if result and len(result) == 2:
-                    output_file, portfolio_data = result
-                    
-                    # Create analyzer for compatibility
-                    analyzer = FinanceAnalyzer(temp_files[0])
-                    analyzer.load_data()
-                    analyzer.process_transactions()
-                    
-                    # Use portfolio_data directly as analysis_data
-                    analysis_data = portfolio_data
-                else:
-                    raise Exception("Portfolio processing failed")
-            except Exception as e:
-                raise HTTPException(status_code=500, detail=f"Portfolio analysis failed: {str(e)}")
+        # Multi-file analysis - use portfolio analysis v2 method
+        from src.portfolio_analyzer import process_portfolio_files_v2
+        try:
+            result = process_portfolio_files_v2(temp_files)
+            if result and len(result) == 2:
+                output_file, portfolio_data = result
+                
+                # Create analyzer for compatibility
+                analyzer = FinanceAnalyzer(temp_files[0])
+                analyzer.load_data()
+                analyzer.process_transactions()
+                
+                # Use portfolio_data directly as analysis_data
+                analysis_data = portfolio_data
+            else:
+                raise Exception("Portfolio processing failed")
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Portfolio analysis failed: {str(e)}")
         
         # Store analysis results
         analysis_storage[analysis_id] = analysis_data
@@ -272,6 +257,7 @@ async def get_transactions(
     
     # Apply filters
     transactions = analysis_data.categorized_transactions
+    print(f"analysis data - categorized txn {transactions[0]}")
     
     if category:
         transactions = [t for t in transactions if t.category.lower() == category.lower()]
