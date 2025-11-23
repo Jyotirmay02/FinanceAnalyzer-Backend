@@ -517,47 +517,144 @@ async def general_exception_handler(request, exc):
 async def sync_email_transactions():
     """Sync transactions from email sources (Gmail)"""
     try:
-        from email_transaction_service import EmailTransactionService
+        # Import your existing Gmail reader
+        sys.path.append(str(Path(__file__).parent / "credentials"))
+        from enhanced_gmail_reader import GmailTransactionReader
         
-        service = EmailTransactionService()
+        # Initialize for multiple accounts
+        email_accounts = ["jyotirmays123@gmail.com", "jotirmays123@gmail.com"]
+        all_transactions = {}
         
-        # Fetch email transactions
-        email_transactions = service.fetch_email_transactions()
+        for email in email_accounts:
+            try:
+                reader = GmailTransactionReader(email)
+                reader.authenticate(email)
+                
+                # Use the correct method - get_all_bank_transactions
+                bank_transactions = reader.get_all_bank_transactions()
+                
+                # Flatten transactions and add email source
+                for bank, transactions in bank_transactions.items():
+                    for transaction in transactions:
+                        transaction['email_account'] = email
+                        transaction['source'] = 'email_api'
+                        transaction['bank'] = bank
+                
+                all_transactions[email] = bank_transactions
+                
+            except Exception as e:
+                print(f"Failed to sync {email}: {str(e)}")
+                continue
         
-        # Convert to standard format
-        standard_transactions = service.convert_to_standard_format(email_transactions)
+        # Flatten all transactions for summary
+        flat_transactions = []
+        banks_found = set()
+        
+        for email, bank_data in all_transactions.items():
+            for bank, transactions in bank_data.items():
+                flat_transactions.extend(transactions)
+                if transactions:  # Only add bank if it has transactions
+                    banks_found.add(bank)
         
         # Generate summary
-        summary = service.get_email_transaction_summary(standard_transactions)
+        summary = {
+            "total_transactions": len(flat_transactions),
+            "accounts_synced": len(all_transactions),
+            "banks_found": list(banks_found),
+            "date_range": {
+                "from": "30 days ago",
+                "to": "now"
+            }
+        }
         
         return {
             "status": "success",
-            "message": f"Synced {len(standard_transactions)} email transactions",
+            "message": f"Synced {len(flat_transactions)} email transactions",
             "summary": summary,
-            "transactions": standard_transactions[:10]  # Return first 10 for preview
+            "transactions": flat_transactions[:20]  # Return first 20 for preview
         }
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Email sync failed: {str(e)}")
 
+@app.get("/api/v2/email/transactions", tags=["Email Transactions"])
+async def get_email_transactions(
+    email_account: Optional[str] = Query(None, description="Filter by email account"),
+    bank: Optional[str] = Query(None, description="Filter by bank"),
+    days: int = Query(30, description="Number of days to fetch")
+):
+    """Get email transactions with optional filters"""
+    try:
+        sys.path.append(str(Path(__file__).parent / "credentials"))
+        from enhanced_gmail_reader import GmailTransactionReader
+        
+        email_accounts = ["jyotirmays123@gmail.com", "jotirmays123@gmail.com"]
+        if email_account:
+            email_accounts = [email_account]
+        
+        all_transactions = []
+        
+        for email in email_accounts:
+            try:
+                reader = GmailTransactionReader(email)
+                reader.authenticate(email)
+                
+                # Get all bank transactions
+                bank_transactions = reader.get_all_bank_transactions()
+                
+                # Flatten and filter
+                for bank_name, transactions in bank_transactions.items():
+                    # Filter by bank if specified
+                    if bank and bank_name.upper() != bank.upper():
+                        continue
+                    
+                    # Add metadata to each transaction
+                    for transaction in transactions:
+                        transaction['email_account'] = email
+                        transaction['source'] = 'email_api'
+                        transaction['bank'] = bank_name
+                        all_transactions.append(transaction)
+                
+            except Exception as e:
+                print(f"Failed to fetch from {email}: {str(e)}")
+                continue
+        
+        return {
+            "status": "success",
+            "count": len(all_transactions),
+            "transactions": all_transactions
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to fetch email transactions: {str(e)}")
+
 @app.get("/api/v2/email/status", tags=["Email Transactions"])
 async def get_email_sync_status():
     """Get email integration status"""
     try:
-        from credentials.enhanced_gmail_reader import GmailTransactionReader
+        sys.path.append(str(Path(__file__).parent / "credentials"))
+        from enhanced_gmail_reader import GmailTransactionReader
         import os
         
-        reader = GmailTransactionReader()
+        # Check credentials for each account
+        email_accounts = ["jyotirmays123@gmail.com", "jotirmays123@gmail.com"]
+        account_status = {}
         
-        # Check if credentials exist
-        creds_exist = os.path.exists("/Users/jmysethi/Downloads/client_secret_885429144379-als8fusnv1vqdo3oosna9j3glp77ckm5.apps.googleusercontent.com.json")
-        token_exist = os.path.exists("credentials/token.json")
+        for email in email_accounts:
+            token_file = f"credentials/token_{email}.pickle"
+            account_status[email] = {
+                "authenticated": os.path.exists(token_file),
+                "token_file": token_file
+            }
+        
+        creds_exist = os.path.exists("credentials/credentials.json")
         
         status = {
             "credentials_configured": creds_exist,
-            "authenticated": token_exist,
-            "supported_banks": ["HSBC"],
-            "last_sync": None  # TODO: Add last sync timestamp
+            "accounts": account_status,
+            "supported_banks": ["HSBC", "ICICI", "IndusInd"],
+            "total_accounts": len(email_accounts),
+            "authenticated_accounts": sum(1 for acc in account_status.values() if acc["authenticated"])
         }
         
         return status
@@ -565,18 +662,48 @@ async def get_email_sync_status():
     except Exception as e:
         return {
             "credentials_configured": False,
-            "authenticated": False,
+            "accounts": {},
             "error": str(e)
         }
 
 @app.post("/api/v2/email/authenticate", tags=["Email Transactions"])
-async def authenticate_email():
-    """Authenticate with Gmail API"""
+async def authenticate_email(email_account: Optional[str] = Query(None, description="Email account to authenticate")):
+    """Authenticate with Gmail API for specific account"""
     try:
-        from credentials.enhanced_gmail_reader import GmailTransactionReader
+        sys.path.append(str(Path(__file__).parent / "credentials"))
+        from enhanced_gmail_reader import GmailTransactionReader
         
-        reader = GmailTransactionReader()
-        reader.authenticate()
+        email_accounts = ["jyotirmays123@gmail.com", "jotirmays123@gmail.com"]
+        if email_account:
+            email_accounts = [email_account]
+        
+        results = {}
+        
+        for email in email_accounts:
+            try:
+                reader = GmailTransactionReader(email)
+                creds = reader.authenticate(email)
+                
+                results[email] = {
+                    "status": "success",
+                    "authenticated": True,
+                    "message": f"Successfully authenticated {email}"
+                }
+                
+            except Exception as e:
+                results[email] = {
+                    "status": "error",
+                    "authenticated": False,
+                    "error": str(e)
+                }
+        
+        return {
+            "status": "completed",
+            "results": results
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Authentication failed: {str(e)}")
         
         return {
             "status": "success",

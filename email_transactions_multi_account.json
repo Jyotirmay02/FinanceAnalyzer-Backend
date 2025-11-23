@@ -1,4 +1,468 @@
 {
+  "HSBC": [
+    {
+      "amount": 245.0,
+      "date": "2025-11-22",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19aaaa2b5071958d",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "13:46",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 208.0,
+      "date": "2025-11-19",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19a9ceca680d4840",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "21:52",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 1147.0,
+      "date": "2025-11-13",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19a7b203c7a29814",
+        "transaction_category": "card"
+      },
+      "merchant": "ZEPTO",
+      "card_last4": "1032",
+      "time": "08:21",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 209.0,
+      "date": "2025-11-09",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19a695c7f56246b4",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "21:33",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 135.0,
+      "date": "2025-11-19",
+      "bank": "HSBC",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19a9e6820e7c5eac",
+        "transaction_category": "card"
+      },
+      "merchant": "Credit Adjustment",
+      "card_last4": "1032",
+      "time": null,
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 322.0,
+      "date": "2025-10-19",
+      "bank": "HSBC",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "199fec4b54b5fe18",
+        "transaction_category": "card"
+      },
+      "merchant": "Credit Adjustment",
+      "card_last4": "1032",
+      "time": null,
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 321.0,
+      "date": "2025-09-19",
+      "bank": "HSBC",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19965871fb405af5",
+        "transaction_category": "card"
+      },
+      "merchant": "Credit Adjustment",
+      "card_last4": "1032",
+      "time": null,
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 122.0,
+      "date": "2025-08-19",
+      "bank": "HSBC",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "198c4f3fda5117dc",
+        "transaction_category": "card"
+      },
+      "merchant": "Credit Adjustment",
+      "card_last4": "1032",
+      "time": null,
+      "category": null,
+      "reference_number": null
+    }
+  ],
+  "Kotak": [
+    {
+      "amount": 60000.0,
+      "date": "2025-10-26",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "19a1f3a19e935528"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "Mr. JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "529912843275",
+      "remarks": null
+    },
+    {
+      "amount": 100000.0,
+      "date": "2025-10-25",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "19a1bbdeba3accc1"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "529819690811",
+      "remarks": null
+    },
+    {
+      "amount": 227335.0,
+      "date": "2025-10-25",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "19a1b0c1b7c3cd33"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "529816602474",
+      "remarks": null
+    },
+    {
+      "amount": 20000.0,
+      "date": "2025-10-23",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "19a0f286aa3a96c8"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "529609555714",
+      "remarks": null
+    },
+    {
+      "amount": 50000.0,
+      "date": "2025-10-18",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "199f5ac037349d9a"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "529110635177",
+      "remarks": null
+    },
+    {
+      "amount": 284198.0,
+      "date": "2025-10-17",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "199f060fc6d18e03"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": null,
+      "beneficiary_account": null,
+      "sender_name": "AMAZON DEVELOPMENT CENTRE INDIA PRIVATE LIMITED Sender Mobile No: 9111XX1111",
+      "sender_account": null,
+      "reference_number": "529009207277",
+      "remarks": null
+    },
+    {
+      "amount": 30000.0,
+      "date": "2025-10-16",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "199ed20faea8ea5f"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "528918822333",
+      "remarks": null
+    },
+    {
+      "amount": 26000.0,
+      "date": "2025-10-05",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "199b29b11be6e12e"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "527809217751",
+      "remarks": null
+    },
+    {
+      "amount": 72727.0,
+      "date": "2025-09-30",
+      "bank": "Kotak",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "199975fcf3799592"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": "JYOTIRMAY SETHI",
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": "527302310808",
+      "remarks": null
+    },
+    {
+      "amount": 1.0,
+      "date": "2025-09-28",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "transfer",
+        "transfer_type": "IMPS",
+        "email_id": "19990bfec2070b94"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": null,
+      "beneficiary_account": null,
+      "sender_name": "API Banking EB Sender Mobile No: 9199XX2336",
+      "sender_account": null,
+      "reference_number": "527182222414",
+      "remarks": null
+    },
+    {
+      "amount": 4881.0,
+      "date": "2025-10-30",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "salary",
+        "payment_method": "NACH/ECS",
+        "email_id": "19a3326ffeebf454"
+      },
+      "employer_name": "Amazon Development Centre India",
+      "payment_type": "NACH/ECS",
+      "employee_id": null,
+      "reference_number": null
+    },
+    {
+      "amount": 282974.0,
+      "date": "2025-09-29",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "salary",
+        "payment_method": "NACH/ECS",
+        "email_id": "19993809f9b63a42"
+      },
+      "employer_name": "Amazon Development Centre India",
+      "payment_type": "NACH/ECS",
+      "employee_id": null,
+      "reference_number": null
+    },
+    {
+      "amount": 65400.0,
+      "date": "2025-07-30",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "salary",
+        "payment_method": "NACH/ECS",
+        "email_id": "1985960b8af93856"
+      },
+      "employer_name": "Amazon Development Centre India",
+      "payment_type": "NACH/ECS",
+      "employee_id": null,
+      "reference_number": null
+    },
+    {
+      "amount": 61010.0,
+      "date": "2025-06-27",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "salary",
+        "payment_method": "NACH/ECS",
+        "email_id": "197af848b5e0abda"
+      },
+      "employer_name": "Amazon Development Centre India",
+      "payment_type": "NACH/ECS",
+      "employee_id": null,
+      "reference_number": null
+    }
+  ],
+  "IndusInd": [
+    {
+      "amount": 35.0,
+      "date": "2025-11-18",
+      "bank": "IndusInd",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "transaction_category": "card",
+        "email_id": "19a9730767430a56"
+      },
+      "merchant": "Darjeeling Pahadi",
+      "card_last4": "1289",
+      "time": "07:08:45",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 4.0,
+      "date": "2025-11-16",
+      "bank": "IndusInd",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "transaction_category": "card",
+        "email_id": "19a8d5f161119f8b"
+      },
+      "merchant": "Ramdev Medical",
+      "card_last4": "1289",
+      "time": "09:23:28",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 170.0,
+      "date": "2025-11-16",
+      "bank": "IndusInd",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "transaction_category": "card",
+        "email_id": "19a8d59f7948923a"
+      },
+      "merchant": "Bibi Fatmah",
+      "card_last4": "1289",
+      "time": "09:17:51",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 200.0,
+      "date": "2025-11-16",
+      "bank": "IndusInd",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "transaction_category": "card",
+        "email_id": "19a8be075e6601b3"
+      },
+      "merchant": "M22yyrcf0z44g",
+      "card_last4": "1289",
+      "time": "02:25:31",
+      "category": null,
+      "reference_number": null
+    }
+  ],
   "SBI": [
     {
       "amount": 1250.0,
@@ -305,6 +769,23 @@
   ],
   "CANARA": [
     {
+      "amount": 19400.0,
+      "date": "2025-11-22",
+      "bank": "CANARA",
+      "transaction_type": "debit",
+      "metadata": {
+        "email_id": "19aac97477f90474",
+        "transaction_category": "transfer"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": null,
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": null,
+      "remarks": null
+    },
+    {
       "amount": 60.0,
       "date": "2025-11-21",
       "bank": "CANARA",
@@ -430,23 +911,6 @@
       "transaction_type": "debit",
       "metadata": {
         "email_id": "19a96121b8dc9207",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 20000.0,
-      "date": "2025-11-18",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19a9539a9ecd4024",
         "transaction_category": "transfer"
       },
       "transfer_type": "IMPS",
