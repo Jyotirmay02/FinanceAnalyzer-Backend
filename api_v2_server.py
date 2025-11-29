@@ -225,7 +225,8 @@ async def get_dashboard(analysis_id: str):
     return APIv2Transformer.create_dashboard_response(
         overall_summary=analysis_data.overall_summary,
         categories=analysis_data.category_summary,
-        transactions=analysis_data.categorized_transactions
+        transactions=analysis_data.categorized_transactions,
+        calculate_summary_from_transactions=True
     )
 
 # ============================================================================

@@ -1,6 +1,23 @@
 {
   "HSBC": [
     {
+      "amount": 256.0,
+      "date": "2025-11-23",
+      "bank": "HSBC",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "email_id": "19aaf9a934a78f6a",
+        "transaction_category": "card"
+      },
+      "merchant": "SWIGGY LIMITED",
+      "card_last4": "1032",
+      "time": "12:55",
+      "category": null,
+      "reference_number": null
+    },
+    {
       "amount": 245.0,
       "date": "2025-11-22",
       "bank": "HSBC",
@@ -329,6 +346,22 @@
       "remarks": null
     },
     {
+      "amount": 2318.0,
+      "date": "2025-11-27",
+      "bank": "Kotak",
+      "transaction_type": "credit",
+      "metadata": {
+        "source": "email",
+        "transaction_category": "salary",
+        "payment_method": "NACH/ECS",
+        "email_id": "19ac5ad3b810603b"
+      },
+      "employer_name": "Amazon Development Centre India",
+      "payment_type": "NACH/ECS",
+      "employee_id": null,
+      "reference_number": null
+    },
+    {
       "amount": 4881.0,
       "date": "2025-10-30",
       "bank": "Kotak",
@@ -395,6 +428,40 @@
   ],
   "IndusInd": [
     {
+      "amount": 25.0,
+      "date": "2025-11-24",
+      "bank": "IndusInd",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "transaction_category": "card",
+        "email_id": "19ab6419ab1b7e93"
+      },
+      "merchant": "Rajiv Kumar",
+      "card_last4": "1289",
+      "time": "07:55:42",
+      "category": null,
+      "reference_number": null
+    },
+    {
+      "amount": 80.0,
+      "date": "2025-11-23",
+      "bank": "IndusInd",
+      "transaction_type": "debit",
+      "metadata": {
+        "source": "email",
+        "card_type": "credit",
+        "transaction_category": "card",
+        "email_id": "19ab0e5db1fd09c1"
+      },
+      "merchant": "Nukkad Chaat",
+      "card_last4": "1289",
+      "time": "06:57:23",
+      "category": null,
+      "reference_number": null
+    },
+    {
       "amount": 35.0,
       "date": "2025-11-18",
       "bank": "IndusInd",
@@ -408,57 +475,6 @@
       "merchant": "Darjeeling Pahadi",
       "card_last4": "1289",
       "time": "07:08:45",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 4.0,
-      "date": "2025-11-16",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19a8d5f161119f8b"
-      },
-      "merchant": "Ramdev Medical",
-      "card_last4": "1289",
-      "time": "09:23:28",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 170.0,
-      "date": "2025-11-16",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19a8d59f7948923a"
-      },
-      "merchant": "Bibi Fatmah",
-      "card_last4": "1289",
-      "time": "09:17:51",
-      "category": null,
-      "reference_number": null
-    },
-    {
-      "amount": 200.0,
-      "date": "2025-11-16",
-      "bank": "IndusInd",
-      "transaction_type": "debit",
-      "metadata": {
-        "source": "email",
-        "card_type": "credit",
-        "transaction_category": "card",
-        "email_id": "19a8be075e6601b3"
-      },
-      "merchant": "M22yyrcf0z44g",
-      "card_last4": "1289",
-      "time": "02:25:31",
       "category": null,
       "reference_number": null
     }
@@ -692,6 +708,21 @@
   ],
   "ICICI_CC": [
     {
+      "amount": 96.0,
+      "date": "2025-11-27",
+      "bank": "ICICI_CC",
+      "transaction_type": "debit",
+      "metadata": {
+        "email_id": "19ac36db8d666753",
+        "transaction_category": "card"
+      },
+      "merchant": "TPNODL",
+      "card_last4": "",
+      "time": "09:18:50",
+      "category": null,
+      "reference_number": null
+    },
+    {
       "amount": 102.0,
       "date": "2025-11-22",
       "bank": "ICICI_CC",
@@ -750,24 +781,60 @@
       "time": "10:26:24",
       "category": null,
       "reference_number": null
-    },
-    {
-      "amount": 1025.0,
-      "date": "2025-11-16",
-      "bank": "ICICI_CC",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19a8bbae179578a9",
-        "transaction_category": "card"
-      },
-      "merchant": "Amazon Pay India pvt ltd",
-      "card_last4": "",
-      "time": "01:44:19",
-      "category": null,
-      "reference_number": null
     }
   ],
   "CANARA": [
+    {
+      "amount": 40.0,
+      "date": "2025-11-25",
+      "bank": "CANARA",
+      "transaction_type": "debit",
+      "metadata": {
+        "email_id": "19aba67381dae3e8",
+        "transaction_category": "transfer"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": null,
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": null,
+      "remarks": null
+    },
+    {
+      "amount": 10.0,
+      "date": "2025-11-24",
+      "bank": "CANARA",
+      "transaction_type": "debit",
+      "metadata": {
+        "email_id": "19ab631a2028c09e",
+        "transaction_category": "transfer"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": null,
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": null,
+      "remarks": null
+    },
+    {
+      "amount": 4947.0,
+      "date": "2025-11-24",
+      "bank": "CANARA",
+      "transaction_type": "debit",
+      "metadata": {
+        "email_id": "19ab403939746f17",
+        "transaction_category": "transfer"
+      },
+      "transfer_type": "IMPS",
+      "beneficiary_name": null,
+      "beneficiary_account": null,
+      "sender_name": null,
+      "sender_account": null,
+      "reference_number": null,
+      "remarks": null
+    },
     {
       "amount": 19400.0,
       "date": "2025-11-22",
@@ -809,108 +876,6 @@
       "transaction_type": "debit",
       "metadata": {
         "email_id": "19aa46f68240684b",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 4988.0,
-      "date": "2025-11-21",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19aa46d5420e0fe9",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 30000.0,
-      "date": "2025-11-21",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19aa43da926b32e8",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 4996.0,
-      "date": "2025-11-20",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19a9f3ffee0b815c",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 5000.0,
-      "date": "2025-11-20",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19a9f33b0696aa94",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 2986.0,
-      "date": "2025-11-18",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19a975d74a2faa85",
-        "transaction_category": "transfer"
-      },
-      "transfer_type": "IMPS",
-      "beneficiary_name": null,
-      "beneficiary_account": null,
-      "sender_name": null,
-      "sender_account": null,
-      "reference_number": null,
-      "remarks": null
-    },
-    {
-      "amount": 48.0,
-      "date": "2025-11-18",
-      "bank": "CANARA",
-      "transaction_type": "debit",
-      "metadata": {
-        "email_id": "19a96121b8dc9207",
         "transaction_category": "transfer"
       },
       "transfer_type": "IMPS",

@@ -129,12 +129,27 @@ class APIv2Transformer:
     def create_dashboard_response(
         overall_summary: PortfolioOverallSummaryData,
         categories: List[PortfolioCategorySummaryItem],
-        transactions: List[PortfolioCategorizedTransactionItem]
+        transactions: List[PortfolioCategorizedTransactionItem],
+        calculate_summary_from_transactions: bool = False
     ) -> DashboardResponse:
         """Create dashboard response with all required data"""
         
-        # Transform overall summary
-        summary = APIv2Transformer.transform_overall_summary(overall_summary)
+        # Transform overall summary - calculate from transactions if requested
+        if calculate_summary_from_transactions:
+            total_earned = sum(t.credit_amount for t in transactions)
+            total_spent = sum(t.debit_amount for t in transactions)
+            net_change = total_earned - total_spent
+            
+            summary = OverallSummaryV2(
+                total_earned=total_earned,
+                total_spent=total_spent,
+                net_change=net_change,
+                total_transactions=len(transactions),
+                date_range_start=overall_summary.data_range_start,
+                date_range_end=overall_summary.data_range_end
+            )
+        else:
+            summary = APIv2Transformer.transform_overall_summary(overall_summary)
         
         # Transform categories
         spending_cats, income_cats = APIv2Transformer.transform_category_summary(categories)
@@ -179,7 +194,19 @@ class APIv2Transformer:
         transformed_txns, total_count = APIv2Transformer.transform_transactions(transactions, page, page_size)
         total_pages = (total_count + page_size - 1) // page_size
         
-        summary = APIv2Transformer.transform_overall_summary(overall_summary)
+        # Calculate summary from filtered transactions
+        total_earned = sum(t.credit_amount for t in transactions)
+        total_spent = sum(t.debit_amount for t in transactions)
+        net_change = total_earned - total_spent
+        
+        summary = OverallSummaryV2(
+            total_earned=total_earned,
+            total_spent=total_spent,
+            net_change=net_change,
+            total_transactions=total_count,
+            date_range_start=overall_summary.data_range_start,
+            date_range_end=overall_summary.data_range_end
+        )
         
         return TransactionsResponse(
             transactions=transformed_txns,
