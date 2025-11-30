@@ -650,11 +650,6 @@ class GmailTransactionReader:
             'CANARA': ['canarabank@canarabank.com']
         }
         
-        # Calculate appropriate limit based on days_back
-        # Assume average 3-5 transactions per day per email (can be higher for active accounts)
-        # Use a generous multiplier to ensure we don't miss transactions
-        limit = max(1000, days_back * 5)
-        
         all_transactions = {}
         
         for bank_name, emails in bank_configs.items():
@@ -662,28 +657,29 @@ class GmailTransactionReader:
             seen_transactions = set()  # Track duplicates across all emails for this bank
             
             for email in emails:
-                transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions, days_back=days_back, limit=limit)
+                transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions, days_back=days_back)
                 bank_transactions.extend(transactions)
                 
             all_transactions[bank_name] = bank_transactions
             
         return all_transactions
     
-    def get_bank_transactions_with_dedup(self, bank_email: str, bank_name: str, seen_transactions: set, days_back: int = 30, limit: int = 10) -> List[Dict]:
+    def get_bank_transactions_with_dedup(self, bank_email: str, bank_name: str, seen_transactions: set, days_back: int = 30) -> List[Dict]:
         """Get transactions from specific bank email with deduplication"""
         if not self.service:
             self.authenticate()
             
         # Search for bank emails with date filter
         from datetime import datetime, timedelta
+        import time
         after_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y/%m/%d')
         
-        # Gmail API maxResults is capped at 500, so we need pagination
+        # Fetch ALL messages using pagination (no limit)
         all_messages = []
         page_token = None
-        max_results_per_page = min(500, limit)  # Gmail API max is 500
+        max_results_per_page = 500  # Gmail API max per request
         
-        while len(all_messages) < limit:
+        while True:
             results = self.service.users().messages().list(
                 userId='me',
                 labelIds=['INBOX'],
@@ -697,11 +693,11 @@ class GmailTransactionReader:
             
             # Check if there are more pages
             page_token = results.get('nextPageToken')
-            if not page_token or len(all_messages) >= limit:
+            if not page_token:
                 break
-        
-        # Trim to requested limit
-        all_messages = all_messages[:limit]
+            
+            # Small delay to avoid hitting rate limits
+            time.sleep(0.1)
         transactions = []
         
         for msg in all_messages:
