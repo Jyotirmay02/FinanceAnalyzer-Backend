@@ -651,8 +651,9 @@ class GmailTransactionReader:
         }
         
         # Calculate appropriate limit based on days_back
-        # Assume average 1-2 transactions per day per email
-        limit = max(500, days_back * 2)
+        # Assume average 3-5 transactions per day per email (can be higher for active accounts)
+        # Use a generous multiplier to ensure we don't miss transactions
+        limit = max(1000, days_back * 5)
         
         all_transactions = {}
         
