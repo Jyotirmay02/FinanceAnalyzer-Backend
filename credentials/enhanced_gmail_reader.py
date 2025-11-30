@@ -650,6 +650,10 @@ class GmailTransactionReader:
             'CANARA': ['canarabank@canarabank.com']
         }
         
+        # Calculate appropriate limit based on days_back
+        # Assume average 1-2 transactions per day per email
+        limit = max(500, days_back * 2)
+        
         all_transactions = {}
         
         for bank_name, emails in bank_configs.items():
@@ -657,7 +661,7 @@ class GmailTransactionReader:
             seen_transactions = set()  # Track duplicates across all emails for this bank
             
             for email in emails:
-                transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions, days_back=days_back)
+                transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions, days_back=days_back, limit=limit)
                 bank_transactions.extend(transactions)
                 
             all_transactions[bank_name] = bank_transactions
@@ -673,18 +677,33 @@ class GmailTransactionReader:
         from datetime import datetime, timedelta
         after_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y/%m/%d')
         
-        results = self.service.users().messages().list(
-            userId='me',
-            labelIds=['INBOX'],
-            q=f'from:{bank_email} after:{after_date}',
-            maxResults=limit
-        ).execute()
+        # Gmail API maxResults is capped at 500, so we need pagination
+        all_messages = []
+        page_token = None
+        max_results_per_page = min(500, limit)  # Gmail API max is 500
+        
+        while len(all_messages) < limit:
+            results = self.service.users().messages().list(
+                userId='me',
+                labelIds=['INBOX'],
+                q=f'from:{bank_email} after:{after_date}',
+                maxResults=max_results_per_page,
+                pageToken=page_token
+            ).execute()
 
-        messages = results.get('messages', [])
+            messages = results.get('messages', [])
+            all_messages.extend(messages)
+            
+            # Check if there are more pages
+            page_token = results.get('nextPageToken')
+            if not page_token or len(all_messages) >= limit:
+                break
+        
+        # Trim to requested limit
+        all_messages = all_messages[:limit]
         transactions = []
         
-        
-        for msg in messages:
+        for msg in all_messages:
             try:
                 email_content = self.get_email_content(msg['id'])
                 
