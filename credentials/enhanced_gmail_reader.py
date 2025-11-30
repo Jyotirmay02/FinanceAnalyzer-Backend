@@ -363,7 +363,7 @@ class GmailTransactionReader:
         transaction = {}
         
         # Pattern for IndusInd credit card transaction
-        indusind_match = re.search(r'transaction on your IndusInd Bank Credit Card ending (\d{4}) for INR ([\d,]+\.\d{2}) on (\d{2}-\d{2}-\d{4}) (\d{2}:\d{2}:\d{2}) \w+ at ([^\\s]+) is Approved', email_content, re.IGNORECASE)
+        indusind_match = re.search(r'transaction on your IndusInd Bank Credit Card ending (\d{4}) for INR ([\d,]+\.\d{2}) on (\d{2}-\d{2}-\d{4}) (\d{2}:\d{2}:\d{2}) \w+ at (.+?) is Approved', email_content, re.IGNORECASE)
         
         if indusind_match:
             # Extract merchant name from location/description

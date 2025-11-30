@@ -584,11 +584,20 @@ async def get_transactions(
         # Normalize transaction_type to lowercase
         txn_type = transaction_type.lower() if transaction_type else None
         
+        # Get category_id if category name provided
+        category_id = None
+        if category:
+            from src.database.models import Category
+            cat = db.query(Category).filter(Category.name == category).first()
+            if cat:
+                category_id = cat.id
+        
         # Get full summary stats (not just from page)
         stats = service.get_summary_stats()
         
         # Get paginated transactions with filters
         db_transactions = service.get_transactions(
+            category_id=category_id,
             txn_type=txn_type,
             search_term=search,
             limit=page_size, 
@@ -597,6 +606,7 @@ async def get_transactions(
         
         # Get filtered count for pagination
         total_count = service.get_filtered_count(
+            category_id=category_id,
             txn_type=txn_type,
             search_term=search
         )
