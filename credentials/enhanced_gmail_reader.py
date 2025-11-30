@@ -4,7 +4,6 @@ import re
 import base64
 import json
 import sys
-import pickle
 from datetime import datetime
 from typing import List, Dict, Optional
 import google.auth.transport.requests
@@ -45,12 +44,11 @@ class GmailTransactionReader:
             raise ValueError("User email must be provided")
             
         creds = None
-        token_file = os.path.join(CREDENTIALS_DIR, f"token_{self.user_email}.pickle")
+        token_file = os.path.join(CREDENTIALS_DIR, f"token_{self.user_email}.json")
 
-        # Load credentials from pickle if available
+        # Load credentials from JSON if available
         if os.path.exists(token_file):
-            with open(token_file, 'rb') as token:
-                creds = pickle.load(token)
+            creds = Credentials.from_authorized_user_file(token_file, SCOPES)
 
         # If no creds or invalid, authenticate
         if not creds or not creds.valid:
@@ -62,11 +60,16 @@ class GmailTransactionReader:
             
             if not creds:
                 flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
-                creds = flow.run_local_server(port=8080)
+                creds = flow.run_local_server(
+                    port=8080, 
+                    timeout_seconds=120,
+                    access_type='offline',
+                    prompt='consent'
+                )
 
             # Save credentials for this user
-            with open(token_file, 'wb') as token:
-                pickle.dump(creds, token)
+            with open(token_file, 'w') as token:
+                token.write(creds.to_json())
 
         self.creds = creds
         self.service = build('gmail', 'v1', credentials=creds)
@@ -563,11 +566,14 @@ class GmailTransactionReader:
         if not self.service:
             self.authenticate()
             
-        # Search for bank emails
+        # Search for bank emails with date filter
+        from datetime import datetime, timedelta
+        after_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y/%m/%d')
+        
         results = self.service.users().messages().list(
             userId='me',
             labelIds=['INBOX'],
-            q=f'from:{bank_email}',
+            q=f'from:{bank_email} after:{after_date}',
             maxResults=limit
         ).execute()
 
@@ -621,8 +627,12 @@ class GmailTransactionReader:
                 
         return transactions
 
-    def get_all_bank_transactions(self) -> Dict[str, List[Dict]]:
-        """Get transactions from all supported banks"""
+    def get_all_bank_transactions(self, days_back: int = 30) -> Dict[str, List[Dict]]:
+        """Get transactions from all supported banks
+        
+        Args:
+            days_back: Number of days to look back for transactions (default: 30)
+        """
         bank_configs = {
             'HSBC': ['hsbc@mail.hsbc.co.in', 'alerts@mail.hsbc.co.in'],
             'Kotak': ['BankAlerts@kotak.com', 'bankalerts@kotak.com', 'nach.alerts@kotak.com'],
@@ -647,23 +657,26 @@ class GmailTransactionReader:
             seen_transactions = set()  # Track duplicates across all emails for this bank
             
             for email in emails:
-                transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions)
+                transactions = self.get_bank_transactions_with_dedup(email, bank_name, seen_transactions, days_back=days_back)
                 bank_transactions.extend(transactions)
                 
             all_transactions[bank_name] = bank_transactions
             
         return all_transactions
     
-    def get_bank_transactions_with_dedup(self, bank_email: str, bank_name: str, seen_transactions: set, limit: int = 10) -> List[Dict]:
+    def get_bank_transactions_with_dedup(self, bank_email: str, bank_name: str, seen_transactions: set, days_back: int = 30, limit: int = 10) -> List[Dict]:
         """Get transactions from specific bank email with deduplication"""
         if not self.service:
             self.authenticate()
             
-        # Search for bank emails
+        # Search for bank emails with date filter
+        from datetime import datetime, timedelta
+        after_date = (datetime.now() - timedelta(days=days_back)).strftime('%Y/%m/%d')
+        
         results = self.service.users().messages().list(
             userId='me',
             labelIds=['INBOX'],
-            q=f'from:{bank_email}',
+            q=f'from:{bank_email} after:{after_date}',
             maxResults=limit
         ).execute()
 

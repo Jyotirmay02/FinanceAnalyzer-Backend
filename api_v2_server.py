@@ -23,6 +23,7 @@ from src.api_v2_models import *
 from src.api_v2_transformers import APIv2Transformer
 from src.excel_models import PortfolioAnalysisData, PortfolioOverallSummaryData, PortfolioCategorySummaryItem, PortfolioUpiAnalysisItem, PortfolioUpiSummary, PortfolioCategorizedTransactionItem
 from src.database import init_db, get_db, DatabaseService, SessionLocal
+from src.database.models import Transaction, Bank, Merchant, Category
 import json
 from datetime import datetime, timedelta
 
@@ -569,7 +570,7 @@ async def get_transactions(
     page: int = Query(1, ge=1, description="Page number"),
     page_size: int = Query(50, ge=1, le=1000, description="Items per page"),
     category: Optional[str] = Query(None, description="Filter by category"),
-    transaction_type: Optional[TransactionType] = Query(None, description="Filter by transaction type"),
+    transaction_type: Optional[str] = Query(None, description="Filter by transaction type (debit/credit, case-insensitive)"),
     search: Optional[str] = Query(None, description="Search in description")
 ):
     """Get paginated transactions - supports both RAM and database"""
@@ -580,11 +581,25 @@ async def get_transactions(
         db = SessionLocal()
         service = DatabaseService(db)
         
+        # Normalize transaction_type to lowercase
+        txn_type = transaction_type.lower() if transaction_type else None
+        
         # Get full summary stats (not just from page)
         stats = service.get_summary_stats()
         
-        # Get paginated transactions
-        db_transactions = service.get_transactions(limit=page_size, offset=(page-1)*page_size)
+        # Get paginated transactions with filters
+        db_transactions = service.get_transactions(
+            txn_type=txn_type,
+            search_term=search,
+            limit=page_size, 
+            offset=(page-1)*page_size
+        )
+        
+        # Get filtered count for pagination
+        total_count = service.get_filtered_count(
+            txn_type=txn_type,
+            search_term=search
+        )
         
         # Convert to expected format BEFORE closing session
         from src.excel_models import PortfolioCategorizedTransactionItem
@@ -633,7 +648,7 @@ async def get_transactions(
             overall_summary=summary,
             page=page,
             page_size=page_size,
-            total_count=stats["total_transactions"],
+            total_count=total_count,
             total_earned=stats["total_earned"],
             total_spent=stats["total_spent"]
         )
@@ -646,9 +661,10 @@ async def get_transactions(
         transactions = [t for t in transactions if t.category.lower() == category.lower()]
     
     if transaction_type:
-        if transaction_type == TransactionType.DEBIT:
+        txn_type_lower = transaction_type.lower()
+        if txn_type_lower == 'debit':
             transactions = [t for t in transactions if t.debit_amount > 0]
-        else:
+        elif txn_type_lower == 'credit':
             transactions = [t for t in transactions if t.credit_amount > 0]
     
     if search:
@@ -909,16 +925,31 @@ async def general_exception_handler(request, exc):
 # ============================================================================
 
 @app.post("/api/v2/email/sync", tags=["Email Transactions"])
-async def sync_email_transactions():
-    """Sync transactions from email sources (Gmail)"""
+async def sync_email_transactions(days_back: int = 15):
+    """Sync transactions from email sources (Gmail)
+    
+    Args:
+        days_back: Number of days to look back (default: 15)
+    """
     try:
         # Import your existing Gmail reader
         sys.path.append(str(Path(__file__).parent / "credentials"))
         from enhanced_gmail_reader import GmailTransactionReader
         
-        # Initialize for multiple accounts
-        email_accounts = ["jyotirmays123@gmail.com", "jotirmays123@gmail.com"]
+        # Get all configured email accounts from token files
+        credentials_dir = Path(__file__).parent / "credentials"
+        token_files = list(credentials_dir.glob("token_*.json"))
+        email_accounts = [f.stem.replace("token_", "") for f in token_files]
+        
+        if not email_accounts:
+            return {
+                "status": "error",
+                "message": "No email accounts configured",
+                "summary": {"total_transactions": 0, "accounts_synced": 0, "banks_found": [], "errors": []}
+            }
+        
         all_transactions = {}
+        errors = []
         
         for email in email_accounts:
             try:
@@ -926,7 +957,7 @@ async def sync_email_transactions():
                 reader.authenticate(email)
                 
                 # Use the correct method - get_all_bank_transactions
-                bank_transactions = reader.get_all_bank_transactions()
+                bank_transactions = reader.get_all_bank_transactions(days_back=days_back)
                 
                 # Flatten transactions and add email source
                 for bank, transactions in bank_transactions.items():
@@ -938,7 +969,9 @@ async def sync_email_transactions():
                 all_transactions[email] = bank_transactions
                 
             except Exception as e:
-                print(f"Failed to sync {email}: {str(e)}")
+                error_msg = f"Failed to sync {email}: {str(e)}"
+                print(error_msg)
+                errors.append(error_msg)
                 continue
         
         # Flatten all transactions for summary
@@ -951,20 +984,108 @@ async def sync_email_transactions():
                 if transactions:  # Only add bank if it has transactions
                     banks_found.add(bank)
         
+        # Save to database
+        db = SessionLocal()
+        saved_count = 0
+        duplicate_count = 0
+        
+        print(f"DEBUG: Attempting to save {len(flat_transactions)} transactions to database")
+        
+        try:
+            for txn in flat_transactions:
+                try:
+                    print(f"DEBUG: Processing transaction: {txn.get('date')} - {txn.get('merchant')} - {txn.get('amount')}")
+                    
+                    # Get or create bank first
+                    bank_name = txn.get('bank', 'Unknown')
+                    bank = db.query(Bank).filter(Bank.code == bank_name).first()
+                    if not bank:
+                        bank = Bank(code=bank_name, display_name=bank_name, type='unknown')
+                        db.add(bank)
+                        db.flush()
+                    
+                    # Get or create merchant
+                    merchant_name = txn.get('merchant', 'Unknown')
+                    merchant = db.query(Merchant).filter(Merchant.name == merchant_name).first()
+                    if not merchant:
+                        merchant = Merchant(name=merchant_name)
+                        db.add(merchant)
+                        db.flush()
+                    
+                    # Parse date
+                    date_str = txn.get('date')
+                    if isinstance(date_str, str):
+                        from datetime import datetime
+                        date_obj = datetime.strptime(date_str, '%Y-%m-%d').date()
+                    else:
+                        date_obj = date_str
+                    
+                    # Check for duplicates with bank_id
+                    existing = db.query(Transaction).filter(
+                        Transaction.date == date_obj,
+                        Transaction.amount == abs(float(txn.get('amount', 0))),
+                        Transaction.description == merchant_name,
+                        Transaction.bank_id == bank.id
+                    ).first()
+                    
+                    if existing:
+                        duplicate_count += 1
+                        print(f"DEBUG: Duplicate found, skipping")
+                        continue
+                    
+                    # Determine transaction type
+                    txn_type = txn.get('transaction_type') or txn.get('type') or 'debit'
+                    
+                    # Create transaction
+                    transaction = Transaction(
+                        date=date_obj,
+                        description=merchant_name,
+                        amount=abs(float(txn.get('amount', 0))),
+                        type=txn_type,
+                        bank_id=bank.id,
+                        merchant_id=merchant.id,
+                        category_id=1  # Default category
+                    )
+                    db.add(transaction)
+                    db.flush()  # Flush each transaction individually
+                    saved_count += 1
+                    
+                except Exception as txn_error:
+                    db.rollback()
+                    if "UNIQUE constraint" in str(txn_error):
+                        duplicate_count += 1
+                        print(f"DEBUG: Duplicate constraint, skipping")
+                    else:
+                        print(f"DEBUG: Error saving transaction: {str(txn_error)}")
+                    continue
+            
+            db.commit()
+            print(f"DEBUG: Successfully saved {saved_count} transactions")
+        except Exception as e:
+            db.rollback()
+            print(f"Database error: {str(e)}")
+            import traceback
+            traceback.print_exc()
+        finally:
+            db.close()
+        
         # Generate summary
         summary = {
             "total_transactions": len(flat_transactions),
+            "saved_to_db": saved_count,
+            "duplicates_skipped": duplicate_count,
             "accounts_synced": len(all_transactions),
             "banks_found": list(banks_found),
+            "errors": errors,
             "date_range": {
-                "from": "30 days ago",
+                "from": f"{days_back} days ago",
                 "to": "now"
             }
         }
         
         return {
-            "status": "success",
-            "message": f"Synced {len(flat_transactions)} email transactions",
+            "status": "success" if flat_transactions else "partial",
+            "message": f"Synced {len(flat_transactions)} email transactions from {len(all_transactions)}/{len(email_accounts)} accounts",
             "summary": summary,
             "transactions": flat_transactions[:20]  # Return first 20 for preview
         }
@@ -1061,6 +1182,122 @@ async def get_email_sync_status():
             "error": str(e)
         }
 
+@app.post("/api/v2/email/add", tags=["Email Transactions"])
+async def add_email_account(email: str = Query(..., description="Email address to add")):
+    """Add new email account with OAuth authentication"""
+    try:
+        sys.path.append(str(Path(__file__).parent / "credentials"))
+        from enhanced_gmail_reader import GmailTransactionReader
+        
+        # Validate email format
+        if not email or "@" not in email:
+            raise HTTPException(status_code=400, detail="Invalid email address")
+        
+        # Check if token already exists
+        token_file = Path(__file__).parent / "credentials" / f"token_{email}.json"
+        if token_file.exists():
+            return {
+                "status": "error",
+                "message": f"Email account {email} is already configured"
+            }
+        
+        # Force new authentication by creating fresh reader instance
+        reader = GmailTransactionReader(email)
+        reader.creds = None  # Clear any cached credentials
+        creds = reader.authenticate(email)
+        
+        if not creds or not creds.valid:
+            raise HTTPException(status_code=500, detail="Authentication failed")
+        
+        return {
+            "status": "success",
+            "email": email,
+            "message": f"Successfully added and authenticated {email}"
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to add email account: {str(e)}")
+
+@app.delete("/api/v2/email/remove", tags=["Email Transactions"])
+async def remove_email_account(email: str = Query(..., description="Email address to remove")):
+    """Remove email account and delete token file"""
+    try:
+        token_file = Path(__file__).parent / "credentials" / f"token_{email}.json"
+        
+        if token_file.exists():
+            token_file.unlink()
+            return {
+                "status": "success",
+                "email": email,
+                "message": f"Successfully removed {email}"
+            }
+        else:
+            return {
+                "status": "success",
+                "email": email,
+                "message": f"Token file not found for {email}"
+            }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to remove email account: {str(e)}")
+
+@app.get("/api/v2/email/list", tags=["Email Transactions"])
+async def list_email_accounts():
+    """List all configured email accounts"""
+    try:
+        credentials_dir = Path(__file__).parent / "credentials"
+        token_files = list(credentials_dir.glob("token_*.json"))
+        
+        emails = []
+        for token_file in token_files:
+            # Extract email from filename: token_email@domain.com.json
+            email = token_file.stem.replace("token_", "")
+            emails.append(email)
+        
+        return {
+            "status": "success",
+            "emails": sorted(emails),
+            "count": len(emails)
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to list email accounts: {str(e)}")
+
+@app.delete("/api/v2/data/clear", tags=["Data Management"])
+async def clear_all_data():
+    """Clear all data from database (for testing)"""
+    try:
+        db = SessionLocal()
+        try:
+            # Delete all transactions
+            db.query(Transaction).delete()
+            
+            # Delete all categories except default
+            db.query(Category).filter(Category.id > 1).delete()
+            
+            # Delete all banks except default
+            db.query(Bank).filter(Bank.id > 1).delete()
+            
+            # Delete all merchants
+            db.query(Merchant).delete()
+            
+            db.commit()
+            
+            return {
+                "status": "success",
+                "message": "All data cleared successfully"
+            }
+        except Exception as e:
+            db.rollback()
+            raise e
+        finally:
+            db.close()
+            
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to clear data: {str(e)}")
+
 @app.post("/api/v2/email/authenticate", tags=["Email Transactions"])
 async def authenticate_email(email_account: Optional[str] = Query(None, description="Email account to authenticate")):
     """Authenticate with Gmail API for specific account"""
@@ -1095,14 +1332,6 @@ async def authenticate_email(email_account: Optional[str] = Query(None, descript
         return {
             "status": "completed",
             "results": results
-        }
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Authentication failed: {str(e)}")
-        
-        return {
-            "status": "success",
-            "message": "Gmail authentication successful"
         }
         
     except Exception as e:

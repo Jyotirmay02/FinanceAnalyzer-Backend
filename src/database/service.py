@@ -113,6 +113,15 @@ class DatabaseService:
             return transaction
         except Exception as e:
             self.db.rollback()
+            # Check if it's a duplicate and log the existing record
+            if 'UNIQUE constraint failed' in str(e):
+                existing = self.db.query(Transaction).filter(
+                    Transaction.date == txn_date,
+                    Transaction.description == txn_data.get('description'),
+                    Transaction.amount == txn_data['amount']
+                ).first()
+                if existing:
+                    print(f"    📌 Existing in DB: {existing.date} - {existing.description[:50]} - {existing.amount} (ID: {existing.id})")
             return None
     
     def bulk_add_transactions(self, transactions: List[Dict[str, Any]]) -> Dict[str, int]:
@@ -129,6 +138,7 @@ class DatabaseService:
                 saved += 1
             else:
                 duplicates += 1
+                print(f"  ⚠️  Duplicate: {txn_data.get('date')} - {txn_data.get('description')[:50]} - {txn_data.get('amount')}")
         
         return {"saved": saved, "duplicates": duplicates}
     
@@ -139,6 +149,7 @@ class DatabaseService:
         category_id: Optional[int] = None,
         bank_id: Optional[int] = None,
         txn_type: Optional[str] = None,
+        search_term: Optional[str] = None,
         limit: int = 1000,
         offset: int = 0
     ) -> List[Transaction]:
@@ -155,8 +166,37 @@ class DatabaseService:
             query = query.filter(Transaction.bank_id == bank_id)
         if txn_type:
             query = query.filter(Transaction.type == txn_type)
+        if search_term:
+            query = query.filter(Transaction.description.ilike(f'%{search_term}%'))
         
         return query.order_by(Transaction.date.desc()).limit(limit).offset(offset).all()
+    
+    def get_filtered_count(
+        self,
+        start_date: Optional[datetime] = None,
+        end_date: Optional[datetime] = None,
+        category_id: Optional[int] = None,
+        bank_id: Optional[int] = None,
+        txn_type: Optional[str] = None,
+        search_term: Optional[str] = None
+    ) -> int:
+        """Get count of transactions matching filters"""
+        query = self.db.query(Transaction)
+        
+        if start_date:
+            query = query.filter(Transaction.date >= start_date)
+        if end_date:
+            query = query.filter(Transaction.date <= end_date)
+        if category_id:
+            query = query.filter(Transaction.category_id == category_id)
+        if bank_id:
+            query = query.filter(Transaction.bank_id == bank_id)
+        if txn_type:
+            query = query.filter(Transaction.type == txn_type)
+        if search_term:
+            query = query.filter(Transaction.description.ilike(f'%{search_term}%'))
+        
+        return query.count()
     
     # ============================================
     # TEMP UPLOAD OPERATIONS
