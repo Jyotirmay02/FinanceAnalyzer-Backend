@@ -67,13 +67,17 @@ class APIv2Transformer:
         return spending_categories, income_categories
     
     @staticmethod
-    def transform_transactions(transactions: List[PortfolioCategorizedTransactionItem], page: int = 1, page_size: int = 50) -> tuple[List[TransactionV2], int]:
+    def transform_transactions(transactions: List[PortfolioCategorizedTransactionItem], page: int = 1, page_size: int = 50, skip_pagination: bool = False) -> tuple[List[TransactionV2], int]:
         """Transform transaction data with pagination"""
         total_count = len(transactions)
-        start_idx = (page - 1) * page_size
-        end_idx = start_idx + page_size
         
-        paginated_transactions = transactions[start_idx:end_idx]
+        # Skip pagination if already paginated (database mode)
+        if skip_pagination:
+            paginated_transactions = transactions
+        else:
+            start_idx = (page - 1) * page_size
+            end_idx = start_idx + page_size
+            paginated_transactions = transactions[start_idx:end_idx]
         
         transformed = []
         for i, txn in enumerate(paginated_transactions):
@@ -158,8 +162,8 @@ class APIv2Transformer:
         top_spending = spending_cats[:5]
         top_income = income_cats[:5]
         
-        # Get recent transactions (limit to 5)
-        recent_txns, _ = APIv2Transformer.transform_transactions(transactions[-5:])
+        # Get recent transactions (limit to 5) - transactions are already ordered DESC by date
+        recent_txns, _ = APIv2Transformer.transform_transactions(transactions[:5])
         
         return DashboardResponse(
             overall_summary=summary,
@@ -188,29 +192,44 @@ class APIv2Transformer:
         transactions: List[PortfolioCategorizedTransactionItem],
         overall_summary: PortfolioOverallSummaryData,
         page: int = 1,
-        page_size: int = 50
+        page_size: int = 50,
+        total_count: int = None,
+        total_earned: float = None,
+        total_spent: float = None
     ) -> TransactionsResponse:
         """Create transactions response with pagination"""
-        transformed_txns, total_count = APIv2Transformer.transform_transactions(transactions, page, page_size)
-        total_pages = (total_count + page_size - 1) // page_size
+        # Skip pagination in transform if total_count provided (database mode - already paginated)
+        skip_pagination = total_count is not None
+        transformed_txns, calculated_count = APIv2Transformer.transform_transactions(
+            transactions, page, page_size, skip_pagination=skip_pagination
+        )
         
-        # Calculate summary from filtered transactions
-        total_earned = sum(t.credit_amount for t in transactions)
-        total_spent = sum(t.debit_amount for t in transactions)
-        net_change = total_earned - total_spent
+        # Use provided total_count if available (for database mode), otherwise use calculated
+        actual_total_count = total_count if total_count is not None else calculated_count
+        total_pages = (actual_total_count + page_size - 1) // page_size
+        
+        # Use provided summary values if available, otherwise calculate from transactions
+        if total_earned is not None and total_spent is not None:
+            earned = total_earned
+            spent = total_spent
+        else:
+            earned = sum(t.credit_amount for t in transactions)
+            spent = sum(t.debit_amount for t in transactions)
+        
+        net_change = earned - spent
         
         summary = OverallSummaryV2(
-            total_earned=total_earned,
-            total_spent=total_spent,
+            total_earned=earned,
+            total_spent=spent,
             net_change=net_change,
-            total_transactions=total_count,
+            total_transactions=actual_total_count,
             date_range_start=overall_summary.data_range_start,
             date_range_end=overall_summary.data_range_end
         )
         
         return TransactionsResponse(
             transactions=transformed_txns,
-            total_count=total_count,
+            total_count=actual_total_count,
             page=page,
             page_size=page_size,
             total_pages=total_pages,

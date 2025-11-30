@@ -38,6 +38,31 @@ python api_v2_server.py
 
 The server will start on `http://localhost:8001`
 
+### Database Setup
+
+The application uses SQLite with SQLAlchemy ORM for persistent storage.
+
+```bash
+# Initialize database (creates tables)
+python -c "from src.database import init_db; init_db()"
+
+# Test database setup
+python test_database.py
+
+# Database location
+~/Documents/FinanceAnalyzer/finance_data.db
+```
+
+**📖 For detailed database documentation, see [DATABASE_SCHEMA.md](DATABASE_SCHEMA.md)**
+
+Topics covered:
+- Why normalized schema with multiple tables
+- Entity relationships and foreign keys
+- Query examples with JOINs
+- Storage efficiency comparison
+- Schema migration with Alembic
+- Backup strategies
+
 ### API Documentation
 Once the server is running, visit:
 - **Swagger UI**: http://localhost:8001/docs

@@ -22,8 +22,12 @@ from src.data_transformer import DataTransformer
 from src.api_v2_models import *
 from src.api_v2_transformers import APIv2Transformer
 from src.excel_models import PortfolioAnalysisData, PortfolioOverallSummaryData, PortfolioCategorySummaryItem, PortfolioUpiAnalysisItem, PortfolioUpiSummary, PortfolioCategorizedTransactionItem
+from src.database import init_db, get_db, DatabaseService, SessionLocal
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
+
+# Initialize database on startup
+init_db()
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -213,13 +217,304 @@ async def analyze_files(
                 pass
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/api/v2/save/{analysis_id}", tags=["Analysis"])
+async def save_analysis(analysis_id: str, db: SessionLocal = Depends(get_db)):
+    """
+    Save analyzed data from RAM to database with deduplication
+    """
+    if analysis_id not in analysis_storage:
+        raise HTTPException(status_code=404, detail="Analysis ID not found")
+    
+    try:
+        portfolio_data = analysis_storage[analysis_id]
+        db_service = DatabaseService(db)
+        
+        # Extract transactions from categorized_transactions
+        transactions = []
+        for txn in portfolio_data.categorized_transactions:
+            amount = txn.credit_amount if txn.credit_amount > 0 else -txn.debit_amount
+            transactions.append({
+                'date': txn.txn_date,
+                'description': txn.description,
+                'amount': amount,
+                'category': txn.category,
+                'bank': txn.bank,
+                'type': 'credit' if amount > 0 else 'debit'
+            })
+        
+        # Bulk add with deduplication
+        result = db_service.bulk_add_transactions(transactions)
+        
+        # Clean up RAM after successful save
+        del analysis_storage[analysis_id]
+        
+        return {
+            "saved": result['saved'],
+            "duplicates": result['duplicates'],
+            "message": f"Saved {result['saved']} transactions, skipped {result['duplicates']} duplicates"
+        }
+    
+    except Exception as e:
+        import traceback
+        error_detail = f"Save failed: {str(e)}"
+        raise HTTPException(status_code=500, detail=error_detail)
+
+# ============================================================================
+# NEW UPLOAD ENDPOINTS (Preview & Save Flow)
+# ============================================================================
+
+@app.post("/api/v2/upload/preview", tags=["Upload"])
+async def upload_preview(files: List[UploadFile] = File(...)):
+    """Upload files for preview (not saved to database yet)"""
+    try:
+        upload_id = str(uuid.uuid4())
+        temp_files = []
+        file_names = []
+        
+        for file in files:
+            if not file.filename:
+                raise HTTPException(status_code=400, detail="File must have a filename")
+            
+            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=Path(file.filename).suffix)
+            content = await file.read()
+            temp_file.write(content)
+            temp_file.close()
+            
+            temp_files.append(temp_file.name)
+            file_names.append(file.filename)
+        
+        from src.portfolio_analyzer import process_portfolio_files_v2
+        result = process_portfolio_files_v2(temp_files)
+        
+        if not result or len(result) != 2:
+            raise HTTPException(status_code=500, detail="Portfolio processing failed")
+        
+        output_file, portfolio_data = result
+        
+        db = SessionLocal()
+        service = DatabaseService(db)
+        temp_upload = service.create_temp_upload(
+            upload_id=upload_id,
+            filename=", ".join(file_names),
+            data={"portfolio_data": portfolio_data.dict(), "file_names": file_names},
+            hours=24
+        )
+        db.close()
+        
+        for temp_file in temp_files:
+            os.unlink(temp_file)
+        
+        return {
+            "upload_id": upload_id,
+            "filename": ", ".join(file_names),
+            "transaction_count": len(portfolio_data.categorized_transactions),
+            "summary": {
+                "total_spent": portfolio_data.overall_summary.total_spent,
+                "total_earned": portfolio_data.overall_summary.total_earned,
+                "net_change": portfolio_data.overall_summary.net_portfolio_change
+            },
+            "status": "preview"
+        }
+    except Exception as e:
+        for temp_file in temp_files:
+            try:
+                os.unlink(temp_file)
+            except:
+                pass
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/v2/upload/{upload_id}/save", tags=["Upload"])
+async def save_upload(upload_id: str):
+    """Save uploaded transactions to database"""
+    db = SessionLocal()
+    service = DatabaseService(db)
+    
+    temp_upload = service.get_temp_upload(upload_id)
+    if not temp_upload:
+        db.close()
+        raise HTTPException(status_code=404, detail="Upload not found or expired")
+    
+    data = json.loads(temp_upload.data)
+    portfolio_data = PortfolioAnalysisData(**data['portfolio_data'])
+    
+    transactions = []
+    for txn in portfolio_data.categorized_transactions:
+        try:
+            txn_date = datetime.strptime(txn.txn_date, '%Y-%m-%d').date() if isinstance(txn.txn_date, str) else txn.txn_date
+        except:
+            continue
+            
+        transactions.append({
+            'date': txn_date,
+            'amount': abs(txn.debit_amount if txn.debit_amount > 0 else txn.credit_amount),
+            'description': txn.description,
+            'type': 'debit' if txn.debit_amount > 0 else 'credit',
+            'bank': txn.bank or 'UNKNOWN',
+            'category': txn.category or 'Uncategorized',
+            'merchant': txn.description.split()[0] if txn.description else None,
+            'balance': txn.balance_amount,
+            'source_file': txn.source_file,
+            'year': txn.year
+        })
+    
+    result = service.bulk_add_transactions(transactions)
+    service.delete_temp_upload(upload_id)
+    db.close()
+    
+    return {
+        "saved": result['saved'],
+        "duplicates": result['duplicates'],
+        "message": f"Saved {result['saved']} new, skipped {result['duplicates']} duplicates"
+    }
+
+
+@app.get("/api/v2/portfolio/summary", tags=["Portfolio"])
+async def get_portfolio_summary():
+    """Get summary of all saved transactions"""
+    db = SessionLocal()
+    service = DatabaseService(db)
+    stats = service.get_summary_stats()
+    categories = service.get_category_summary()
+    db.close()
+    
+    return {"summary": stats, "categories": categories}
+
+@app.get("/api/v2/portfolio/transactions", tags=["Portfolio"])
+async def get_portfolio_transactions(
+    limit: int = Query(100, ge=1, le=1000),
+    offset: int = Query(0, ge=0)
+):
+    """Get list of saved transactions"""
+    db = SessionLocal()
+    service = DatabaseService(db)
+    transactions = service.get_transactions(limit=limit, offset=offset)
+    
+    # Get total count and stats
+    stats = service.get_summary_stats()
+    
+    db.close()
+    
+    return {
+        "transactions": transactions, 
+        "count": len(transactions),
+        "total_count": stats["total_transactions"],
+        "total_spent": stats["total_spent"],
+        "total_earned": stats["total_earned"],
+        "debit_count": stats["debit_count"],
+        "credit_count": stats["credit_count"]
+    }
+
+@app.post("/api/v2/portfolio/transactions", tags=["Portfolio"])
+async def add_transaction(
+    date: str,
+    description: str,
+    amount: float,
+    type: str,
+    category: str = "Uncategorized",
+    bank: str = "Unknown"
+):
+    """Add a single transaction to database"""
+    print(f"Adding transaction: date={date}, desc={description}, amount={amount}, type={type}")
+    
+    db = SessionLocal()
+    service = DatabaseService(db)
+    
+    result = service.add_transaction({
+        'date': date,
+        'description': description,
+        'amount': amount,
+        'category': category,
+        'bank': bank,
+        'type': type
+    })
+    
+    db.close()
+    
+    if result:
+        return {"success": True, "transaction_id": result.id}
+    else:
+        return {"success": False, "message": "Duplicate transaction"}
+
 # ============================================================================
 # DASHBOARD ENDPOINTS
 # ============================================================================
 
 @app.get("/api/v2/dashboard/{analysis_id}", response_model=DashboardResponse, tags=["Dashboard"])
 async def get_dashboard(analysis_id: str):
-    """Get dashboard data including summary, top categories, and recent transactions"""
+    """Get dashboard data - supports both RAM and database"""
+    
+    if analysis_id == "database" or analysis_id not in analysis_storage:
+        # Use database
+        db = SessionLocal()
+        service = DatabaseService(db)
+        stats = service.get_summary_stats()
+        categories = service.get_category_summary()
+        recent = service.get_transactions(limit=10, offset=0)
+        
+        # Convert to expected format
+        from src.excel_models import PortfolioCategorySummaryItem
+        category_items = [
+            PortfolioCategorySummaryItem(
+                category=c['category'],
+                total_debit=c['total'] if c['total'] < 0 else 0,
+                debit_count=c['count'] if c['total'] < 0 else 0,
+                total_credit=c['total'] if c['total'] > 0 else 0,
+                credit_count=c['count'] if c['total'] > 0 else 0,
+                net_amount=c['total'],
+                transaction_count=c['count']
+            )
+            for c in categories
+        ]
+        
+        from src.excel_models import PortfolioCategorizedTransactionItem
+        transaction_items = []
+        for t in recent:
+            transaction_items.append(PortfolioCategorizedTransactionItem(
+                txn_date=str(t.date),
+                value_date='',
+                cheque_no='',
+                description=t.description or '',
+                debit_amount=abs(t.amount) if t.type == 'debit' else 0,
+                credit_amount=t.amount if t.type == 'credit' else 0,
+                balance_amount=0,
+                category=t.category.name if t.category else 'Uncategorized',
+                source_file='',
+                bank=t.bank.display_name if t.bank else 'Unknown',
+                reference='',
+                year=t.year or 0,
+                broad_category=t.category.name if t.category else 'Uncategorized'
+            ))
+        
+        db.close()
+        
+        from src.excel_models import PortfolioOverallSummaryData
+        from datetime import datetime
+        summary = PortfolioOverallSummaryData(
+            total_earned=stats['total_earned'],
+            total_spent=stats['total_spent'],
+            net_portfolio_change=stats['net_change'],
+            total_transactions=stats['total_transactions'],
+            external_transactions=stats['total_transactions'],
+            self_transfer_transactions=0,
+            external_outflows=stats['debit_count'],
+            external_inflows=stats['total_earned'],
+            net_portfolio_change_transactions=stats['net_change'],
+            self_transfers_ignored=0,
+            data_range_start='',
+            data_range_end='',
+            last_updated='',
+            report_generation_time=datetime.now().isoformat()
+        )
+        
+        return APIv2Transformer.create_dashboard_response(
+            overall_summary=summary,
+            categories=category_items,
+            transactions=transaction_items,
+            calculate_summary_from_transactions=False
+        )
+    
+    # Use RAM
     analysis_data = get_analysis_data(analysis_id)
     
     return APIv2Transformer.create_dashboard_response(
@@ -235,9 +530,33 @@ async def get_dashboard(analysis_id: str):
 
 @app.get("/api/v2/categories/{analysis_id}", response_model=CategoriesResponse, tags=["Categories"])
 async def get_categories(analysis_id: str):
-    """Get all categories data for spending and income analysis"""
-    analysis_data = get_analysis_data(analysis_id)
+    """Get all categories data - supports both RAM and database"""
     
+    if analysis_id == "database" or analysis_id not in analysis_storage:
+        # Use database
+        db = SessionLocal()
+        service = DatabaseService(db)
+        categories = service.get_category_summary()
+        db.close()
+        
+        from src.excel_models import PortfolioCategorySummaryItem
+        category_items = [
+            PortfolioCategorySummaryItem(
+                category=c['category'],
+                total_debit=abs(c['total']) if c['total'] < 0 else 0,
+                debit_count=c['count'] if c['total'] < 0 else 0,
+                total_credit=c['total'] if c['total'] > 0 else 0,
+                credit_count=c['count'] if c['total'] > 0 else 0,
+                net_amount=c['total'],
+                transaction_count=c['count']
+            )
+            for c in categories
+        ]
+        
+        return APIv2Transformer.create_categories_response(category_items)
+    
+    # Use RAM
+    analysis_data = get_analysis_data(analysis_id)
     return APIv2Transformer.create_categories_response(analysis_data.category_summary)
 
 # ============================================================================
@@ -253,12 +572,75 @@ async def get_transactions(
     transaction_type: Optional[TransactionType] = Query(None, description="Filter by transaction type"),
     search: Optional[str] = Query(None, description="Search in description")
 ):
-    """Get paginated transactions with optional filtering"""
-    analysis_data = get_analysis_data(analysis_id)
+    """Get paginated transactions - supports both RAM and database"""
     
-    # Apply filters
+    # Check if using database mode
+    if analysis_id == "database" or analysis_id not in analysis_storage:
+        # Fetch from database
+        db = SessionLocal()
+        service = DatabaseService(db)
+        
+        # Get full summary stats (not just from page)
+        stats = service.get_summary_stats()
+        
+        # Get paginated transactions
+        db_transactions = service.get_transactions(limit=page_size, offset=(page-1)*page_size)
+        
+        # Convert to expected format BEFORE closing session
+        from src.excel_models import PortfolioCategorizedTransactionItem
+        transactions = []
+        for t in db_transactions:
+            transactions.append(PortfolioCategorizedTransactionItem(
+                txn_date=str(t.date),
+                value_date=str(t.value_date) if t.value_date else '',
+                cheque_no=t.cheque_no or '',
+                description=t.description or '',
+                debit_amount=abs(t.amount) if t.type == 'debit' else 0,
+                credit_amount=t.amount if t.type == 'credit' else 0,
+                balance_amount=t.balance or 0,
+                category=t.category.name if t.category else 'Uncategorized',
+                source_file=t.source_file or '',
+                bank=t.bank.display_name if t.bank else 'Unknown',
+                reference=t.reference or '',
+                year=t.year or 0,
+                broad_category=t.category.name if t.category else 'Uncategorized'
+            ))
+        
+        db.close()
+        
+        # Use actual summary from database
+        from src.excel_models import PortfolioOverallSummaryData
+        from datetime import datetime
+        summary = PortfolioOverallSummaryData(
+            total_earned=stats["total_earned"],
+            total_spent=stats["total_spent"],
+            net_portfolio_change=stats["net_change"],
+            total_transactions=stats["total_transactions"],
+            external_transactions=stats["total_transactions"],
+            self_transfer_transactions=0,
+            external_outflows=stats["debit_count"],
+            external_inflows=stats["total_earned"],
+            net_portfolio_change_transactions=stats["net_change"],
+            self_transfers_ignored=0,
+            data_range_start='',
+            data_range_end='',
+            last_updated='',
+            report_generation_time=datetime.now().isoformat()
+        )
+        
+        return APIv2Transformer.create_transactions_response(
+            transactions=transactions,
+            overall_summary=summary,
+            page=page,
+            page_size=page_size,
+            total_count=stats["total_transactions"],
+            total_earned=stats["total_earned"],
+            total_spent=stats["total_spent"]
+        )
+    
+    # Use RAM data
+    analysis_data = analysis_storage[analysis_id]
     transactions = analysis_data.categorized_transactions
-    print(f"analysis data - categorized txn {transactions[0]}")
     
     if category:
         transactions = [t for t in transactions if t.category.lower() == category.lower()]
@@ -361,13 +743,39 @@ async def get_account_balances(analysis_id: str):
 
 @app.get("/api/v2/monthly-trend/{analysis_id}", response_model=MonthlyTrendResponse, tags=["Trends"])
 async def get_monthly_trend(analysis_id: str):
-    """Get monthly trend data parsed from actual transactions"""
-    if analysis_id not in analysis_storage:
-        raise HTTPException(status_code=404, detail="Analysis not found")
+    """Get monthly trend data parsed from actual transactions - supports both RAM and database"""
     
-    # Get analysis data
-    analysis_data = analysis_storage[analysis_id]
-    transactions = analysis_data.categorized_transactions
+    # Get transactions from database or RAM
+    if analysis_id == "database" or analysis_id not in analysis_storage:
+        # Use database
+        db = SessionLocal()
+        service = DatabaseService(db)
+        db_transactions = service.get_transactions(limit=10000, offset=0)
+        
+        # Convert to expected format
+        from src.excel_models import PortfolioCategorizedTransactionItem
+        transactions = []
+        for t in db_transactions:
+            transactions.append(PortfolioCategorizedTransactionItem(
+                txn_date=str(t.date),
+                value_date='',
+                cheque_no='',
+                description=t.description or '',
+                debit_amount=abs(t.amount) if t.type == 'debit' else 0,
+                credit_amount=t.amount if t.type == 'credit' else 0,
+                balance_amount=0,
+                category=t.category.name if t.category else 'Uncategorized',
+                source_file='',
+                bank=t.bank.display_name if t.bank else 'Unknown',
+                reference='',
+                year=t.year or 0,
+                broad_category=t.category.name if t.category else 'Uncategorized'
+            ))
+        db.close()
+    else:
+        # Get analysis data from RAM
+        analysis_data = analysis_storage[analysis_id]
+        transactions = analysis_data.categorized_transactions
     
     # Parse monthly data from transactions
     from datetime import datetime, timedelta
